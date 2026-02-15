@@ -1419,7 +1419,7 @@ function renderMaskedReference() {
   c.restore();
 
   // Generate mask
-  const mask = generateDailyMask(cols, rows, 0.3);
+  const mask = generateDailyMask(cols, rows, 0.2);
 
   // Cover masked cells with solid gray + diagonal stripes
   for (let row = 0; row < rows; row++) {
