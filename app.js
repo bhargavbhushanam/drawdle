@@ -1355,7 +1355,7 @@ const promptDrawFns = {
 function drawReference(ctxRef, promptKey = dailyPrompt.key) {
   ctxRef.clearRect(0, 0, refCanvas.width, refCanvas.height);
   ctxRef.save();
-  ctxRef.lineWidth = 16;
+  ctxRef.lineWidth = 10;
   ctxRef.lineCap = "round";
   ctxRef.lineJoin = "round";
   ctxRef.strokeStyle = "#000";
@@ -1409,7 +1409,7 @@ function renderMaskedReference() {
 
   // Draw full reference with thick visible strokes
   c.save();
-  c.lineWidth = 16;
+  c.lineWidth = 10;
   c.lineCap = "round";
   c.lineJoin = "round";
   c.strokeStyle = "#000";
@@ -1478,7 +1478,7 @@ function revealFullReference() {
   c.fillRect(0, 0, w, h);
 
   c.save();
-  c.lineWidth = 16;
+  c.lineWidth = 10;
   c.lineCap = "round";
   c.lineJoin = "round";
   c.strokeStyle = "#000";
