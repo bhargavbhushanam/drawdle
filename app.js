@@ -43,6 +43,16 @@ const maskedRefCanvas = document.getElementById("maskedRefCanvas");
 const maskedRefCtx = maskedRefCanvas.getContext("2d");
 const refGuideEl = document.querySelector(".ref-guide");
 const timerRingEl = document.querySelector(".timer-ring");
+const resultsModal = document.getElementById("resultsModal");
+const resultsScoreBig = document.getElementById("resultsScoreBig");
+const resultsPrompt = document.getElementById("resultsPrompt");
+const resultsFeedback = document.getElementById("resultsFeedback");
+const resultsGridVisual = document.getElementById("resultsGridVisual");
+const resultsBadges = document.getElementById("resultsBadges");
+const resultsShareBtn = document.getElementById("resultsShareBtn");
+const resultsCopyBtn = document.getElementById("resultsCopyBtn");
+const resultsDownloadBtn = document.getElementById("resultsDownloadBtn");
+const closeResultsBtn = document.getElementById("closeResults");
 
 let drawing = false;
 let gameStarted = false;
@@ -378,6 +388,8 @@ function handleScore({ auto = false } = {}) {
     renderBadges(statsBadges, stats, score);
     if (scoreFeedbackEl) setScoreFeedback(score, stats);
     lockAttemptUI();
+    populateResultsModal(score, stats);
+    openModal(resultsModal);
   });
 }
 
@@ -399,6 +411,8 @@ function restoreTodayState(stats) {
   renderShareGridVisual(stats.lastScore);
   if (scoreFeedbackEl) setScoreFeedback(stats.lastScore, stats);
   revealFullReference();
+  populateResultsModal(stats.lastScore, stats);
+  openModal(resultsModal);
 }
 
 // Shared prompt drawing functions — each draws into a 520×420 coordinate space
@@ -2547,6 +2561,28 @@ function setScoreFeedback(score, stats) {
   else scoreFeedbackEl.textContent = "Keep practicing—draw bold and fill the canvas.";
 }
 
+function getScoreFeedbackText(score) {
+  if (score >= 90) return "Great overlap—you nailed it.";
+  if (score >= 70) return "Nice shape—try matching the size next time.";
+  if (score >= 50) return "Good start—reference was a bit more centered.";
+  return "Keep practicing—draw bold and fill the canvas.";
+}
+
+function populateResultsModal(score, stats) {
+  resultsScoreBig.textContent = score;
+  resultsPrompt.textContent = dailyPrompt.title;
+  resultsFeedback.textContent = getScoreFeedbackText(score);
+  // Grid visual
+  resultsGridVisual.innerHTML = "";
+  const filled = Math.min(shareGridLength, Math.max(0, Math.round((score / 100) * shareGridLength)));
+  for (let i = 0; i < shareGridLength; i++) {
+    const block = document.createElement("div");
+    block.className = `share-block ${i < filled ? "filled" : "empty"}`;
+    resultsGridVisual.appendChild(block);
+  }
+  // Badges
+  renderBadges(resultsBadges, stats, score);
+}
 
 let modalPreviousFocus = null;
 
@@ -2735,6 +2771,39 @@ statsModal.addEventListener("click", (event) => {
     closeModal(statsModal);
   }
 });
+
+// Results modal
+closeResultsBtn.addEventListener("click", () => {
+  closeModal(resultsModal);
+});
+
+resultsModal.addEventListener("click", (event) => {
+  if (event.target === resultsModal) {
+    closeModal(resultsModal);
+  }
+});
+
+resultsModal.addEventListener("keydown", (e) => {
+  trapModalFocus(e, resultsModal);
+  if (e.key === "Escape") closeModal(resultsModal);
+});
+
+resultsShareBtn.addEventListener("click", () => {
+  shareResultUnified();
+});
+
+resultsCopyBtn.addEventListener("click", () => {
+  const score = scoreValue.textContent;
+  const siteUrl = `${window.location.origin}${window.location.pathname}`;
+  const text = `Drawdle · ${dailyPrompt.title}\nScore: ${score}\n${buildShareGrid(score)}\nTry it: ${siteUrl}`;
+  navigator.clipboard.writeText(text);
+  resultsCopyBtn.textContent = "Copied!";
+  setTimeout(() => {
+    resultsCopyBtn.textContent = "Copy";
+  }, 1500);
+});
+
+resultsDownloadBtn.addEventListener("click", downloadCard);
 
 
 timer = timerMax;

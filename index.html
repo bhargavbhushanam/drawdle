@@ -127,6 +127,26 @@
       </div>
     </div>
 
+    <!-- Results modal -->
+    <div class="modal" id="resultsModal" aria-hidden="true">
+      <div class="modal-card results-modal-card">
+        <div class="modal-top">
+          <h2>Results</h2>
+          <button class="icon-btn" id="closeResults">&times;</button>
+        </div>
+        <div class="results-score-big" id="resultsScoreBig">&mdash;</div>
+        <div class="results-prompt" id="resultsPrompt"></div>
+        <div class="results-feedback" id="resultsFeedback"></div>
+        <div class="results-grid-visual" id="resultsGridVisual" aria-hidden="true"></div>
+        <div class="results-badges" id="resultsBadges"></div>
+        <div class="results-actions">
+          <button class="btn-share" id="resultsShareBtn">Share</button>
+          <button class="tool-btn" id="resultsCopyBtn">Copy</button>
+          <button class="tool-btn" id="resultsDownloadBtn">Save</button>
+        </div>
+      </div>
+    </div>
+
     <!-- Stats modal -->
     <div class="modal" id="statsModal" aria-hidden="true">
       <div class="modal-card">
