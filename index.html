@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="A new drawing challenge every day. 30 seconds. Sketch it, score it, share it." />
+    <meta name="theme-color" content="#fafafa" />
     <title>Drawdle</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="bg-orb orb-1"></div>
-    <div class="bg-orb orb-2"></div>
     <div class="page">
       <header class="topbar">
         <div class="logo">
@@ -17,25 +17,25 @@
         </div>
         <div class="topbar-actions">
           <button class="ghost" id="howBtn">How it works</button>
-          <button class="ghost" id="statsBtn">Your stats</button>
-          <button class="primary small" id="profileBtn">Create profile</button>
-          <button class="ghost hidden" id="devResetBtn">Reset today</button>
+          <button class="ghost" id="statsBtn">Stats</button>
+          <button class="ghost hidden" id="devResetBtn">Reset</button>
         </div>
       </header>
 
       <main class="hero">
         <section class="hero-left">
-          <div class="badge" id="dailyBadge">Daily sketch · February 14, 2026</div>
+          <div class="badge" id="dailyBadge">Daily sketch</div>
           <h1>One prompt. One shot. How good are you?</h1>
           <p class="subtext">
-            A new drawing challenge every day. 30 seconds on the clock. Sketch it, score it, share it.
+            A new drawing challenge every day. 30 seconds on the clock.
+            Sketch it, score it, share it.
           </p>
 
           <div class="prompt-card">
             <div>
-              <div class="label">Today’s prompt</div>
+              <div class="label">Today's prompt</div>
               <div class="prompt" id="promptTitle">Coffee Mug</div>
-              <div class="hint" id="promptHint">Simple shapes win.</div>
+              <div class="hint" id="promptHint">Handle on the right. Steam optional.</div>
             </div>
             <div class="timer">
               <div class="timer-ring" aria-hidden="true">
@@ -48,7 +48,6 @@
               <div class="timer-label">seconds</div>
             </div>
           </div>
-
 
           <div class="score-row">
             <button class="primary" id="submitBtn">Score drawing</button>
@@ -75,7 +74,7 @@
                   <button class="primary ready-btn" id="startDrawBtn">Start drawing</button>
                 </div>
               </div>
-              <canvas id="drawCanvas" width="520" height="420" aria-label="Drawing area for today's prompt"></canvas>
+              <canvas id="drawCanvas" width="520" height="420" aria-label="Drawing area"></canvas>
               <canvas id="refCanvas" width="520" height="420" aria-hidden="true"></canvas>
             </div>
             <div class="canvas-footer">
@@ -83,7 +82,7 @@
               <button class="ghost" id="eraseBtn">Erase</button>
               <div class="score" id="scoreCard">
                 <div class="score-label">Score</div>
-                <div class="score-value" id="scoreValue">—</div>
+                <div class="score-value" id="scoreValue">&mdash;</div>
               </div>
               <button class="primary" id="shareBtn" disabled>Share result</button>
             </div>
@@ -105,23 +104,24 @@
       <section class="share-card hidden" id="shareCard">
         <div>
           <div class="label">Share card</div>
-          <div class="share-headline" id="shareHeadline">Drawdle · Coffee Mug</div>
-          <div class="share-score" id="shareScore">Score —</div>
+          <div class="share-headline" id="shareHeadline">Drawdle</div>
+          <div class="share-score" id="shareScore">Score &mdash;</div>
           <div class="share-grid-visual" id="shareGridVisual" aria-hidden="true"></div>
           <div class="share-grid" id="shareGrid" aria-hidden="true"></div>
-          <div class="share-sub" id="shareSub">Streak 0 · 0 plays</div>
+          <div class="share-sub" id="shareSub">Streak 0</div>
         </div>
         <div class="share-actions">
-          <button class="ghost" id="copyBtn">Copy result</button>
-          <button class="ghost" id="downloadBtn">Download card</button>
+          <button class="ghost" id="copyBtn">Copy</button>
+          <button class="ghost" id="downloadBtn">Download</button>
         </div>
       </section>
 
       <footer class="footer">
-        <span>Drawdle is a daily drawing sprint. Draw fast, score fair, share proud.</span>
+        <span>Drawdle &mdash; a daily drawing sprint</span>
       </footer>
     </div>
 
+    <!-- How it works -->
     <div class="modal" id="modal">
       <div class="modal-card">
         <div class="modal-header">
@@ -130,17 +130,18 @@
         </div>
         <div class="modal-body">
           <ol>
-            <li>Hit <strong>Start drawing</strong> when you're ready — the timer begins.</li>
+            <li>Tap <strong>Start drawing</strong> &mdash; the 30-second timer begins.</li>
             <li>Sketch the daily prompt before time runs out.</li>
-            <li>One attempt per day — make it count.</li>
-            <li>Tap <strong>Score drawing</strong> to compare your sketch to the reference.</li>
-            <li>Scoring measures overlap and placement (size-normalized, so draw any size).</li>
-            <li>Share your score card, streak, and badges.</li>
+            <li>One attempt per day. Make it count.</li>
+            <li>Tap <strong>Score drawing</strong> to compare against the reference.</li>
+            <li>Scoring measures overlap and placement &mdash; draw any size.</li>
+            <li>Share your score card with friends.</li>
           </ol>
         </div>
       </div>
     </div>
 
+    <!-- Stats -->
     <div class="modal" id="statsModal" aria-hidden="true">
       <div class="modal-card">
         <div class="modal-header">
@@ -155,7 +156,7 @@
             </div>
             <div class="stat-card">
               <div class="label">Best score</div>
-              <div class="stat-big" id="statBest">—</div>
+              <div class="stat-big" id="statBest">&mdash;</div>
             </div>
             <div class="stat-card">
               <div class="label">Total plays</div>
@@ -163,7 +164,7 @@
             </div>
             <div class="stat-card">
               <div class="label">Avg score</div>
-              <div class="stat-big" id="statAvg">—</div>
+              <div class="stat-big" id="statAvg">&mdash;</div>
             </div>
           </div>
           <div class="achievements">

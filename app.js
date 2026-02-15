@@ -1603,12 +1603,14 @@ challengeBtn.addEventListener("click", () => {
   }, 1500);
 });
 
-profileBtn.addEventListener("click", () => {
-  profileBtn.textContent = "Profiles soon";
-  setTimeout(() => {
-    profileBtn.textContent = "Create profile";
-  }, 1500);
-});
+if (profileBtn) {
+  profileBtn.addEventListener("click", () => {
+    profileBtn.textContent = "Profiles soon";
+    setTimeout(() => {
+      profileBtn.textContent = "Create profile";
+    }, 1500);
+  });
+}
 
 if (devResetBtn) {
   const isDev =
