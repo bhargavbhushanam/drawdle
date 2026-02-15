@@ -54,46 +54,36 @@ let timerStarted = false;
 let hasScored = false;
 const timerRingCircumference = 2 * Math.PI * 34;
 const prompts = [
-  {
-    key: "mug",
-    title: "Coffee Mug",
-    hint: "Simple shapes win.",
-  },
-  {
-    key: "leaf",
-    title: "Leaf",
-    hint: "One vein, smooth curve.",
-  },
-  {
-    key: "house",
-    title: "Tiny House",
-    hint: "Box + roof + door.",
-  },
-  {
-    key: "balloon",
-    title: "Balloon",
-    hint: "Oval + string.",
-  },
-  {
-    key: "fish",
-    title: "Fish",
-    hint: "Oval body, triangle tail.",
-  },
-  {
-    key: "star",
-    title: "Star",
-    hint: "Five points, one stroke.",
-  },
-  {
-    key: "lightbulb",
-    title: "Lightbulb",
-    hint: "Circle bulb, zigzag base.",
-  },
-  {
-    key: "cat",
-    title: "Cat face",
-    hint: "Circle head, triangle ears.",
-  },
+  { key: "mug", title: "Coffee Mug", hint: "Handle on the right. Steam optional." },
+  { key: "leaf", title: "Leaf", hint: "One vein changes everything." },
+  { key: "house", title: "Tiny House", hint: "Yours or your dream one." },
+  { key: "balloon", title: "Balloon", hint: "Don't let it float away." },
+  { key: "fish", title: "Fish", hint: "Blub blub." },
+  { key: "star", title: "Star", hint: "Make a wish." },
+  { key: "lightbulb", title: "Lightbulb", hint: "Bright idea incoming." },
+  { key: "cat", title: "Cat Face", hint: "The internet's favorite." },
+  { key: "umbrella", title: "Umbrella", hint: "Rainy day essential." },
+  { key: "key", title: "Key", hint: "Unlock something." },
+  { key: "pizza", title: "Pizza Slice", hint: "Extra cheese." },
+  { key: "rocket", title: "Rocket", hint: "3... 2... 1..." },
+  { key: "crown", title: "Crown", hint: "Royalty in 30 seconds." },
+  { key: "anchor", title: "Anchor", hint: "Heavy metal." },
+  { key: "tree", title: "Tree", hint: "Branch out." },
+  { key: "flower", title: "Flower", hint: "Stop and draw the roses." },
+  { key: "sun", title: "Sun", hint: "Rays make it." },
+  { key: "moon", title: "Crescent Moon", hint: "Nighttime vibes." },
+  { key: "mushroom", title: "Mushroom", hint: "Toad approved." },
+  { key: "heart", title: "Heart", hint: "Feel the love." },
+  { key: "diamond", title: "Diamond", hint: "Shine bright." },
+  { key: "ghost", title: "Ghost", hint: "Boo." },
+  { key: "guitar", title: "Guitar", hint: "Rock on." },
+  { key: "sailboat", title: "Sailboat", hint: "Smooth sailing." },
+  { key: "skull", title: "Skull", hint: "Bone-chilling." },
+  { key: "icecream", title: "Ice Cream", hint: "Two scoops minimum." },
+  { key: "pencil", title: "Pencil", hint: "Draw what you draw with." },
+  { key: "cloud", title: "Cloud", hint: "Fluffy and free." },
+  { key: "bird", title: "Bird", hint: "Tweet tweet." },
+  { key: "snowman", title: "Snowman", hint: "Three circles. Go." },
 ];
 let dailyPrompt = prompts[0];
 const strokes = [];
@@ -412,6 +402,234 @@ function restoreTodayState(stats) {
   if (playArea) playArea.classList.add("with-reference");
 }
 
+// Shared prompt drawing functions — each draws into a 520×420 coordinate space
+const promptDrawFns = {
+  mug(c) {
+    const x = 150, y = 120, w = 200, h = 200, r = 18;
+    c.beginPath();
+    c.moveTo(x + r, y); c.lineTo(x + w - r, y);
+    c.quadraticCurveTo(x + w, y, x + w, y + r); c.lineTo(x + w, y + h - r);
+    c.quadraticCurveTo(x + w, y + h, x + w - r, y + h); c.lineTo(x + r, y + h);
+    c.quadraticCurveTo(x, y + h, x, y + h - r); c.lineTo(x, y + r);
+    c.quadraticCurveTo(x, y, x + r, y); c.stroke();
+    c.beginPath(); c.moveTo(350, 170); c.quadraticCurveTo(410, 170, 410, 220);
+    c.quadraticCurveTo(410, 270, 350, 270); c.stroke();
+    c.beginPath(); c.moveTo(190, 140); c.quadraticCurveTo(210, 100, 260, 100);
+    c.quadraticCurveTo(310, 100, 330, 140); c.stroke();
+    c.beginPath(); c.moveTo(180, 170); c.lineTo(320, 170); c.stroke();
+  },
+  leaf(c) {
+    c.beginPath(); c.moveTo(260, 90);
+    c.quadraticCurveTo(140, 140, 160, 270); c.quadraticCurveTo(260, 350, 360, 270);
+    c.quadraticCurveTo(380, 140, 260, 90); c.stroke();
+    c.beginPath(); c.moveTo(260, 110); c.lineTo(260, 330); c.stroke();
+  },
+  house(c) {
+    c.beginPath(); c.rect(170, 170, 180, 150); c.stroke();
+    c.beginPath(); c.moveTo(160, 170); c.lineTo(260, 100); c.lineTo(360, 170); c.stroke();
+    c.beginPath(); c.rect(240, 230, 40, 90); c.stroke();
+  },
+  balloon(c) {
+    c.beginPath(); c.ellipse(260, 170, 80, 100, 0, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.moveTo(260, 270); c.lineTo(260, 330); c.stroke();
+    c.beginPath(); c.moveTo(260, 330); c.quadraticCurveTo(230, 360, 250, 390); c.stroke();
+  },
+  fish(c) {
+    c.beginPath(); c.ellipse(240, 220, 90, 60, 0, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.moveTo(330, 220); c.lineTo(390, 180); c.lineTo(390, 260); c.closePath(); c.stroke();
+    c.beginPath(); c.arc(210, 210, 6, 0, Math.PI * 2); c.stroke();
+  },
+  star(c) {
+    const cx = 260, cy = 210, outer = 100, inner = 40;
+    c.beginPath();
+    for (let i = 0; i < 10; i++) {
+      const r = i % 2 === 0 ? outer : inner;
+      const a = (i * Math.PI) / 5 - Math.PI / 2;
+      if (i === 0) c.moveTo(cx + r * Math.cos(a), cy + r * Math.sin(a));
+      else c.lineTo(cx + r * Math.cos(a), cy + r * Math.sin(a));
+    }
+    c.closePath(); c.stroke();
+  },
+  lightbulb(c) {
+    c.beginPath(); c.ellipse(260, 180, 70, 90, 0, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.moveTo(220, 270); c.lineTo(230, 310); c.lineTo(260, 330);
+    c.lineTo(290, 310); c.lineTo(300, 270); c.stroke();
+    c.beginPath(); c.rect(245, 330, 30, 20); c.stroke();
+  },
+  cat(c) {
+    c.beginPath(); c.arc(260, 220, 90, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.moveTo(200, 150); c.lineTo(180, 80); c.lineTo(220, 130);
+    c.moveTo(320, 150); c.lineTo(340, 80); c.lineTo(300, 130); c.stroke();
+    c.beginPath(); c.ellipse(230, 210, 12, 16, 0, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.ellipse(290, 210, 12, 16, 0, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.moveTo(240, 250); c.quadraticCurveTo(260, 260, 280, 250); c.stroke();
+  },
+  umbrella(c) {
+    c.beginPath(); c.arc(260, 180, 100, Math.PI, 0); c.stroke();
+    c.beginPath(); c.moveTo(260, 180); c.lineTo(260, 330); c.stroke();
+    c.beginPath(); c.moveTo(260, 330); c.quadraticCurveTo(260, 360, 240, 360);
+    c.quadraticCurveTo(220, 360, 220, 340); c.stroke();
+  },
+  key(c) {
+    c.beginPath(); c.arc(200, 210, 40, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.moveTo(240, 210); c.lineTo(370, 210); c.stroke();
+    c.beginPath();
+    c.moveTo(330, 210); c.lineTo(330, 240);
+    c.moveTo(350, 210); c.lineTo(350, 240);
+    c.moveTo(370, 210); c.lineTo(370, 240); c.stroke();
+  },
+  pizza(c) {
+    c.beginPath(); c.moveTo(260, 100); c.lineTo(160, 320); c.lineTo(360, 320); c.closePath(); c.stroke();
+    c.beginPath(); c.arc(260, 320, 100, Math.PI + 0.35, -0.35); c.stroke();
+    c.beginPath(); c.arc(245, 220, 8, 0, Math.PI * 2);
+    c.moveTo(288, 260); c.arc(280, 260, 8, 0, Math.PI * 2);
+    c.moveTo(248, 280); c.arc(240, 280, 8, 0, Math.PI * 2); c.stroke();
+  },
+  rocket(c) {
+    c.beginPath(); c.moveTo(230, 280); c.lineTo(230, 160);
+    c.quadraticCurveTo(230, 100, 260, 80); c.quadraticCurveTo(290, 100, 290, 160);
+    c.lineTo(290, 280); c.closePath(); c.stroke();
+    c.beginPath(); c.moveTo(230, 260); c.lineTo(200, 300); c.lineTo(230, 280); c.stroke();
+    c.beginPath(); c.moveTo(290, 260); c.lineTo(320, 300); c.lineTo(290, 280); c.stroke();
+    c.beginPath(); c.moveTo(240, 280); c.quadraticCurveTo(250, 330, 260, 340);
+    c.quadraticCurveTo(270, 330, 280, 280); c.stroke();
+    c.beginPath(); c.arc(260, 180, 15, 0, Math.PI * 2); c.stroke();
+  },
+  crown(c) {
+    c.beginPath(); c.moveTo(170, 260); c.lineTo(170, 170); c.lineTo(210, 220);
+    c.lineTo(260, 140); c.lineTo(310, 220); c.lineTo(350, 170);
+    c.lineTo(350, 260); c.closePath(); c.stroke();
+  },
+  anchor(c) {
+    c.beginPath(); c.arc(260, 110, 22, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.moveTo(260, 132); c.lineTo(260, 310); c.stroke();
+    c.beginPath(); c.moveTo(200, 190); c.lineTo(320, 190); c.stroke();
+    c.beginPath(); c.moveTo(260, 310); c.quadraticCurveTo(180, 310, 190, 270); c.stroke();
+    c.beginPath(); c.moveTo(260, 310); c.quadraticCurveTo(340, 310, 330, 270); c.stroke();
+  },
+  tree(c) {
+    c.beginPath(); c.rect(245, 250, 30, 100); c.stroke();
+    c.beginPath(); c.arc(260, 190, 80, 0, Math.PI * 2); c.stroke();
+  },
+  flower(c) {
+    for (let i = 0; i < 5; i++) {
+      const a = (i * Math.PI * 2) / 5 - Math.PI / 2;
+      c.beginPath(); c.arc(260 + 38 * Math.cos(a), 170 + 38 * Math.sin(a), 22, 0, Math.PI * 2); c.stroke();
+    }
+    c.beginPath(); c.arc(260, 170, 16, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.moveTo(260, 192); c.lineTo(260, 340); c.stroke();
+    c.beginPath(); c.moveTo(260, 280); c.quadraticCurveTo(310, 260, 300, 290); c.stroke();
+  },
+  sun(c) {
+    c.beginPath(); c.arc(260, 200, 50, 0, Math.PI * 2); c.stroke();
+    c.beginPath();
+    for (let i = 0; i < 8; i++) {
+      const a = (i * Math.PI) / 4;
+      c.moveTo(260 + 62 * Math.cos(a), 200 + 62 * Math.sin(a));
+      c.lineTo(260 + 95 * Math.cos(a), 200 + 95 * Math.sin(a));
+    }
+    c.stroke();
+  },
+  moon(c) {
+    c.beginPath(); c.moveTo(290, 100);
+    c.bezierCurveTo(180, 120, 180, 300, 290, 320);
+    c.bezierCurveTo(230, 280, 230, 140, 290, 100); c.stroke();
+  },
+  mushroom(c) {
+    c.beginPath(); c.arc(260, 200, 90, Math.PI, 0); c.lineTo(170, 200); c.stroke();
+    c.beginPath(); c.moveTo(230, 200); c.lineTo(230, 320); c.lineTo(290, 320); c.lineTo(290, 200); c.stroke();
+    c.beginPath(); c.arc(230, 160, 12, 0, Math.PI * 2);
+    c.moveTo(292, 145); c.arc(280, 145, 12, 0, Math.PI * 2); c.stroke();
+  },
+  heart(c) {
+    c.beginPath(); c.moveTo(260, 300);
+    c.bezierCurveTo(260, 260, 170, 230, 170, 180);
+    c.bezierCurveTo(170, 120, 260, 120, 260, 180);
+    c.bezierCurveTo(260, 120, 350, 120, 350, 180);
+    c.bezierCurveTo(350, 230, 260, 260, 260, 300); c.stroke();
+  },
+  diamond(c) {
+    c.beginPath(); c.moveTo(260, 90); c.lineTo(360, 200); c.lineTo(260, 340);
+    c.lineTo(160, 200); c.closePath(); c.stroke();
+    c.beginPath(); c.moveTo(160, 200); c.lineTo(360, 200); c.stroke();
+    c.beginPath(); c.moveTo(260, 90); c.lineTo(220, 200);
+    c.moveTo(260, 90); c.lineTo(300, 200); c.stroke();
+  },
+  ghost(c) {
+    c.beginPath(); c.arc(260, 180, 80, Math.PI, 0);
+    c.lineTo(340, 300); c.quadraticCurveTo(320, 270, 300, 300);
+    c.quadraticCurveTo(280, 330, 260, 300); c.quadraticCurveTo(240, 270, 220, 300);
+    c.lineTo(180, 300); c.lineTo(180, 180); c.stroke();
+    c.beginPath(); c.arc(235, 185, 10, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(285, 185, 10, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.ellipse(260, 225, 10, 14, 0, 0, Math.PI * 2); c.stroke();
+  },
+  guitar(c) {
+    c.beginPath(); c.moveTo(248, 150);
+    c.quadraticCurveTo(190, 165, 195, 210); c.quadraticCurveTo(200, 240, 195, 260);
+    c.quadraticCurveTo(180, 310, 220, 340); c.quadraticCurveTo(260, 360, 300, 340);
+    c.quadraticCurveTo(340, 310, 325, 260); c.quadraticCurveTo(320, 240, 325, 210);
+    c.quadraticCurveTo(330, 165, 272, 150); c.stroke();
+    c.beginPath(); c.moveTo(248, 150); c.lineTo(248, 80); c.lineTo(272, 80); c.lineTo(272, 150); c.stroke();
+    c.beginPath(); c.rect(244, 60, 32, 22); c.stroke();
+    c.beginPath(); c.arc(260, 270, 18, 0, Math.PI * 2); c.stroke();
+  },
+  sailboat(c) {
+    c.beginPath(); c.moveTo(150, 260); c.lineTo(170, 300); c.lineTo(350, 300); c.lineTo(370, 260); c.stroke();
+    c.beginPath(); c.moveTo(260, 260); c.lineTo(260, 100); c.stroke();
+    c.beginPath(); c.moveTo(260, 110); c.lineTo(340, 250); c.lineTo(260, 250); c.stroke();
+    c.beginPath(); c.moveTo(260, 120); c.lineTo(210, 220); c.lineTo(260, 220); c.stroke();
+  },
+  skull(c) {
+    c.beginPath(); c.arc(260, 180, 80, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.moveTo(210, 250);
+    c.quadraticCurveTo(210, 300, 260, 300); c.quadraticCurveTo(310, 300, 310, 250); c.stroke();
+    c.beginPath(); c.ellipse(235, 175, 16, 20, 0, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.ellipse(285, 175, 16, 20, 0, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.moveTo(255, 215); c.lineTo(260, 230); c.lineTo(265, 215); c.stroke();
+    c.beginPath(); c.moveTo(230, 260); c.lineTo(290, 260); c.stroke();
+    c.beginPath(); c.moveTo(250, 250); c.lineTo(250, 270);
+    c.moveTo(260, 250); c.lineTo(260, 270);
+    c.moveTo(270, 250); c.lineTo(270, 270); c.stroke();
+  },
+  icecream(c) {
+    c.beginPath(); c.moveTo(210, 210); c.lineTo(260, 350); c.lineTo(310, 210); c.stroke();
+    c.beginPath(); c.arc(260, 190, 52, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(260, 130, 40, 0, Math.PI * 2); c.stroke();
+  },
+  pencil(c) {
+    c.beginPath(); c.rect(240, 100, 40, 200); c.stroke();
+    c.beginPath(); c.moveTo(240, 300); c.lineTo(260, 340); c.lineTo(280, 300); c.stroke();
+    c.beginPath(); c.rect(240, 80, 40, 20); c.stroke();
+  },
+  cloud(c) {
+    c.beginPath(); c.arc(220, 220, 45, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(270, 195, 50, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(320, 220, 40, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(270, 240, 38, 0, Math.PI * 2); c.stroke();
+  },
+  bird(c) {
+    c.beginPath(); c.ellipse(250, 220, 60, 40, -0.1, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(320, 190, 25, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.moveTo(345, 185); c.lineTo(370, 190); c.lineTo(345, 198); c.stroke();
+    c.beginPath(); c.arc(330, 185, 4, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.moveTo(190, 210); c.lineTo(160, 190);
+    c.moveTo(190, 220); c.lineTo(155, 210); c.stroke();
+    c.beginPath(); c.ellipse(240, 210, 30, 15, -0.3, 0, Math.PI * 2); c.stroke();
+  },
+  snowman(c) {
+    c.beginPath(); c.arc(260, 300, 60, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(260, 210, 45, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(260, 140, 30, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(250, 135, 4, 0, Math.PI * 2);
+    c.moveTo(274, 135); c.arc(270, 135, 4, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.moveTo(260, 142); c.lineTo(280, 148); c.lineTo(260, 150); c.stroke();
+    c.beginPath(); c.arc(260, 195, 4, 0, Math.PI * 2);
+    c.moveTo(264, 215); c.arc(260, 215, 4, 0, Math.PI * 2);
+    c.moveTo(264, 235); c.arc(260, 235, 4, 0, Math.PI * 2); c.stroke();
+  },
+};
+
 function drawReference(ctxRef, promptKey = dailyPrompt.key) {
   ctxRef.clearRect(0, 0, refCanvas.width, refCanvas.height);
   ctxRef.save();
@@ -419,154 +637,7 @@ function drawReference(ctxRef, promptKey = dailyPrompt.key) {
   ctxRef.lineCap = "round";
   ctxRef.lineJoin = "round";
   ctxRef.strokeStyle = "#000";
-
-  if (promptKey === "mug") {
-    const x = 150;
-    const y = 120;
-    const w = 200;
-    const h = 200;
-    const r = 18;
-    ctxRef.beginPath();
-    ctxRef.moveTo(x + r, y);
-    ctxRef.lineTo(x + w - r, y);
-    ctxRef.quadraticCurveTo(x + w, y, x + w, y + r);
-    ctxRef.lineTo(x + w, y + h - r);
-    ctxRef.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
-    ctxRef.lineTo(x + r, y + h);
-    ctxRef.quadraticCurveTo(x, y + h, x, y + h - r);
-    ctxRef.lineTo(x, y + r);
-    ctxRef.quadraticCurveTo(x, y, x + r, y);
-    ctxRef.stroke();
-
-    ctxRef.beginPath();
-    ctxRef.moveTo(350, 170);
-    ctxRef.quadraticCurveTo(410, 170, 410, 220);
-    ctxRef.quadraticCurveTo(410, 270, 350, 270);
-    ctxRef.stroke();
-
-    ctxRef.beginPath();
-    ctxRef.moveTo(190, 140);
-    ctxRef.quadraticCurveTo(210, 100, 260, 100);
-    ctxRef.quadraticCurveTo(310, 100, 330, 140);
-    ctxRef.stroke();
-
-    ctxRef.beginPath();
-    ctxRef.moveTo(180, 170);
-    ctxRef.lineTo(320, 170);
-    ctxRef.stroke();
-  }
-
-  if (promptKey === "leaf") {
-    ctxRef.beginPath();
-    ctxRef.moveTo(260, 90);
-    ctxRef.quadraticCurveTo(140, 140, 160, 270);
-    ctxRef.quadraticCurveTo(260, 350, 360, 270);
-    ctxRef.quadraticCurveTo(380, 140, 260, 90);
-    ctxRef.stroke();
-    ctxRef.beginPath();
-    ctxRef.moveTo(260, 110);
-    ctxRef.lineTo(260, 330);
-    ctxRef.stroke();
-  }
-
-  if (promptKey === "house") {
-    ctxRef.beginPath();
-    ctxRef.rect(170, 170, 180, 150);
-    ctxRef.stroke();
-    ctxRef.beginPath();
-    ctxRef.moveTo(160, 170);
-    ctxRef.lineTo(260, 100);
-    ctxRef.lineTo(360, 170);
-    ctxRef.stroke();
-    ctxRef.beginPath();
-    ctxRef.rect(240, 230, 40, 90);
-    ctxRef.stroke();
-  }
-
-  if (promptKey === "balloon") {
-    ctxRef.beginPath();
-    ctxRef.ellipse(260, 170, 80, 100, 0, 0, Math.PI * 2);
-    ctxRef.stroke();
-    ctxRef.beginPath();
-    ctxRef.moveTo(260, 270);
-    ctxRef.lineTo(260, 330);
-    ctxRef.stroke();
-    ctxRef.beginPath();
-    ctxRef.moveTo(260, 330);
-    ctxRef.quadraticCurveTo(230, 360, 250, 390);
-    ctxRef.stroke();
-  }
-
-  if (promptKey === "fish") {
-    ctxRef.beginPath();
-    ctxRef.ellipse(240, 220, 90, 60, 0, 0, Math.PI * 2);
-    ctxRef.stroke();
-    ctxRef.beginPath();
-    ctxRef.moveTo(330, 220);
-    ctxRef.lineTo(390, 180);
-    ctxRef.lineTo(390, 260);
-    ctxRef.closePath();
-    ctxRef.stroke();
-    ctxRef.beginPath();
-    ctxRef.arc(210, 210, 6, 0, Math.PI * 2);
-    ctxRef.stroke();
-  }
-
-  if (promptKey === "star") {
-    const cx = 260, cy = 210, outer = 100, inner = 40;
-    ctxRef.beginPath();
-    for (let i = 0; i < 10; i += 1) {
-      const r = i % 2 === 0 ? outer : inner;
-      const a = (i * Math.PI) / 5 - Math.PI / 2;
-      const x = cx + r * Math.cos(a);
-      const y = cy + r * Math.sin(a);
-      if (i === 0) ctxRef.moveTo(x, y);
-      else ctxRef.lineTo(x, y);
-    }
-    ctxRef.closePath();
-    ctxRef.stroke();
-  }
-
-  if (promptKey === "lightbulb") {
-    ctxRef.beginPath();
-    ctxRef.ellipse(260, 180, 70, 90, 0, 0, Math.PI * 2);
-    ctxRef.stroke();
-    ctxRef.beginPath();
-    ctxRef.moveTo(220, 270);
-    ctxRef.lineTo(230, 310);
-    ctxRef.lineTo(260, 330);
-    ctxRef.lineTo(290, 310);
-    ctxRef.lineTo(300, 270);
-    ctxRef.stroke();
-    ctxRef.beginPath();
-    ctxRef.rect(245, 330, 30, 20);
-    ctxRef.stroke();
-  }
-
-  if (promptKey === "cat") {
-    ctxRef.beginPath();
-    ctxRef.arc(260, 220, 90, 0, Math.PI * 2);
-    ctxRef.stroke();
-    ctxRef.beginPath();
-    ctxRef.moveTo(200, 150);
-    ctxRef.lineTo(180, 80);
-    ctxRef.lineTo(220, 130);
-    ctxRef.moveTo(320, 150);
-    ctxRef.lineTo(340, 80);
-    ctxRef.lineTo(300, 130);
-    ctxRef.stroke();
-    ctxRef.beginPath();
-    ctxRef.ellipse(230, 210, 12, 16, 0, 0, Math.PI * 2);
-    ctxRef.stroke();
-    ctxRef.beginPath();
-    ctxRef.ellipse(290, 210, 12, 16, 0, 0, Math.PI * 2);
-    ctxRef.stroke();
-    ctxRef.beginPath();
-    ctxRef.moveTo(240, 250);
-    ctxRef.quadraticCurveTo(260, 260, 280, 250);
-    ctxRef.stroke();
-  }
-
+  if (promptDrawFns[promptKey]) promptDrawFns[promptKey](ctxRef);
   ctxRef.restore();
 }
 
@@ -747,153 +818,7 @@ function drawReferenceStatic(ctxRef, offsetX, offsetY, scale, promptKey = dailyP
   ctxRef.lineCap = "round";
   ctxRef.lineJoin = "round";
   ctxRef.strokeStyle = "#e7ebf2";
-
-  if (promptKey === "mug") {
-    const x = 150;
-    const y = 120;
-    const w = 200;
-    const h = 200;
-    const r = 18;
-    ctxRef.beginPath();
-    ctxRef.moveTo(x + r, y);
-    ctxRef.lineTo(x + w - r, y);
-    ctxRef.quadraticCurveTo(x + w, y, x + w, y + r);
-    ctxRef.lineTo(x + w, y + h - r);
-    ctxRef.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
-    ctxRef.lineTo(x + r, y + h);
-    ctxRef.quadraticCurveTo(x, y + h, x, y + h - r);
-    ctxRef.lineTo(x, y + r);
-    ctxRef.quadraticCurveTo(x, y, x + r, y);
-    ctxRef.stroke();
-
-    ctxRef.beginPath();
-    ctxRef.moveTo(350, 170);
-    ctxRef.quadraticCurveTo(410, 170, 410, 220);
-    ctxRef.quadraticCurveTo(410, 270, 350, 270);
-    ctxRef.stroke();
-
-    ctxRef.beginPath();
-    ctxRef.moveTo(190, 140);
-    ctxRef.quadraticCurveTo(210, 100, 260, 100);
-    ctxRef.quadraticCurveTo(310, 100, 330, 140);
-    ctxRef.stroke();
-
-    ctxRef.beginPath();
-    ctxRef.moveTo(180, 170);
-    ctxRef.lineTo(320, 170);
-    ctxRef.stroke();
-  }
-
-  if (promptKey === "leaf") {
-    ctxRef.beginPath();
-    ctxRef.moveTo(260, 90);
-    ctxRef.quadraticCurveTo(140, 140, 160, 270);
-    ctxRef.quadraticCurveTo(260, 350, 360, 270);
-    ctxRef.quadraticCurveTo(380, 140, 260, 90);
-    ctxRef.stroke();
-    ctxRef.beginPath();
-    ctxRef.moveTo(260, 110);
-    ctxRef.lineTo(260, 330);
-    ctxRef.stroke();
-  }
-
-  if (promptKey === "house") {
-    ctxRef.beginPath();
-    ctxRef.rect(170, 170, 180, 150);
-    ctxRef.stroke();
-    ctxRef.beginPath();
-    ctxRef.moveTo(160, 170);
-    ctxRef.lineTo(260, 100);
-    ctxRef.lineTo(360, 170);
-    ctxRef.stroke();
-    ctxRef.beginPath();
-    ctxRef.rect(240, 230, 40, 90);
-    ctxRef.stroke();
-  }
-
-  if (promptKey === "balloon") {
-    ctxRef.beginPath();
-    ctxRef.ellipse(260, 170, 80, 100, 0, 0, Math.PI * 2);
-    ctxRef.stroke();
-    ctxRef.beginPath();
-    ctxRef.moveTo(260, 270);
-    ctxRef.lineTo(260, 330);
-    ctxRef.stroke();
-    ctxRef.beginPath();
-    ctxRef.moveTo(260, 330);
-    ctxRef.quadraticCurveTo(230, 360, 250, 390);
-    ctxRef.stroke();
-  }
-
-  if (promptKey === "fish") {
-    ctxRef.beginPath();
-    ctxRef.ellipse(240, 220, 90, 60, 0, 0, Math.PI * 2);
-    ctxRef.stroke();
-    ctxRef.beginPath();
-    ctxRef.moveTo(330, 220);
-    ctxRef.lineTo(390, 180);
-    ctxRef.lineTo(390, 260);
-    ctxRef.closePath();
-    ctxRef.stroke();
-    ctxRef.beginPath();
-    ctxRef.arc(210, 210, 6, 0, Math.PI * 2);
-    ctxRef.stroke();
-  }
-
-  if (promptKey === "star") {
-    const cx = 260, cy = 210, outer = 100, inner = 40;
-    ctxRef.beginPath();
-    for (let i = 0; i < 10; i += 1) {
-      const r = i % 2 === 0 ? outer : inner;
-      const a = (i * Math.PI) / 5 - Math.PI / 2;
-      const x = cx + r * Math.cos(a);
-      const y = cy + r * Math.sin(a);
-      if (i === 0) ctxRef.moveTo(x, y);
-      else ctxRef.lineTo(x, y);
-    }
-    ctxRef.closePath();
-    ctxRef.stroke();
-  }
-
-  if (promptKey === "lightbulb") {
-    ctxRef.beginPath();
-    ctxRef.ellipse(260, 180, 70, 90, 0, 0, Math.PI * 2);
-    ctxRef.stroke();
-    ctxRef.beginPath();
-    ctxRef.moveTo(220, 270);
-    ctxRef.lineTo(230, 310);
-    ctxRef.lineTo(260, 330);
-    ctxRef.lineTo(290, 310);
-    ctxRef.lineTo(300, 270);
-    ctxRef.stroke();
-    ctxRef.beginPath();
-    ctxRef.rect(245, 330, 30, 20);
-    ctxRef.stroke();
-  }
-
-  if (promptKey === "cat") {
-    ctxRef.beginPath();
-    ctxRef.arc(260, 220, 90, 0, Math.PI * 2);
-    ctxRef.stroke();
-    ctxRef.beginPath();
-    ctxRef.moveTo(200, 150);
-    ctxRef.lineTo(180, 80);
-    ctxRef.lineTo(220, 130);
-    ctxRef.moveTo(320, 150);
-    ctxRef.lineTo(340, 80);
-    ctxRef.lineTo(300, 130);
-    ctxRef.stroke();
-    ctxRef.beginPath();
-    ctxRef.ellipse(230, 210, 12, 16, 0, 0, Math.PI * 2);
-    ctxRef.stroke();
-    ctxRef.beginPath();
-    ctxRef.ellipse(290, 210, 12, 16, 0, 0, Math.PI * 2);
-    ctxRef.stroke();
-    ctxRef.beginPath();
-    ctxRef.moveTo(240, 250);
-    ctxRef.quadraticCurveTo(260, 260, 280, 250);
-    ctxRef.stroke();
-  }
+  if (promptDrawFns[promptKey]) promptDrawFns[promptKey](ctxRef);
   ctxRef.restore();
 }
 
@@ -907,70 +832,128 @@ function buildReplayFrames() {
   return frames;
 }
 
-function setReferenceSvg(promptKey = dailyPrompt.key) {
-  if (!referenceSvg) return;
-  let markup = "";
-  if (promptKey === "mug") {
-    markup = `
-      <rect x="150" y="120" width="200" height="200" rx="18" ry="18"/>
-      <path d="M350 170 Q410 170 410 220 Q410 270 350 270"/>
-      <path d="M190 140 Q210 100 260 100 Q310 100 330 140"/>
-      <path d="M180 170 H320"/>
-    `;
-  }
-  if (promptKey === "leaf") {
-    markup = `
-      <path d="M260 90 Q140 140 160 270 Q260 350 360 270 Q380 140 260 90"/>
-      <path d="M260 110 L260 330"/>
-    `;
-  }
-  if (promptKey === "house") {
-    markup = `
-      <rect x="170" y="170" width="180" height="150"/>
-      <path d="M160 170 L260 100 L360 170"/>
-      <rect x="240" y="230" width="40" height="90"/>
-    `;
-  }
-  if (promptKey === "balloon") {
-    markup = `
-      <ellipse cx="260" cy="170" rx="80" ry="100"/>
-      <path d="M260 270 L260 330"/>
-      <path d="M260 330 Q230 360 250 390"/>
-    `;
-  }
-  if (promptKey === "fish") {
-    markup = `
-      <ellipse cx="240" cy="220" rx="90" ry="60"/>
-      <path d="M330 220 L390 180 L390 260 Z"/>
-      <circle cx="210" cy="210" r="6"/>
-    `;
-  }
-  if (promptKey === "star") {
-    const cx = 260, cy = 210, outer = 100, inner = 40;
-    const points = [];
-    for (let i = 0; i < 10; i += 1) {
+const promptSvgMarkup = {
+  mug: `<rect x="150" y="120" width="200" height="200" rx="18" ry="18"/>
+    <path d="M350 170 Q410 170 410 220 Q410 270 350 270"/>
+    <path d="M190 140 Q210 100 260 100 Q310 100 330 140"/>
+    <path d="M180 170 H320"/>`,
+  leaf: `<path d="M260 90 Q140 140 160 270 Q260 350 360 270 Q380 140 260 90"/>
+    <path d="M260 110 L260 330"/>`,
+  house: `<rect x="170" y="170" width="180" height="150"/>
+    <path d="M160 170 L260 100 L360 170"/>
+    <rect x="240" y="230" width="40" height="90"/>`,
+  balloon: `<ellipse cx="260" cy="170" rx="80" ry="100"/>
+    <path d="M260 270 L260 330"/>
+    <path d="M260 330 Q230 360 250 390"/>`,
+  fish: `<ellipse cx="240" cy="220" rx="90" ry="60"/>
+    <path d="M330 220 L390 180 L390 260 Z"/>
+    <circle cx="210" cy="210" r="6"/>`,
+  get star() {
+    const cx = 260, cy = 210, outer = 100, inner = 40, pts = [];
+    for (let i = 0; i < 10; i++) {
       const r = i % 2 === 0 ? outer : inner;
       const a = (i * Math.PI) / 5 - Math.PI / 2;
-      points.push(`${cx + r * Math.cos(a)} ${cy + r * Math.sin(a)}`);
+      pts.push(`${cx + r * Math.cos(a)} ${cy + r * Math.sin(a)}`);
     }
-    markup = `<polygon points="${points.join(",")}"/>`;
-  }
-  if (promptKey === "lightbulb") {
-    markup = `
-      <ellipse cx="260" cy="180" rx="70" ry="90"/>
-      <path d="M220 270 L230 310 L260 330 L290 310 L300 270"/>
-      <rect x="245" y="330" width="30" height="20"/>
-    `;
-  }
-  if (promptKey === "cat") {
-    markup = `
-      <circle cx="260" cy="220" r="90"/>
-      <path d="M200 150 L180 80 L220 130 M320 150 L340 80 L300 130"/>
-      <ellipse cx="230" cy="210" rx="12" ry="16"/>
-      <ellipse cx="290" cy="210" rx="12" ry="16"/>
-      <path d="M240 250 Q260 260 280 250"/>
-    `;
-  }
+    return `<polygon points="${pts.join(",")}"/>`;
+  },
+  lightbulb: `<ellipse cx="260" cy="180" rx="70" ry="90"/>
+    <path d="M220 270 L230 310 L260 330 L290 310 L300 270"/>
+    <rect x="245" y="330" width="30" height="20"/>`,
+  cat: `<circle cx="260" cy="220" r="90"/>
+    <path d="M200 150 L180 80 L220 130 M320 150 L340 80 L300 130"/>
+    <ellipse cx="230" cy="210" rx="12" ry="16"/>
+    <ellipse cx="290" cy="210" rx="12" ry="16"/>
+    <path d="M240 250 Q260 260 280 250"/>`,
+  umbrella: `<path d="M160 180 A100 100 0 0 1 360 180"/>
+    <path d="M260 180 L260 330"/>
+    <path d="M260 330 Q260 360 240 360 Q220 360 220 340"/>`,
+  key: `<circle cx="200" cy="210" r="40"/>
+    <path d="M240 210 L370 210"/>
+    <path d="M330 210 L330 240 M350 210 L350 240 M370 210 L370 240"/>`,
+  pizza: `<path d="M260 100 L160 320 L360 320 Z"/>
+    <circle cx="245" cy="220" r="8"/><circle cx="280" cy="260" r="8"/><circle cx="240" cy="280" r="8"/>`,
+  rocket: `<path d="M230 280 L230 160 Q230 100 260 80 Q290 100 290 160 L290 280 Z"/>
+    <path d="M230 260 L200 300 L230 280"/><path d="M290 260 L320 300 L290 280"/>
+    <path d="M240 280 Q250 330 260 340 Q270 330 280 280"/>
+    <circle cx="260" cy="180" r="15"/>`,
+  crown: `<path d="M170 260 L170 170 L210 220 L260 140 L310 220 L350 170 L350 260 Z"/>`,
+  anchor: `<circle cx="260" cy="110" r="22"/>
+    <path d="M260 132 L260 310"/><path d="M200 190 L320 190"/>
+    <path d="M260 310 Q180 310 190 270"/><path d="M260 310 Q340 310 330 270"/>`,
+  tree: `<rect x="245" y="250" width="30" height="100"/>
+    <circle cx="260" cy="190" r="80"/>`,
+  get flower() {
+    let p = "";
+    for (let i = 0; i < 5; i++) {
+      const a = (i * Math.PI * 2) / 5 - Math.PI / 2;
+      p += `<circle cx="${260 + 38 * Math.cos(a)}" cy="${170 + 38 * Math.sin(a)}" r="22"/>`;
+    }
+    return p + `<circle cx="260" cy="170" r="16"/>
+      <path d="M260 192 L260 340"/>
+      <path d="M260 280 Q310 260 300 290"/>`;
+  },
+  get sun() {
+    let rays = "";
+    for (let i = 0; i < 8; i++) {
+      const a = (i * Math.PI) / 4;
+      rays += `<line x1="${260 + 62 * Math.cos(a)}" y1="${200 + 62 * Math.sin(a)}" x2="${260 + 95 * Math.cos(a)}" y2="${200 + 95 * Math.sin(a)}"/>`;
+    }
+    return `<circle cx="260" cy="200" r="50"/>${rays}`;
+  },
+  moon: `<path d="M290 100 C180 120 180 300 290 320 C230 280 230 140 290 100"/>`,
+  mushroom: `<path d="M170 200 A90 90 0 0 1 350 200 L170 200"/>
+    <path d="M230 200 L230 320 L290 320 L290 200"/>
+    <circle cx="230" cy="160" r="12"/><circle cx="280" cy="145" r="12"/>`,
+  heart: `<path d="M260 300 C260 260 170 230 170 180 C170 120 260 120 260 180 C260 120 350 120 350 180 C350 230 260 260 260 300"/>`,
+  diamond: `<path d="M260 90 L360 200 L260 340 L160 200 Z"/>
+    <path d="M160 200 L360 200"/>
+    <path d="M260 90 L220 200 M260 90 L300 200"/>`,
+  ghost: `<path d="M180 180 A80 80 0 0 1 340 180 L340 300 Q320 270 300 300 Q280 330 260 300 Q240 270 220 300 L180 300 Z"/>
+    <circle cx="235" cy="185" r="10"/><circle cx="285" cy="185" r="10"/>
+    <ellipse cx="260" cy="225" rx="10" ry="14"/>`,
+  guitar: `<path d="M248 150 Q190 165 195 210 Q200 240 195 260 Q180 310 220 340 Q260 360 300 340 Q340 310 325 260 Q320 240 325 210 Q330 165 272 150"/>
+    <path d="M248 150 L248 80 L272 80 L272 150"/>
+    <rect x="244" y="60" width="32" height="22"/>
+    <circle cx="260" cy="270" r="18"/>`,
+  sailboat: `<path d="M150 260 L170 300 L350 300 L370 260"/>
+    <path d="M260 260 L260 100"/>
+    <path d="M260 110 L340 250 L260 250"/>
+    <path d="M260 120 L210 220 L260 220"/>`,
+  skull: `<circle cx="260" cy="180" r="80"/>
+    <path d="M210 250 Q210 300 260 300 Q310 300 310 250"/>
+    <ellipse cx="235" cy="175" rx="16" ry="20"/>
+    <ellipse cx="285" cy="175" rx="16" ry="20"/>
+    <path d="M255 215 L260 230 L265 215"/>
+    <path d="M230 260 L290 260"/>
+    <path d="M250 250 L250 270 M260 250 L260 270 M270 250 L270 270"/>`,
+  icecream: `<path d="M210 210 L260 350 L310 210"/>
+    <circle cx="260" cy="190" r="52"/>
+    <circle cx="260" cy="130" r="40"/>`,
+  pencil: `<rect x="240" y="100" width="40" height="200"/>
+    <path d="M240 300 L260 340 L280 300"/>
+    <rect x="240" y="80" width="40" height="20"/>`,
+  cloud: `<circle cx="220" cy="220" r="45"/>
+    <circle cx="270" cy="195" r="50"/>
+    <circle cx="320" cy="220" r="40"/>
+    <circle cx="270" cy="240" r="38"/>`,
+  bird: `<ellipse cx="250" cy="220" rx="60" ry="40"/>
+    <circle cx="320" cy="190" r="25"/>
+    <path d="M345 185 L370 190 L345 198"/>
+    <circle cx="330" cy="185" r="4"/>
+    <path d="M190 210 L160 190 M190 220 L155 210"/>
+    <ellipse cx="240" cy="210" rx="30" ry="15"/>`,
+  snowman: `<circle cx="260" cy="300" r="60"/>
+    <circle cx="260" cy="210" r="45"/>
+    <circle cx="260" cy="140" r="30"/>
+    <circle cx="250" cy="135" r="4"/><circle cx="270" cy="135" r="4"/>
+    <path d="M260 142 L280 148 L260 150"/>
+    <circle cx="260" cy="195" r="4"/><circle cx="260" cy="215" r="4"/><circle cx="260" cy="235" r="4"/>`,
+};
+
+function setReferenceSvg(promptKey = dailyPrompt.key) {
+  if (!referenceSvg) return;
+  const markup = promptSvgMarkup[promptKey] || "";
   referenceSvg.innerHTML = markup.trim();
 }
 
