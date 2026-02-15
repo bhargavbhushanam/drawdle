@@ -1295,7 +1295,8 @@ async function shareResultUnified() {
   const score = parseInt(scoreValue.textContent, 10);
   if (Number.isNaN(score)) return;
 
-  const shareText = `Drawdle · ${dailyPrompt.title}\nScore: ${score}\n${buildShareGrid(score)}\ndrawdle.app`;
+  const siteUrl = `${window.location.origin}${window.location.pathname}`;
+  const shareText = `Drawdle · ${dailyPrompt.title}\nScore: ${score}\n${buildShareGrid(score)}\nTry it: ${siteUrl}`;
   const originalText = shareBtn.textContent;
   shareBtn.disabled = true;
   shareBtn.textContent = "Preparing...";
@@ -1509,11 +1510,12 @@ shareBtn.addEventListener("click", () => {
 
 copyBtn.addEventListener("click", () => {
   const score = scoreValue.textContent;
-  const text = `Drawdle · ${dailyPrompt.title}\nScore: ${score}\n${buildShareGrid(score)}`;
+  const siteUrl = `${window.location.origin}${window.location.pathname}`;
+  const text = `Drawdle · ${dailyPrompt.title}\nScore: ${score}\n${buildShareGrid(score)}\nTry it: ${siteUrl}`;
   navigator.clipboard.writeText(text);
-  copyBtn.textContent = "Copied";
+  copyBtn.textContent = "Copied!";
   setTimeout(() => {
-    copyBtn.textContent = "Copy result";
+    copyBtn.textContent = "Copy";
   }, 1500);
 });
 
@@ -1556,7 +1558,7 @@ const howBtn = document.getElementById("howBtn");
 const closeHowBtn = document.getElementById("closeModal");
 const statsBtn = document.getElementById("statsBtn");
 const closeStatsBtn = document.getElementById("closeStats");
-const challengeBtn = document.getElementById("challengeBtn");
+// challengeBtn removed — URL included in share text
 const profileBtn = document.getElementById("profileBtn");
 
 howBtn.addEventListener("click", () => {
@@ -1592,16 +1594,7 @@ statsModal.addEventListener("keydown", (e) => {
 });
 
 
-challengeBtn.addEventListener("click", () => {
-  const shareLink = `${window.location.origin}${window.location.pathname}?prompt=${encodeURIComponent(
-    dailyPrompt.title
-  )}`;
-  navigator.clipboard.writeText(`Try today's Drawdle: ${shareLink}`);
-  challengeBtn.textContent = "Copied!";
-  setTimeout(() => {
-    challengeBtn.textContent = "Challenge";
-  }, 1500);
-});
+// Challenge button removed — site URL is included in share/copy text
 
 if (profileBtn) {
   profileBtn.addEventListener("click", () => {
