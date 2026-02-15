@@ -6,7 +6,7 @@
     <meta name="description" content="Daily drawing challenge. 30 seconds. Sketch it, score it, share it." />
     <meta name="theme-color" content="#fafafa" />
     <title>Drawdle</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=2" />
   </head>
   <body>
     <div class="page">
@@ -42,13 +42,19 @@
         </div>
       </div>
 
+      <!-- Masked reference guide -->
+      <div class="ref-guide">
+        <div class="ref-guide-label">Draw this — gray areas are hidden</div>
+        <canvas id="maskedRefCanvas" width="520" height="420"></canvas>
+      </div>
+
       <!-- Canvas -->
       <div class="canvas-area" id="playArea">
         <div class="canvas-wrap">
           <div class="canvas-ready-overlay" id="readyOverlay">
             <div class="ready-content">
               <div class="ready-prompt" id="readyPromptLabel">Flower</div>
-              <div class="ready-sub">30 seconds. One shot.</div>
+              <div class="ready-sub">Study the reference above, then draw. 30 seconds.</div>
               <button class="btn-start" id="startDrawBtn">Start drawing</button>
             </div>
           </div>
@@ -110,8 +116,9 @@
           <button class="icon-btn" id="closeModal">&times;</button>
         </div>
         <ol class="how-list">
+          <li>Study the <strong>masked reference</strong> &mdash; gray cells are hidden</li>
           <li>Tap <strong>Start drawing</strong> &mdash; 30 seconds begin</li>
-          <li>Sketch the daily prompt before time's up</li>
+          <li>Reproduce the full drawing, filling in the hidden gaps</li>
           <li>One attempt per day</li>
           <li>Tap <strong>Score drawing</strong> to see how you did</li>
           <li>Share your score with friends</li>
@@ -151,7 +158,7 @@
       </div>
     </div>
 
-    <script src="gif-encoder.js"></script>
-    <script src="app.js"></script>
+    <script src="gif-encoder.js?v=2"></script>
+    <script src="app.js?v=2"></script>
   </body>
 </html>

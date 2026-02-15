@@ -178,6 +178,40 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
+/* ── Masked reference guide ── */
+
+.ref-guide {
+  margin-bottom: 12px;
+  padding: 12px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: opacity 0.4s ease;
+}
+
+.ref-guide-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-2);
+  margin-bottom: 8px;
+}
+
+#maskedRefCanvas {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #f8f9fb;
+}
+
+.ref-guide.scored {
+  opacity: 0.4;
+}
+
 /* ── Canvas area ── */
 
 .canvas-area {

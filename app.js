@@ -39,6 +39,9 @@ const readyOverlay = document.getElementById("readyOverlay");
 const startDrawBtn = document.getElementById("startDrawBtn");
 const readyPromptLabel = document.getElementById("readyPromptLabel");
 const shareGridVisual = document.getElementById("shareGridVisual");
+const maskedRefCanvas = document.getElementById("maskedRefCanvas");
+const maskedRefCtx = maskedRefCanvas.getContext("2d");
+const refGuideEl = document.querySelector(".ref-guide");
 const timerRingEl = document.querySelector(".timer-ring");
 
 let drawing = false;
@@ -372,7 +375,7 @@ function handleScore({ auto = false } = {}) {
     renderShareGridVisual(score);
     referencePreview.classList.add("revealed");
     if (comparisonCard) comparisonCard.classList.remove("hidden");
-    // single-column layout
+    if (refGuideEl) refGuideEl.classList.add("scored");
     const stats = updateStatsOnScore(score);
     renderBadges(statsBadges, stats, score);
     if (scoreFeedbackEl) setScoreFeedback(score, stats);
@@ -399,7 +402,7 @@ function restoreTodayState(stats) {
   if (scoreFeedbackEl) setScoreFeedback(stats.lastScore, stats);
   referencePreview.classList.add("revealed");
   if (comparisonCard) comparisonCard.classList.remove("hidden");
-  // single-column layout
+  if (refGuideEl) refGuideEl.classList.add("scored");
 }
 
 // Shared prompt drawing functions — each draws into a 520×420 coordinate space
@@ -639,6 +642,110 @@ function drawReference(ctxRef, promptKey = dailyPrompt.key) {
   ctxRef.strokeStyle = "#000";
   if (promptDrawFns[promptKey]) promptDrawFns[promptKey](ctxRef);
   ctxRef.restore();
+}
+
+function generateDailyMask(cols, rows, revealRatio) {
+  const seed = getTodayKey().split("-").join("");
+  let hash = 0;
+  for (let i = 0; i < seed.length; i++) {
+    hash = ((hash << 5) - hash + seed.charCodeAt(i)) | 0;
+  }
+  // Simple seeded PRNG (mulberry32)
+  let s = Math.abs(hash) >>> 0;
+  function nextRand() {
+    s |= 0; s = (s + 0x6D2B79F5) | 0;
+    let t = Math.imul(s ^ (s >>> 15), 1 | s);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  }
+  const total = cols * rows;
+  const revealCount = Math.round(total * revealRatio);
+  const indices = Array.from({ length: total }, (_, i) => i);
+  // Fisher-Yates shuffle with seeded random
+  for (let i = total - 1; i > 0; i--) {
+    const j = Math.floor(nextRand() * (i + 1));
+    [indices[i], indices[j]] = [indices[j], indices[i]];
+  }
+  const mask = new Array(total).fill(false);
+  for (let i = 0; i < revealCount; i++) {
+    mask[indices[i]] = true;
+  }
+  return mask;
+}
+
+function renderMaskedReference() {
+  if (!maskedRefCanvas || !maskedRefCtx) return;
+  const c = maskedRefCtx;
+  const w = maskedRefCanvas.width;
+  const h = maskedRefCanvas.height;
+  const cols = 8;
+  const rows = 6;
+  const cellW = w / cols;
+  const cellH = h / rows;
+
+  // White background
+  c.clearRect(0, 0, w, h);
+  c.fillStyle = "#ffffff";
+  c.fillRect(0, 0, w, h);
+
+  // Draw full reference with thick visible strokes
+  c.save();
+  c.lineWidth = 16;
+  c.lineCap = "round";
+  c.lineJoin = "round";
+  c.strokeStyle = "#1a1a2e";
+  if (promptDrawFns[dailyPrompt.key]) {
+    promptDrawFns[dailyPrompt.key](c);
+  }
+  c.restore();
+
+  // Generate mask
+  const mask = generateDailyMask(cols, rows, 0.5);
+
+  // Cover masked cells with solid gray + diagonal stripes
+  for (let row = 0; row < rows; row++) {
+    for (let col = 0; col < cols; col++) {
+      const idx = row * cols + col;
+      if (!mask[idx]) {
+        const x = col * cellW;
+        const y = row * cellH;
+        // Solid gray base
+        c.fillStyle = "#e2e4ea";
+        c.fillRect(x, y, cellW, cellH);
+        // Diagonal stripes
+        c.save();
+        c.beginPath();
+        c.rect(x, y, cellW, cellH);
+        c.clip();
+        c.strokeStyle = "#cdd0d9";
+        c.lineWidth = 1.5;
+        const step = 10;
+        for (let d = -cellH; d < cellW + cellH; d += step) {
+          c.beginPath();
+          c.moveTo(x + d, y);
+          c.lineTo(x + d - cellH, y + cellH);
+          c.stroke();
+        }
+        c.restore();
+      }
+    }
+  }
+
+  // Draw grid lines for visual structure
+  c.strokeStyle = "rgba(0, 0, 0, 0.1)";
+  c.lineWidth = 1;
+  for (let col = 1; col < cols; col++) {
+    c.beginPath();
+    c.moveTo(col * cellW, 0);
+    c.lineTo(col * cellW, h);
+    c.stroke();
+  }
+  for (let row = 1; row < rows; row++) {
+    c.beginPath();
+    c.moveTo(0, row * cellH);
+    c.lineTo(w, row * cellH);
+    c.stroke();
+  }
 }
 
 function scoreDrawing() {
@@ -1637,8 +1744,8 @@ if (readyPromptLabel) readyPromptLabel.textContent = dailyPrompt.title;
 shareHeadline.textContent = `Drawdle · ${dailyPrompt.title}`;
 referencePreview.classList.remove("revealed");
 if (comparisonCard) comparisonCard.classList.add("hidden");
-// single-column layout, no reference toggle needed
 setReferenceSvg(dailyPrompt.key);
+renderMaskedReference();
 const stats = loadStats();
 if (stats.lastScored === getTodayKey() && (stats.lastScore === null || stats.lastScore === undefined)) {
   stats.lastScored = null;
