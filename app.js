@@ -317,7 +317,7 @@ function clearCanvas(resetRound) {
   if (shareGridVisual) shareGridVisual.innerHTML = "";
   referencePreview.classList.remove("revealed");
   if (comparisonCard) comparisonCard.classList.add("hidden");
-  if (playArea) playArea.classList.remove("with-reference");
+  // single-column layout, no reference toggle needed
   if (scoreFeedbackEl) scoreFeedbackEl.textContent = "";
   strokes.length = 0;
   ctx.globalCompositeOperation = "source-over";
@@ -372,7 +372,7 @@ function handleScore({ auto = false } = {}) {
     renderShareGridVisual(score);
     referencePreview.classList.add("revealed");
     if (comparisonCard) comparisonCard.classList.remove("hidden");
-    if (playArea) playArea.classList.add("with-reference");
+    // single-column layout
     const stats = updateStatsOnScore(score);
     renderBadges(statsBadges, stats, score);
     if (scoreFeedbackEl) setScoreFeedback(score, stats);
@@ -399,7 +399,7 @@ function restoreTodayState(stats) {
   if (scoreFeedbackEl) setScoreFeedback(stats.lastScore, stats);
   referencePreview.classList.add("revealed");
   if (comparisonCard) comparisonCard.classList.remove("hidden");
-  if (playArea) playArea.classList.add("with-reference");
+  // single-column layout
 }
 
 // Shared prompt drawing functions — each draws into a 520×420 coordinate space
@@ -1597,9 +1597,9 @@ challengeBtn.addEventListener("click", () => {
     dailyPrompt.title
   )}`;
   navigator.clipboard.writeText(`Try today's Drawdle: ${shareLink}`);
-  challengeBtn.textContent = "Link copied";
+  challengeBtn.textContent = "Copied!";
   setTimeout(() => {
-    challengeBtn.textContent = "Challenge a friend";
+    challengeBtn.textContent = "Challenge";
   }, 1500);
 });
 
@@ -1644,7 +1644,7 @@ if (readyPromptLabel) readyPromptLabel.textContent = dailyPrompt.title;
 shareHeadline.textContent = `Drawdle · ${dailyPrompt.title}`;
 referencePreview.classList.remove("revealed");
 if (comparisonCard) comparisonCard.classList.add("hidden");
-if (playArea) playArea.classList.remove("with-reference");
+// single-column layout, no reference toggle needed
 setReferenceSvg(dailyPrompt.key);
 const stats = loadStats();
 if (stats.lastScored === getTodayKey() && (stats.lastScore === null || stats.lastScore === undefined)) {

@@ -3,174 +3,151 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="A new drawing challenge every day. 30 seconds. Sketch it, score it, share it." />
+    <meta name="description" content="Daily drawing challenge. 30 seconds. Sketch it, score it, share it." />
     <meta name="theme-color" content="#fafafa" />
     <title>Drawdle</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="page">
+      <!-- Top bar -->
       <header class="topbar">
         <div class="logo">
           <span class="logo-mark"></span>
           <span class="logo-text">Drawdle</span>
         </div>
-        <div class="topbar-actions">
-          <button class="ghost" id="howBtn">How it works</button>
-          <button class="ghost" id="statsBtn">Stats</button>
-          <button class="ghost hidden" id="devResetBtn">Reset</button>
+        <div class="topbar-right">
+          <span class="date-badge" id="dailyBadge">Daily sketch</span>
+          <button class="icon-btn" id="howBtn" title="How it works">?</button>
+          <button class="icon-btn" id="statsBtn" title="Your stats">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="8" width="3" height="6"/><rect x="6.5" y="4" width="3" height="10"/><rect x="11" y="1" width="3" height="13"/></svg>
+          </button>
         </div>
       </header>
 
-      <main class="hero">
-        <section class="hero-left">
-          <div class="badge" id="dailyBadge">Daily sketch</div>
-          <h1>One prompt. One shot. How good are you?</h1>
-          <p class="subtext">
-            A new drawing challenge every day. 30 seconds on the clock.
-            Sketch it, score it, share it.
-          </p>
+      <!-- Prompt bar -->
+      <div class="prompt-bar">
+        <div class="prompt-info">
+          <div class="prompt-name" id="promptTitle">Flower</div>
+          <div class="prompt-hint" id="promptHint">Stop and draw the roses.</div>
+        </div>
+        <div class="timer">
+          <div class="timer-ring" aria-hidden="true">
+            <svg class="timer-ring-svg" viewBox="0 0 72 72">
+              <circle class="timer-ring-bg" cx="36" cy="36" r="34" fill="none" stroke-width="3"/>
+              <circle class="timer-ring-fill" id="timerRingFill" cx="36" cy="36" r="34" fill="none" stroke-width="3" stroke-dasharray="213.6" stroke-dashoffset="0"/>
+            </svg>
+            <span class="timer-value-inner" id="timerValue">30</span>
+          </div>
+        </div>
+      </div>
 
-          <div class="prompt-card">
-            <div>
-              <div class="label">Today's prompt</div>
-              <div class="prompt" id="promptTitle">Coffee Mug</div>
-              <div class="hint" id="promptHint">Handle on the right. Steam optional.</div>
-            </div>
-            <div class="timer">
-              <div class="timer-ring" aria-hidden="true">
-                <svg class="timer-ring-svg" viewBox="0 0 72 72">
-                  <circle class="timer-ring-bg" cx="36" cy="36" r="34" fill="none" stroke-width="3"/>
-                  <circle class="timer-ring-fill" id="timerRingFill" cx="36" cy="36" r="34" fill="none" stroke-width="3" stroke-dasharray="213.6" stroke-dashoffset="0"/>
-                </svg>
-                <span class="timer-value-inner" id="timerValue">30</span>
-              </div>
-              <div class="timer-label">seconds</div>
+      <!-- Canvas -->
+      <div class="canvas-area" id="playArea">
+        <div class="canvas-wrap">
+          <div class="canvas-ready-overlay" id="readyOverlay">
+            <div class="ready-content">
+              <div class="ready-prompt" id="readyPromptLabel">Flower</div>
+              <div class="ready-sub">30 seconds. One shot.</div>
+              <button class="btn-start" id="startDrawBtn">Start drawing</button>
             </div>
           </div>
+          <canvas id="drawCanvas" width="520" height="420" aria-label="Drawing area"></canvas>
+          <canvas id="refCanvas" width="520" height="420" aria-hidden="true"></canvas>
+        </div>
 
-          <div class="score-row">
-            <button class="primary" id="submitBtn">Score drawing</button>
+        <div class="canvas-tools">
+          <div class="tools-left">
+            <button class="tool-btn" id="clearBtn">Clear</button>
+            <button class="tool-btn" id="eraseBtn">Erase</button>
           </div>
-
-          <div class="cta-row">
-            <button class="ghost" id="challengeBtn">Challenge a friend</button>
+          <div class="score-pill" id="scoreCard">
+            <span class="score-label">Score</span>
+            <span class="score-value" id="scoreValue">&mdash;</span>
           </div>
-        </section>
+        </div>
 
-        <section class="hero-right" id="playArea">
-          <div class="canvas-card">
-            <div class="canvas-header">
-              <div>
-                <div class="label">Your drawing</div>
-                <div class="muted">One brush. One shot. Make it count.</div>
-              </div>
-            </div>
-            <div class="canvas-wrap">
-              <div class="canvas-ready-overlay" id="readyOverlay">
-                <div class="ready-content">
-                  <div class="ready-prompt" id="readyPromptLabel">Coffee Mug</div>
-                  <div class="ready-hint">You have 30 seconds. Draw fast.</div>
-                  <button class="primary ready-btn" id="startDrawBtn">Start drawing</button>
-                </div>
-              </div>
-              <canvas id="drawCanvas" width="520" height="420" aria-label="Drawing area"></canvas>
-              <canvas id="refCanvas" width="520" height="420" aria-hidden="true"></canvas>
-            </div>
-            <div class="canvas-footer">
-              <button class="ghost" id="clearBtn">Clear</button>
-              <button class="ghost" id="eraseBtn">Erase</button>
-              <div class="score" id="scoreCard">
-                <div class="score-label">Score</div>
-                <div class="score-value" id="scoreValue">&mdash;</div>
-              </div>
-              <button class="primary" id="shareBtn" disabled>Share result</button>
-            </div>
-          </div>
+        <button class="btn-score" id="submitBtn">Score drawing</button>
+      </div>
 
-          <div class="comparison-card hidden" id="comparisonCard">
-            <div>
-              <div class="label">Reference sketch</div>
-              <div class="muted">Shown after scoring.</div>
-            </div>
-            <div class="reference" id="referencePreview">
-              <svg viewBox="0 0 520 420" role="img" aria-label="Reference sketch" id="referenceSvg"></svg>
-            </div>
-            <p id="scoreFeedback" class="score-feedback muted" aria-live="polite"></p>
-          </div>
-        </section>
-      </main>
+      <!-- Reference (shown after scoring) -->
+      <div class="ref-card hidden" id="comparisonCard">
+        <div class="ref-header">
+          <span class="ref-label">Reference</span>
+          <span class="ref-feedback" id="scoreFeedback"></span>
+        </div>
+        <div class="ref-drawing" id="referencePreview">
+          <svg viewBox="0 0 520 420" role="img" aria-label="Reference sketch" id="referenceSvg"></svg>
+        </div>
+      </div>
 
-      <section class="share-card hidden" id="shareCard">
-        <div>
-          <div class="label">Share card</div>
-          <div class="share-headline" id="shareHeadline">Drawdle</div>
-          <div class="share-score" id="shareScore">Score &mdash;</div>
+      <!-- Share (shown after scoring) -->
+      <div class="share-bar hidden" id="shareCard">
+        <div class="share-left">
+          <span class="share-score" id="shareScore">&mdash;</span>
+          <span class="share-headline" id="shareHeadline">Drawdle</span>
           <div class="share-grid-visual" id="shareGridVisual" aria-hidden="true"></div>
           <div class="share-grid" id="shareGrid" aria-hidden="true"></div>
-          <div class="share-sub" id="shareSub">Streak 0</div>
+          <div class="share-sub" id="shareSub"></div>
         </div>
         <div class="share-actions">
-          <button class="ghost" id="copyBtn">Copy</button>
-          <button class="ghost" id="downloadBtn">Download</button>
+          <button class="btn-share" id="shareBtn" disabled>Share</button>
+          <button class="tool-btn" id="copyBtn">Copy</button>
+          <button class="tool-btn" id="downloadBtn">Save</button>
+          <button class="tool-btn" id="challengeBtn">Challenge</button>
         </div>
-      </section>
+      </div>
 
-      <footer class="footer">
-        <span>Drawdle &mdash; a daily drawing sprint</span>
-      </footer>
+      <button class="ghost hidden" id="devResetBtn">Reset today</button>
+
+      <footer class="footer">Drawdle &mdash; daily drawing sprint</footer>
     </div>
 
-    <!-- How it works -->
+    <!-- How it works modal -->
     <div class="modal" id="modal">
       <div class="modal-card">
-        <div class="modal-header">
-          <h2>How Drawdle works</h2>
-          <button class="ghost" id="closeModal">Close</button>
+        <div class="modal-top">
+          <h2>How it works</h2>
+          <button class="icon-btn" id="closeModal">&times;</button>
         </div>
-        <div class="modal-body">
-          <ol>
-            <li>Tap <strong>Start drawing</strong> &mdash; the 30-second timer begins.</li>
-            <li>Sketch the daily prompt before time runs out.</li>
-            <li>One attempt per day. Make it count.</li>
-            <li>Tap <strong>Score drawing</strong> to compare against the reference.</li>
-            <li>Scoring measures overlap and placement &mdash; draw any size.</li>
-            <li>Share your score card with friends.</li>
-          </ol>
-        </div>
+        <ol class="how-list">
+          <li>Tap <strong>Start drawing</strong> &mdash; 30 seconds begin</li>
+          <li>Sketch the daily prompt before time's up</li>
+          <li>One attempt per day</li>
+          <li>Tap <strong>Score drawing</strong> to see how you did</li>
+          <li>Share your score with friends</li>
+        </ol>
       </div>
     </div>
 
-    <!-- Stats -->
+    <!-- Stats modal -->
     <div class="modal" id="statsModal" aria-hidden="true">
       <div class="modal-card">
-        <div class="modal-header">
-          <h2>Your stats</h2>
-          <button class="ghost" id="closeStats">Close</button>
+        <div class="modal-top">
+          <h2>Stats</h2>
+          <button class="icon-btn" id="closeStats">&times;</button>
         </div>
-        <div class="modal-body stats-modal-body">
-          <div class="stat-grid">
-            <div class="stat-card">
-              <div class="label">Current streak</div>
-              <div class="stat-big" id="statStreak">0</div>
-            </div>
-            <div class="stat-card">
-              <div class="label">Best score</div>
-              <div class="stat-big" id="statBest">&mdash;</div>
-            </div>
-            <div class="stat-card">
-              <div class="label">Total plays</div>
-              <div class="stat-big" id="statPlays">0</div>
-            </div>
-            <div class="stat-card">
-              <div class="label">Avg score</div>
-              <div class="stat-big" id="statAvg">&mdash;</div>
-            </div>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-num" id="statStreak">0</div>
+            <div class="stat-label">Streak</div>
           </div>
-          <div class="achievements">
-            <div class="label">Badges</div>
-            <div class="badge-row" id="statsBadges"></div>
+          <div class="stat-item">
+            <div class="stat-num" id="statBest">&mdash;</div>
+            <div class="stat-label">Best</div>
           </div>
+          <div class="stat-item">
+            <div class="stat-num" id="statPlays">0</div>
+            <div class="stat-label">Played</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num" id="statAvg">&mdash;</div>
+            <div class="stat-label">Avg</div>
+          </div>
+        </div>
+        <div class="badges-section">
+          <div class="badges-label">Badges</div>
+          <div class="badge-row" id="statsBadges"></div>
         </div>
       </div>
     </div>
