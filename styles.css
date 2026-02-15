@@ -208,8 +208,8 @@ body {
   background: #f8f9fb;
 }
 
-.ref-guide.scored {
-  opacity: 0.4;
+.ref-guide.revealed .ref-guide-label {
+  color: var(--accent);
 }
 
 /* ── Canvas area ── */

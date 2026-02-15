@@ -373,9 +373,7 @@ function handleScore({ auto = false } = {}) {
     if (shareCard) shareCard.classList.remove("hidden");
     if (shareGridEl) shareGridEl.textContent = buildShareGrid(score);
     renderShareGridVisual(score);
-    referencePreview.classList.add("revealed");
-    if (comparisonCard) comparisonCard.classList.remove("hidden");
-    if (refGuideEl) refGuideEl.classList.add("scored");
+    revealFullReference();
     const stats = updateStatsOnScore(score);
     renderBadges(statsBadges, stats, score);
     if (scoreFeedbackEl) setScoreFeedback(score, stats);
@@ -400,9 +398,7 @@ function restoreTodayState(stats) {
   if (shareGridEl) shareGridEl.textContent = buildShareGrid(stats.lastScore);
   renderShareGridVisual(stats.lastScore);
   if (scoreFeedbackEl) setScoreFeedback(stats.lastScore, stats);
-  referencePreview.classList.add("revealed");
-  if (comparisonCard) comparisonCard.classList.remove("hidden");
-  if (refGuideEl) refGuideEl.classList.add("scored");
+  revealFullReference();
 }
 
 // Shared prompt drawing functions — each draws into a 520×420 coordinate space
@@ -693,7 +689,7 @@ function renderMaskedReference() {
   c.lineWidth = 16;
   c.lineCap = "round";
   c.lineJoin = "round";
-  c.strokeStyle = "#1a1a2e";
+  c.strokeStyle = "#000";
   if (promptDrawFns[dailyPrompt.key]) {
     promptDrawFns[dailyPrompt.key](c);
   }
@@ -746,6 +742,31 @@ function renderMaskedReference() {
     c.lineTo(w, row * cellH);
     c.stroke();
   }
+}
+
+function revealFullReference() {
+  if (!maskedRefCanvas || !maskedRefCtx) return;
+  const c = maskedRefCtx;
+  const w = maskedRefCanvas.width;
+  const h = maskedRefCanvas.height;
+
+  c.clearRect(0, 0, w, h);
+  c.fillStyle = "#ffffff";
+  c.fillRect(0, 0, w, h);
+
+  c.save();
+  c.lineWidth = 16;
+  c.lineCap = "round";
+  c.lineJoin = "round";
+  c.strokeStyle = "#000";
+  if (promptDrawFns[dailyPrompt.key]) {
+    promptDrawFns[dailyPrompt.key](c);
+  }
+  c.restore();
+
+  // Update the label
+  const label = document.querySelector(".ref-guide-label");
+  if (label) label.textContent = "Full reference revealed";
 }
 
 function scoreDrawing() {
