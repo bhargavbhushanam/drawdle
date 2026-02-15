@@ -325,9 +325,9 @@ body {
 
 .tool-btn {
   font-family: inherit;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 600;
-  padding: 7px 14px;
+  padding: 10px 20px;
   border-radius: 999px;
   border: 1px solid var(--line);
   background: var(--card);
@@ -528,12 +528,12 @@ body {
 
 .btn-share {
   font-family: inherit;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 700;
   background: var(--text);
   color: #fff;
   border: none;
-  padding: 8px 16px;
+  padding: 10px 22px;
   border-radius: 999px;
   cursor: pointer;
   transition: all var(--ease);
