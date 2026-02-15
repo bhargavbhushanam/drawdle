@@ -2646,11 +2646,13 @@ drawCanvas.addEventListener("mouseup", endDraw);
 drawCanvas.addEventListener("mouseleave", endDraw);
 
 drawCanvas.addEventListener("touchstart", (event) => {
+  if (roundLocked) return;
   event.preventDefault();
   startDraw(event);
 });
 
 drawCanvas.addEventListener("touchmove", (event) => {
+  if (roundLocked) return;
   event.preventDefault();
   moveDraw(event);
 });
