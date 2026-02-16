@@ -2247,7 +2247,6 @@ function roundRect(ctxR, x, y, w, h, r) {
 }
 
 function createShareCanvas(score) {
-  // Wide horizontal layout — score | drawing | reference in one row
   const width = 1200;
   const height = 630;
   const canvas = document.createElement("canvas");
@@ -2255,134 +2254,187 @@ function createShareCanvas(score) {
   canvas.height = height;
   const c = canvas.getContext("2d");
 
-  const bg = "#0c0f1a";
-  const green = "#34d399";
-  const greenDim = "#1a3a2e";
-  const white = "#f0f2f8";
-  const muted = "#6b7394";
-  const panelBg = "#1c2035";
-  const panelBorder = "#2a2f4a";
+  const white = "#ffffff";
+  const bg = "#f5f6f8";
+  const text = "#0f1419";
+  const textMuted = "#6b7280";
+  const green = "#10b856";
+  const greenLight = "rgba(16, 184, 86, 0.10)";
+  const greenDim = "#e2f5ea";
+  const cardBg = "#ffffff";
+  const border = "rgba(0,0,0,0.06)";
+  const pad = 40;
 
-  // Background
+  // ── Background ──
   c.fillStyle = bg;
   c.fillRect(0, 0, width, height);
 
-  // Layout: 3 columns with gaps
-  const pad = 36;
-  const gap = 20;
-  const colW = Math.floor((width - pad * 2 - gap * 2) / 3);
-  const colH = height - pad * 2;
-  const col1X = pad;
-  const col2X = pad + colW + gap;
-  const col3X = pad + (colW + gap) * 2;
-  const colY = pad;
+  // ── Main card ──
+  const cardX = pad;
+  const cardY = pad;
+  const cardW = width - pad * 2;
+  const cardH = height - pad * 2;
+  c.save();
+  roundRect(c, cardX, cardY, cardW, cardH, 28);
+  c.fillStyle = cardBg;
+  c.fill();
+  c.shadowColor = "rgba(0,0,0,0.08)";
+  c.shadowBlur = 30;
+  c.shadowOffsetY = 8;
+  c.fill();
+  c.restore();
 
-  // ── Column 1: Score section ──
-  // Subtle glow behind score column
-  const glow = c.createRadialGradient(col1X + colW / 2, colY + colH / 2, 0, col1X + colW / 2, colY + colH / 2, colW);
-  glow.addColorStop(0, "rgba(52, 211, 153, 0.07)");
-  glow.addColorStop(1, "transparent");
-  c.fillStyle = glow;
-  c.fillRect(col1X, colY, colW, colH);
+  // ── Top section: Brand + Date ──
+  c.fillStyle = text;
+  c.font = "800 28px system-ui, -apple-system, sans-serif";
+  c.fillText("Drawdle", cardX + 44, cardY + 52);
 
-  // Brand
-  c.fillStyle = green;
-  c.font = "700 26px system-ui, -apple-system, sans-serif";
-  c.fillText("Drawdle", col1X + 8, colY + 36);
+  c.fillStyle = textMuted;
+  c.font = "500 16px system-ui, -apple-system, sans-serif";
+  const dateText = formatDate();
+  const dateW = c.measureText(dateText).width;
+  c.fillText(dateText, cardX + cardW - 44 - dateW, cardY + 52);
 
-  // Date
-  c.fillStyle = muted;
-  c.font = "500 14px system-ui, -apple-system, sans-serif";
-  c.fillText(formatDate(), col1X + 8, colY + 60);
+  // Divider line
+  c.beginPath();
+  c.moveTo(cardX + 44, cardY + 72);
+  c.lineTo(cardX + cardW - 44, cardY + 72);
+  c.strokeStyle = border;
+  c.lineWidth = 1;
+  c.stroke();
+
+  // ── Left half: Score area ──
+  const leftW = cardW * 0.42;
+  const contentY = cardY + 96;
 
   // Prompt title
-  c.fillStyle = white;
-  c.font = "700 30px system-ui, -apple-system, sans-serif";
-  c.fillText(dailyPrompt.title, col1X + 8, colY + 110);
+  c.fillStyle = textMuted;
+  c.font = "600 15px system-ui, -apple-system, sans-serif";
+  c.fillText("TODAY'S PROMPT", cardX + 44, contentY);
 
-  // Big score
+  c.fillStyle = text;
+  c.font = "700 32px system-ui, -apple-system, sans-serif";
+  c.fillText(dailyPrompt.title, cardX + 44, contentY + 40);
+
+  // Big score with green accent pill behind
+  const scoreStr = String(score);
+  c.font = "800 120px system-ui, -apple-system, sans-serif";
+  const scoreTextW = c.measureText(scoreStr).width;
+  const scoreCenterX = cardX + 44 + (leftW - 44) / 2;
+  const scoreX = scoreCenterX - scoreTextW / 2;
+  const scoreBaseY = contentY + 170;
+
+  // Green glow circle behind score
+  const glowGrad = c.createRadialGradient(scoreCenterX, scoreBaseY - 40, 0, scoreCenterX, scoreBaseY - 40, 100);
+  glowGrad.addColorStop(0, "rgba(16, 184, 86, 0.12)");
+  glowGrad.addColorStop(1, "rgba(16, 184, 86, 0)");
+  c.fillStyle = glowGrad;
+  c.beginPath();
+  c.arc(scoreCenterX, scoreBaseY - 40, 100, 0, Math.PI * 2);
+  c.fill();
+
   c.fillStyle = green;
-  c.font = "800 110px system-ui, -apple-system, sans-serif";
-  c.fillText(String(score), col1X + 8, colY + 240);
+  c.font = "800 120px system-ui, -apple-system, sans-serif";
+  c.fillText(scoreStr, scoreX, scoreBaseY);
 
-  // /100 label
-  const sw = c.measureText(String(score)).width;
-  c.fillStyle = muted;
-  c.font = "600 24px system-ui, -apple-system, sans-serif";
-  c.fillText("/ 100", col1X + 8 + sw + 8, colY + 234);
+  // /100
+  c.fillStyle = textMuted;
+  c.font = "600 26px system-ui, -apple-system, sans-serif";
+  c.fillText("/ 100", scoreX + scoreTextW + 8, scoreBaseY - 4);
 
-  // Grid blocks — compact
-  const blockSize = 24;
-  const blockGap = 6;
-  const blockY = colY + 270;
+  // Feedback text
+  const feedback = getScoreFeedbackText(score);
+  c.fillStyle = textMuted;
+  c.font = "italic 500 17px system-ui, -apple-system, sans-serif";
+  c.fillText(`"${feedback}"`, cardX + 44, scoreBaseY + 40);
+
+  // Grid blocks
+  const blockSize = 28;
+  const blockGap = 8;
+  const totalBlockW = shareGridLength * blockSize + (shareGridLength - 1) * blockGap;
+  const blockStartX = cardX + 44;
+  const blockY = scoreBaseY + 68;
   const filled = Math.min(shareGridLength, Math.max(0, Math.round((score / 100) * shareGridLength)));
-  for (let i = 0; i < shareGridLength; i += 1) {
-    const bx = col1X + 8 + i * (blockSize + blockGap);
-    roundRect(c, bx, blockY, blockSize, blockSize, 5);
+  for (let i = 0; i < shareGridLength; i++) {
+    const bx = blockStartX + i * (blockSize + blockGap);
+    roundRect(c, bx, blockY, blockSize, blockSize, 6);
     c.fillStyle = i < filled ? green : greenDim;
     c.fill();
   }
 
-  // Streak / plays
+  // Stats line
   const stats = loadStats();
-  c.fillStyle = muted;
-  c.font = "500 15px system-ui, -apple-system, sans-serif";
-  c.fillText(`Streak ${stats.streak}  ·  ${stats.plays} plays`, col1X + 8, blockY + blockSize + 30);
+  c.fillStyle = textMuted;
+  c.font = "500 14px system-ui, -apple-system, sans-serif";
+  c.fillText(`Streak ${stats.streak}  ·  ${stats.plays} played`, blockStartX, blockY + blockSize + 28);
 
-  // Footer in score column
-  c.fillStyle = muted;
-  c.font = "500 13px system-ui, -apple-system, sans-serif";
-  c.fillText("drawdle.app", col1X + 8, colY + colH - 8);
+  // ── Right half: Side-by-side drawings ──
+  const rightX = cardX + leftW + 20;
+  const rightW = cardW - leftW - 64;
+  const drawGap = 14;
+  const drawW = Math.floor((rightW - drawGap) / 2);
+  const drawTop = contentY - 6;
+  const drawH = cardH - (contentY - cardY) - 44;
 
-  // ── Helper to draw a drawing panel ──
-  const drawPanel = (px, label, drawFn) => {
-    // Panel bg
-    roundRect(c, px, colY, colW, colH, 18);
-    c.fillStyle = panelBg;
+  const drawArtPanel = (px, label, renderFn) => {
+    // Card
+    roundRect(c, px, drawTop, drawW, drawH, 16);
+    c.fillStyle = bg;
     c.fill();
-    c.strokeStyle = panelBorder;
-    c.lineWidth = 1.5;
+    c.strokeStyle = border;
+    c.lineWidth = 1;
     c.stroke();
 
     // Label
-    c.fillStyle = muted;
-    c.font = "600 13px system-ui, -apple-system, sans-serif";
-    c.fillText(label.toUpperCase(), px + 18, colY + 30);
+    c.fillStyle = textMuted;
+    c.font = "700 11px system-ui, -apple-system, sans-serif";
+    c.fillText(label.toUpperCase(), px + 14, drawTop + 22);
 
     // Art area
-    const inset = 14;
-    const top = 44;
-    const ax = px + inset;
-    const ay = colY + top;
-    const aw = colW - inset * 2;
-    const ah = colH - top - inset;
+    const artX = px + 10;
+    const artY = drawTop + 34;
+    const artW = drawW - 20;
+    const artH = drawH - 44;
 
     c.save();
-    roundRect(c, ax, ay, aw, ah, 12);
-    drawFn(ax, ay, aw, ah);
+    roundRect(c, artX, artY, artW, artH, 10);
+    renderFn(artX, artY, artW, artH);
     c.restore();
   };
 
-  // ── Column 2: User drawing ──
-  drawPanel(col2X, "Your drawing", (ax, ay, aw, ah) => {
-    c.fillStyle = "#ffffff";
+  // User drawing
+  drawArtPanel(rightX, "Yours", (ax, ay, aw, ah) => {
+    c.fillStyle = white;
     c.fill();
     c.clip();
+    const savedDrawing = localStorage.getItem("drawdleLastDrawing");
+    if (savedDrawing) {
+      // Use saved image — drawImage with HTMLImageElement is sync if already loaded
+      // Fall back to live canvas
+    }
     const s = Math.min(aw / drawCanvas.width, ah / drawCanvas.height);
     const ox = ax + (aw - drawCanvas.width * s) / 2;
     const oy = ay + (ah - drawCanvas.height * s) / 2;
     c.drawImage(drawCanvas, ox, oy, drawCanvas.width * s, drawCanvas.height * s);
   });
 
-  // ── Column 3: Reference ──
-  drawPanel(col3X, "Reference", (ax, ay, aw, ah) => {
-    c.fillStyle = "#1a1e30";
+  // Reference
+  drawArtPanel(rightX + drawW + drawGap, "Reference", (ax, ay, aw, ah) => {
+    c.fillStyle = white;
     c.fill();
     c.clip();
     const s = Math.min(aw / drawCanvas.width, ah / drawCanvas.height);
     const ox = ax + (aw - drawCanvas.width * s) / 2;
     const oy = ay + (ah - drawCanvas.height * s) / 2;
-    drawReferenceStatic(c, ox, oy, s);
+    c.save();
+    c.translate(ox, oy);
+    c.scale(s, s);
+    c.lineWidth = 10 / s;
+    c.lineCap = "round";
+    c.lineJoin = "round";
+    c.strokeStyle = "#151720";
+    if (promptDrawFns[dailyPrompt.key]) promptDrawFns[dailyPrompt.key](c);
+    c.restore();
   });
 
   return canvas;
