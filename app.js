@@ -2558,17 +2558,22 @@ function lockAttemptUI() {
 
 function setScoreFeedback(score, stats) {
   if (!scoreFeedbackEl) return;
-  if (score >= 90) scoreFeedbackEl.textContent = "Great overlap—you nailed it.";
-  else if (score >= 70) scoreFeedbackEl.textContent = "Nice shape—try matching the size next time.";
-  else if (score >= 50) scoreFeedbackEl.textContent = "Good start—reference was a bit more centered.";
-  else scoreFeedbackEl.textContent = "Keep practicing—draw bold and fill the canvas.";
+  scoreFeedbackEl.textContent = getScoreFeedbackText(score);
 }
 
 function getScoreFeedbackText(score) {
-  if (score >= 90) return "Great overlap—you nailed it.";
-  if (score >= 70) return "Nice shape—try matching the size next time.";
-  if (score >= 50) return "Good start—reference was a bit more centered.";
-  return "Keep practicing—draw bold and fill the canvas.";
+  if (score >= 95) return "Pixel perfect. Are you a printer?";
+  if (score >= 90) return "Basically traced it. Incredible.";
+  if (score >= 85) return "So close it's scary. Well done.";
+  if (score >= 80) return "Impressive eye. Solid lines.";
+  if (score >= 75) return "You've got the touch.";
+  if (score >= 70) return "Looking sharp. Almost there.";
+  if (score >= 65) return "Not bad at all. The shapes are there.";
+  if (score >= 60) return "Getting warmer. You see it.";
+  if (score >= 50) return "Halfway hero. Room to grow.";
+  if (score >= 40) return "Rough sketch energy. Keep at it.";
+  if (score >= 25) return "Bold attempt. Tomorrow's your day.";
+  return "Abstract art has entered the chat.";
 }
 
 function populateResultsModal(score, stats) {
