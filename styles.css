@@ -677,12 +677,33 @@ body {
   font-weight: 600;
 }
 
-/* ── Results modal ── */
+/* ── Results modal (Wordle-style bottom sheet) ── */
 
-.results-modal-card { text-align: center; }
+#resultsModal {
+  align-items: flex-end;
+  padding: 0;
+}
+
+.results-modal-card {
+  text-align: center;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 20px 20px 0 0;
+  padding: 20px 20px calc(20px + env(safe-area-inset-bottom));
+  animation: results-slide-up 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes results-slide-up {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.results-modal-card .modal-top {
+  margin-bottom: 12px;
+}
 
 .results-score-big {
-  font-size: 56px;
+  font-size: 64px;
   font-weight: 800;
   color: var(--accent);
   font-variant-numeric: tabular-nums;
@@ -691,7 +712,7 @@ body {
 }
 
 .results-prompt {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   color: var(--text);
   margin-bottom: 2px;
@@ -700,14 +721,20 @@ body {
 .results-feedback {
   font-size: 13px;
   color: var(--text-2);
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
 .results-grid-visual {
   display: flex;
   justify-content: center;
-  gap: 4px;
-  margin-bottom: 14px;
+  gap: 5px;
+  margin-bottom: 16px;
+}
+
+.results-grid-visual .share-block {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
 }
 
 .results-badges {
@@ -715,13 +742,36 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   gap: 6px;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 .results-actions {
   display: flex;
   justify-content: center;
   gap: 8px;
+}
+
+.results-actions .btn-share,
+.results-actions .tool-btn {
+  flex: 1;
+  max-width: 140px;
+  padding: 12px 0;
+  font-size: 15px;
+}
+
+@media (min-width: 600px) {
+  #resultsModal {
+    align-items: center;
+    padding: 20px;
+  }
+
+  .results-modal-card {
+    width: min(420px, 92vw);
+    max-width: 420px;
+    border-radius: 18px;
+    padding: 22px;
+    animation: modal-in 0.2s ease-out;
+  }
 }
 
 /* ── Desktop: wider canvas, centered ── */
