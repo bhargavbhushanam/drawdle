@@ -724,6 +724,38 @@ body {
   margin-bottom: 16px;
 }
 
+.results-drawings {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.results-drawing-card {
+  flex: 1;
+  min-width: 0;
+  background: var(--bg-2);
+  border-radius: 12px;
+  padding: 8px;
+  border: 1px solid var(--line);
+}
+
+.results-drawing-label {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-2);
+  margin-bottom: 6px;
+}
+
+.results-drawing-card canvas {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  background: #fff;
+}
+
 .results-grid-visual {
   display: flex;
   justify-content: center;

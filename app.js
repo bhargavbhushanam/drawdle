@@ -53,6 +53,8 @@ const resultsShareBtn = document.getElementById("resultsShareBtn");
 const resultsCopyBtn = document.getElementById("resultsCopyBtn");
 const resultsDownloadBtn = document.getElementById("resultsDownloadBtn");
 const closeResultsBtn = document.getElementById("closeResults");
+const resultsUserCanvas = document.getElementById("resultsUserCanvas");
+const resultsRefCanvas = document.getElementById("resultsRefCanvas");
 
 let drawing = false;
 let gameStarted = false;
@@ -388,6 +390,7 @@ function handleScore({ auto = false } = {}) {
     renderBadges(statsBadges, stats, score);
     if (scoreFeedbackEl) setScoreFeedback(score, stats);
     lockAttemptUI();
+    try { localStorage.setItem("drawdleLastDrawing", drawCanvas.toDataURL("image/png")); } catch (e) {}
     populateResultsModal(score, stats);
     openModal(resultsModal);
   });
@@ -2582,6 +2585,24 @@ function populateResultsModal(score, stats) {
   }
   // Badges
   renderBadges(resultsBadges, stats, score);
+  // Draw user's drawing onto modal canvas
+  const uCtx = resultsUserCanvas.getContext("2d");
+  uCtx.clearRect(0, 0, resultsUserCanvas.width, resultsUserCanvas.height);
+  // Try saved drawing first (for page reload), fall back to live canvas
+  const savedDrawing = localStorage.getItem("drawdleLastDrawing");
+  if (savedDrawing) {
+    const img = new Image();
+    img.onload = () => uCtx.drawImage(img, 0, 0);
+    img.src = savedDrawing;
+  } else {
+    uCtx.drawImage(drawCanvas, 0, 0);
+  }
+  // Draw reference onto modal canvas
+  const rCtx = resultsRefCanvas.getContext("2d");
+  rCtx.clearRect(0, 0, resultsRefCanvas.width, resultsRefCanvas.height);
+  rCtx.fillStyle = "#fff";
+  rCtx.fillRect(0, 0, resultsRefCanvas.width, resultsRefCanvas.height);
+  drawReference(rCtx);
 }
 
 let modalPreviousFocus = null;
