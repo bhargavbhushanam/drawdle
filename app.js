@@ -136,8 +136,6 @@ function getDailyPrompt() {
 }
 
 function maskWord(title) {
-  const letters = title.replace(/[^a-zA-Z]/g, "").toLowerCase();
-  if (letters.length <= 3) return letters.split("").join("*");
   const seed = getTodayKey().split("-").join("");
   let s = 0;
   for (let i = 0; i < seed.length; i++) {
@@ -150,13 +148,20 @@ function maskWord(title) {
     t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
     return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
   }
-  const indices = [];
-  while (indices.length < 3) {
-    const idx = Math.floor(nextRand() * letters.length);
-    if (!indices.includes(idx)) indices.push(idx);
-  }
-  indices.sort((a, b) => a - b);
-  return indices.map(i => letters[i]).join("*");
+  const words = title.split(/\s+/);
+  const masked = words.map(word => {
+    const letters = word.replace(/[^a-zA-Z]/g, "").toLowerCase();
+    if (letters.length <= 2) return letters.split("").join("*");
+    const reveal = Math.min(2, letters.length);
+    const indices = [];
+    while (indices.length < reveal) {
+      const idx = Math.floor(nextRand() * letters.length);
+      if (!indices.includes(idx)) indices.push(idx);
+    }
+    indices.sort((a, b) => a - b);
+    return indices.map(i => letters[i]).join("*");
+  });
+  return masked.join(" ");
 }
 
 function loadStats() {
