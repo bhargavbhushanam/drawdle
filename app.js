@@ -1764,7 +1764,7 @@ function scoreDrawing() {
   const dx = Math.round(refCenter.x - userCenter.x);
   const dy = Math.round(refCenter.y - userCenter.y);
   const alignedUser = shiftMask(normalizedUser, dx, dy);
-  const refTight = dilateMask(refMask, 1);
+  const refTight = dilateMask(refMask, 2);
 
   let refPixels = 0;
   let overlap = 0;
