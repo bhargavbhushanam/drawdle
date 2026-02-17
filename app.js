@@ -422,1028 +422,1028 @@ function restoreTodayState(stats) {
 const promptDrawFns = {
   rocket(c) {
     // body
-    c.beginPath(); c.moveTo(230, 320); c.lineTo(230, 140);
-    c.quadraticCurveTo(230, 80, 260, 50);
-    c.quadraticCurveTo(290, 80, 290, 140); c.lineTo(290, 320); c.stroke();
+    c.beginPath(); c.moveTo(218, 364); c.lineTo(218, 112);
+    c.quadraticCurveTo(218, 28, 260, -14);
+    c.quadraticCurveTo(302, 28, 302, 112); c.lineTo(302, 364); c.stroke();
     // nose cone tip
-    c.beginPath(); c.moveTo(260, 50); c.lineTo(250, 70); c.stroke();
-    c.beginPath(); c.moveTo(260, 50); c.lineTo(270, 70); c.stroke();
+    c.beginPath(); c.moveTo(260, -14); c.lineTo(246, 14); c.stroke();
+    c.beginPath(); c.moveTo(260, -14); c.lineTo(274, 14); c.stroke();
     // left fin
-    c.beginPath(); c.moveTo(230, 280); c.lineTo(190, 340);
-    c.lineTo(230, 320); c.stroke();
+    c.beginPath(); c.moveTo(218, 308); c.lineTo(162, 392);
+    c.lineTo(218, 364); c.stroke();
     // right fin
-    c.beginPath(); c.moveTo(290, 280); c.lineTo(330, 340);
-    c.lineTo(290, 320); c.stroke();
+    c.beginPath(); c.moveTo(302, 308); c.lineTo(358, 392);
+    c.lineTo(302, 364); c.stroke();
     // window
-    c.beginPath(); c.arc(260, 180, 22, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(260, 168, 31, 0, Math.PI * 2); c.stroke();
     // window inner
-    c.beginPath(); c.arc(260, 180, 14, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(260, 168, 20, 0, Math.PI * 2); c.stroke();
     // body stripe
-    c.beginPath(); c.moveTo(230, 250); c.lineTo(290, 250); c.stroke();
-    c.beginPath(); c.moveTo(230, 265); c.lineTo(290, 265); c.stroke();
+    c.beginPath(); c.moveTo(218, 266); c.lineTo(302, 266); c.stroke();
+    c.beginPath(); c.moveTo(218, 287); c.lineTo(302, 287); c.stroke();
     // exhaust flames
-    c.beginPath(); c.moveTo(240, 320); c.quadraticCurveTo(245, 360, 260, 390); c.stroke();
-    c.beginPath(); c.moveTo(280, 320); c.quadraticCurveTo(275, 360, 260, 390); c.stroke();
-    c.beginPath(); c.moveTo(250, 320); c.quadraticCurveTo(255, 350, 260, 370); c.stroke();
-    c.beginPath(); c.moveTo(270, 320); c.quadraticCurveTo(265, 350, 260, 370); c.stroke();
+    c.beginPath(); c.moveTo(232, 364); c.quadraticCurveTo(239, 420, 260, 462); c.stroke();
+    c.beginPath(); c.moveTo(288, 364); c.quadraticCurveTo(281, 420, 260, 462); c.stroke();
+    c.beginPath(); c.moveTo(246, 364); c.quadraticCurveTo(253, 406, 260, 434); c.stroke();
+    c.beginPath(); c.moveTo(274, 364); c.quadraticCurveTo(267, 406, 260, 434); c.stroke();
     // stars
-    c.beginPath(); c.arc(160, 100, 3, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(370, 150, 3, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(150, 250, 3, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(120, 56, 4, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(414, 126, 4, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(106, 266, 4, 0, Math.PI * 2); c.stroke();
   },
   octopus(c) {
     // head
-    c.beginPath(); c.ellipse(260, 150, 80, 70, 0, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.ellipse(260, 135, 100, 88, 0, 0, Math.PI * 2); c.stroke();
     // eyes
-    c.beginPath(); c.arc(230, 140, 15, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(290, 140, 15, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(223, 123, 19, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(298, 123, 19, 0, Math.PI * 2); c.stroke();
     // pupils
-    c.beginPath(); c.arc(233, 138, 6, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(293, 138, 6, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(226, 120, 8, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(301, 120, 8, 0, Math.PI * 2); c.stroke();
     // mouth
-    c.beginPath(); c.arc(260, 170, 10, 0.2, Math.PI - 0.2); c.stroke();
+    c.beginPath(); c.arc(260, 160, 13, 0.2, Math.PI - 0.2); c.stroke();
     // tentacle 1
-    c.beginPath(); c.moveTo(195, 200); c.bezierCurveTo(150, 250, 120, 300, 140, 350);
-    c.quadraticCurveTo(150, 370, 165, 355); c.stroke();
+    c.beginPath(); c.moveTo(179, 198); c.bezierCurveTo(123, 260, 85, 323, 110, 385);
+    c.quadraticCurveTo(123, 410, 141, 391); c.stroke();
     // tentacle 2
-    c.beginPath(); c.moveTo(210, 210); c.bezierCurveTo(180, 270, 160, 330, 190, 370);
-    c.quadraticCurveTo(200, 385, 210, 370); c.stroke();
+    c.beginPath(); c.moveTo(198, 210); c.bezierCurveTo(160, 285, 135, 360, 173, 410);
+    c.quadraticCurveTo(185, 429, 198, 410); c.stroke();
     // tentacle 3
-    c.beginPath(); c.moveTo(235, 215); c.bezierCurveTo(220, 280, 210, 340, 230, 380);
-    c.quadraticCurveTo(240, 395, 250, 380); c.stroke();
+    c.beginPath(); c.moveTo(229, 216); c.bezierCurveTo(210, 298, 198, 373, 223, 423);
+    c.quadraticCurveTo(235, 441, 248, 423); c.stroke();
     // tentacle 4
-    c.beginPath(); c.moveTo(255, 218); c.bezierCurveTo(250, 280, 245, 350, 265, 390);
-    c.quadraticCurveTo(275, 400, 280, 385); c.stroke();
+    c.beginPath(); c.moveTo(254, 220); c.bezierCurveTo(248, 298, 241, 385, 266, 435);
+    c.quadraticCurveTo(279, 448, 285, 429); c.stroke();
     // tentacle 5
-    c.beginPath(); c.moveTo(275, 218); c.bezierCurveTo(285, 280, 295, 350, 305, 385);
-    c.quadraticCurveTo(315, 400, 320, 380); c.stroke();
+    c.beginPath(); c.moveTo(279, 220); c.bezierCurveTo(291, 298, 304, 385, 316, 429);
+    c.quadraticCurveTo(329, 448, 335, 423); c.stroke();
     // tentacle 6
-    c.beginPath(); c.moveTo(295, 215); c.bezierCurveTo(320, 270, 340, 330, 330, 370);
-    c.quadraticCurveTo(325, 385, 315, 365); c.stroke();
+    c.beginPath(); c.moveTo(304, 216); c.bezierCurveTo(335, 285, 360, 360, 348, 410);
+    c.quadraticCurveTo(341, 429, 329, 404); c.stroke();
     // tentacle 7
-    c.beginPath(); c.moveTo(310, 210); c.bezierCurveTo(340, 260, 370, 310, 365, 355);
-    c.quadraticCurveTo(362, 375, 350, 355); c.stroke();
+    c.beginPath(); c.moveTo(323, 210); c.bezierCurveTo(360, 273, 398, 335, 391, 391);
+    c.quadraticCurveTo(388, 416, 373, 391); c.stroke();
     // tentacle 8
-    c.beginPath(); c.moveTo(325, 200); c.bezierCurveTo(370, 240, 400, 290, 385, 340);
-    c.quadraticCurveTo(380, 360, 370, 340); c.stroke();
+    c.beginPath(); c.moveTo(341, 198); c.bezierCurveTo(398, 248, 435, 310, 416, 373);
+    c.quadraticCurveTo(410, 398, 398, 373); c.stroke();
     // suction cups on tentacle 1
-    c.beginPath(); c.arc(145, 310, 4, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(138, 335, 4, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(116, 335, 5, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(108, 366, 5, 0, Math.PI * 2); c.stroke();
   },
   pizza(c) {
     // outer crust arc
-    c.beginPath(); c.moveTo(140, 100); c.lineTo(260, 380); c.lineTo(380, 100); c.stroke();
+    c.beginPath(); c.moveTo(116, 78); c.lineTo(260, 414); c.lineTo(404, 78); c.stroke();
     // crust top
-    c.beginPath(); c.arc(260, 100, 120, Math.PI, 0); c.stroke();
+    c.beginPath(); c.arc(260, 78, 144, Math.PI, 0); c.stroke();
     // inner crust line
-    c.beginPath(); c.arc(260, 108, 108, Math.PI + 0.1, -0.1); c.stroke();
+    c.beginPath(); c.arc(260, 88, 130, Math.PI + 0.1, -0.1); c.stroke();
     // pepperoni 1
-    c.beginPath(); c.arc(240, 180, 16, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(236, 174, 19, 0, Math.PI * 2); c.stroke();
     // pepperoni 2
-    c.beginPath(); c.arc(290, 220, 14, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(296, 222, 17, 0, Math.PI * 2); c.stroke();
     // pepperoni 3
-    c.beginPath(); c.arc(220, 260, 15, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(212, 270, 18, 0, Math.PI * 2); c.stroke();
     // pepperoni 4
-    c.beginPath(); c.arc(270, 300, 13, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(272, 318, 16, 0, Math.PI * 2); c.stroke();
     // mushroom
-    c.beginPath(); c.arc(310, 160, 12, Math.PI, 0); c.stroke();
-    c.beginPath(); c.moveTo(304, 160); c.lineTo(306, 175); c.stroke();
-    c.beginPath(); c.moveTo(316, 160); c.lineTo(314, 175); c.stroke();
+    c.beginPath(); c.arc(320, 150, 14, Math.PI, 0); c.stroke();
+    c.beginPath(); c.moveTo(313, 150); c.lineTo(315, 168); c.stroke();
+    c.beginPath(); c.moveTo(327, 150); c.lineTo(325, 168); c.stroke();
     // olive
-    c.beginPath(); c.arc(200, 190, 10, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(200, 190, 4, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(188, 186, 12, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(188, 186, 5, 0, Math.PI * 2); c.stroke();
     // cheese drip
-    c.beginPath(); c.moveTo(260, 375); c.quadraticCurveTo(255, 395, 260, 400); c.stroke();
+    c.beginPath(); c.moveTo(260, 408); c.quadraticCurveTo(254, 432, 260, 438); c.stroke();
   },
   dragon(c) {
     // head
-    c.beginPath(); c.ellipse(160, 130, 45, 35, -0.2, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.ellipse(145, 118, 52, 40, -0.2, 0, Math.PI * 2); c.stroke();
     // snout
-    c.beginPath(); c.moveTo(118, 120); c.lineTo(95, 115); c.lineTo(95, 135); c.lineTo(118, 138); c.stroke();
+    c.beginPath(); c.moveTo(97, 107); c.lineTo(70, 101); c.lineTo(70, 124); c.lineTo(97, 127); c.stroke();
     // eye
-    c.beginPath(); c.arc(150, 120, 8, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(152, 119, 3, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(134, 107, 9, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(136, 105, 3, 0, Math.PI * 2); c.stroke();
     // horn left
-    c.beginPath(); c.moveTo(150, 100); c.lineTo(135, 65); c.lineTo(155, 90); c.stroke();
+    c.beginPath(); c.moveTo(134, 84); c.lineTo(116, 43); c.lineTo(139, 72); c.stroke();
     // horn right
-    c.beginPath(); c.moveTo(175, 98); c.lineTo(185, 60); c.lineTo(180, 92); c.stroke();
+    c.beginPath(); c.moveTo(162, 81); c.lineTo(174, 38); c.lineTo(168, 74); c.stroke();
     // nostril flame
-    c.beginPath(); c.moveTo(95, 120); c.quadraticCurveTo(70, 110, 60, 125);
-    c.quadraticCurveTo(55, 140, 75, 140); c.stroke();
+    c.beginPath(); c.moveTo(70, 107); c.quadraticCurveTo(42, 95, 30, 112);
+    c.quadraticCurveTo(24, 130, 47, 130); c.stroke();
     // neck
-    c.beginPath(); c.moveTo(190, 150); c.quadraticCurveTo(220, 180, 240, 200); c.stroke();
-    c.beginPath(); c.moveTo(175, 160); c.quadraticCurveTo(210, 195, 230, 215); c.stroke();
+    c.beginPath(); c.moveTo(180, 141); c.quadraticCurveTo(214, 176, 237, 199); c.stroke();
+    c.beginPath(); c.moveTo(162, 153); c.quadraticCurveTo(203, 193, 226, 216); c.stroke();
     // body
-    c.beginPath(); c.moveTo(240, 200);
-    c.bezierCurveTo(300, 190, 350, 210, 370, 250);
-    c.quadraticCurveTo(385, 285, 370, 310); c.stroke();
-    c.beginPath(); c.moveTo(230, 215);
-    c.bezierCurveTo(280, 220, 340, 240, 360, 280);
-    c.quadraticCurveTo(370, 310, 355, 325); c.stroke();
+    c.beginPath(); c.moveTo(237, 199);
+    c.bezierCurveTo(306, 187, 364, 210, 387, 256);
+    c.quadraticCurveTo(404, 296, 387, 325); c.stroke();
+    c.beginPath(); c.moveTo(226, 216);
+    c.bezierCurveTo(283, 222, 352, 245, 375, 291);
+    c.quadraticCurveTo(387, 325, 369, 342); c.stroke();
     // wing
-    c.beginPath(); c.moveTo(270, 200); c.lineTo(310, 110); c.lineTo(360, 130);
-    c.lineTo(400, 100); c.lineTo(380, 180); c.lineTo(350, 210); c.stroke();
+    c.beginPath(); c.moveTo(272, 199); c.lineTo(318, 95); c.lineTo(375, 118);
+    c.lineTo(421, 84); c.lineTo(398, 176); c.lineTo(364, 210); c.stroke();
     // wing membrane lines
-    c.beginPath(); c.moveTo(310, 110); c.lineTo(330, 190); c.stroke();
-    c.beginPath(); c.moveTo(360, 130); c.lineTo(360, 200); c.stroke();
+    c.beginPath(); c.moveTo(318, 95); c.lineTo(341, 187); c.stroke();
+    c.beginPath(); c.moveTo(375, 118); c.lineTo(375, 199); c.stroke();
     // belly
-    c.beginPath(); c.moveTo(260, 225); c.lineTo(260, 255); c.stroke();
-    c.beginPath(); c.moveTo(280, 230); c.lineTo(280, 265); c.stroke();
-    c.beginPath(); c.moveTo(300, 235); c.lineTo(300, 275); c.stroke();
+    c.beginPath(); c.moveTo(260, 227); c.lineTo(260, 262); c.stroke();
+    c.beginPath(); c.moveTo(283, 233); c.lineTo(283, 273); c.stroke();
+    c.beginPath(); c.moveTo(306, 239); c.lineTo(306, 285); c.stroke();
     // front leg
-    c.beginPath(); c.moveTo(270, 250); c.lineTo(260, 320); c.lineTo(240, 330);
-    c.moveTo(260, 320); c.lineTo(270, 335); c.stroke();
+    c.beginPath(); c.moveTo(272, 256); c.lineTo(260, 337); c.lineTo(237, 348);
+    c.moveTo(260, 337); c.lineTo(272, 354); c.stroke();
     // back leg
-    c.beginPath(); c.moveTo(340, 280); c.lineTo(350, 340); c.lineTo(335, 350);
-    c.moveTo(350, 340); c.lineTo(365, 350); c.stroke();
+    c.beginPath(); c.moveTo(352, 291); c.lineTo(364, 360); c.lineTo(346, 371);
+    c.moveTo(364, 360); c.lineTo(381, 371); c.stroke();
     // tail
-    c.beginPath(); c.moveTo(370, 310);
-    c.bezierCurveTo(390, 340, 420, 350, 440, 330);
-    c.quadraticCurveTo(460, 310, 450, 295); c.stroke();
+    c.beginPath(); c.moveTo(387, 325);
+    c.bezierCurveTo(410, 360, 444, 371, 467, 348);
+    c.quadraticCurveTo(490, 325, 479, 308); c.stroke();
     // tail spike
-    c.beginPath(); c.moveTo(450, 295); c.lineTo(465, 280); c.lineTo(445, 290); c.stroke();
+    c.beginPath(); c.moveTo(479, 308); c.lineTo(496, 291); c.lineTo(473, 302); c.stroke();
     // neck spines
-    c.beginPath(); c.moveTo(200, 160); c.lineTo(195, 148); c.stroke();
-    c.beginPath(); c.moveTo(215, 175); c.lineTo(208, 163); c.stroke();
+    c.beginPath(); c.moveTo(191, 153); c.lineTo(185, 139); c.stroke();
+    c.beginPath(); c.moveTo(208, 170); c.lineTo(200, 156); c.stroke();
   },
   penguin(c) {
     // body
-    c.beginPath(); c.ellipse(260, 250, 70, 110, 0, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.ellipse(260, 264, 95, 149, 0, 0, Math.PI * 2); c.stroke();
     // belly
-    c.beginPath(); c.ellipse(260, 265, 45, 85, 0, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.ellipse(260, 284, 61, 115, 0, 0, Math.PI * 2); c.stroke();
     // head
-    c.beginPath(); c.arc(260, 140, 45, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(260, 116, 61, 0, Math.PI * 2); c.stroke();
     // left eye
-    c.beginPath(); c.arc(242, 132, 8, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(244, 131, 3, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(236, 105, 11, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(238, 103, 4, 0, Math.PI * 2); c.stroke();
     // right eye
-    c.beginPath(); c.arc(278, 132, 8, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(280, 131, 3, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(284, 105, 11, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(287, 103, 4, 0, Math.PI * 2); c.stroke();
     // beak
-    c.beginPath(); c.moveTo(252, 148); c.lineTo(260, 168); c.lineTo(268, 148); c.stroke();
+    c.beginPath(); c.moveTo(249, 126); c.lineTo(260, 153); c.lineTo(271, 126); c.stroke();
     // left wing
-    c.beginPath(); c.moveTo(192, 200);
-    c.quadraticCurveTo(155, 260, 170, 320); c.stroke();
+    c.beginPath(); c.moveTo(168, 197);
+    c.quadraticCurveTo(118, 278, 139, 359); c.stroke();
     // right wing
-    c.beginPath(); c.moveTo(328, 200);
-    c.quadraticCurveTo(365, 260, 350, 320); c.stroke();
+    c.beginPath(); c.moveTo(352, 197);
+    c.quadraticCurveTo(402, 278, 382, 359); c.stroke();
     // left foot
-    c.beginPath(); c.moveTo(230, 355); c.lineTo(210, 375); c.lineTo(240, 375); c.lineTo(250, 358); c.stroke();
+    c.beginPath(); c.moveTo(220, 406); c.lineTo(193, 433); c.lineTo(233, 433); c.lineTo(247, 410); c.stroke();
     // right foot
-    c.beginPath(); c.moveTo(290, 355); c.lineTo(280, 375); c.lineTo(310, 375); c.lineTo(290, 358); c.stroke();
+    c.beginPath(); c.moveTo(301, 406); c.lineTo(287, 433); c.lineTo(328, 433); c.lineTo(301, 410); c.stroke();
     // bow tie
-    c.beginPath(); c.moveTo(260, 185); c.lineTo(245, 175); c.lineTo(245, 195);
-    c.lineTo(260, 185); c.lineTo(275, 175); c.lineTo(275, 195); c.closePath(); c.stroke();
+    c.beginPath(); c.moveTo(260, 176); c.lineTo(240, 163); c.lineTo(240, 190);
+    c.lineTo(260, 176); c.lineTo(280, 163); c.lineTo(280, 190); c.closePath(); c.stroke();
   },
   ufo(c) {
     // dome
-    c.beginPath(); c.arc(260, 190, 60, Math.PI, 0); c.stroke();
+    c.beginPath(); c.arc(260, 186, 72, Math.PI, 0); c.stroke();
     // dome inner
-    c.beginPath(); c.arc(260, 190, 45, Math.PI + 0.2, -0.2); c.stroke();
+    c.beginPath(); c.arc(260, 186, 54, Math.PI + 0.2, -0.2); c.stroke();
     // main saucer body
-    c.beginPath(); c.ellipse(260, 200, 140, 35, 0, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.ellipse(260, 198, 168, 42, 0, 0, Math.PI * 2); c.stroke();
     // bottom rim
-    c.beginPath(); c.ellipse(260, 210, 120, 25, 0, 0.1, Math.PI - 0.1); c.stroke();
+    c.beginPath(); c.ellipse(260, 210, 144, 30, 0, 0.1, Math.PI - 0.1); c.stroke();
     // windows on dome
-    c.beginPath(); c.arc(230, 175, 8, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(260, 170, 8, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(290, 175, 8, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(224, 168, 10, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(260, 162, 10, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(296, 168, 10, 0, Math.PI * 2); c.stroke();
     // lights on rim
-    c.beginPath(); c.arc(170, 200, 6, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(215, 207, 6, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(260, 210, 6, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(305, 207, 6, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(350, 200, 6, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(152, 198, 7, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(206, 206, 7, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(260, 210, 7, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(314, 206, 7, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(368, 198, 7, 0, Math.PI * 2); c.stroke();
     // beam
-    c.beginPath(); c.moveTo(220, 230); c.lineTo(180, 380); c.stroke();
-    c.beginPath(); c.moveTo(300, 230); c.lineTo(340, 380); c.stroke();
+    c.beginPath(); c.moveTo(212, 234); c.lineTo(164, 414); c.stroke();
+    c.beginPath(); c.moveTo(308, 234); c.lineTo(356, 414); c.stroke();
     // beam bottom
-    c.beginPath(); c.moveTo(180, 380); c.lineTo(340, 380); c.stroke();
+    c.beginPath(); c.moveTo(164, 414); c.lineTo(356, 414); c.stroke();
     // beam lines
-    c.beginPath(); c.moveTo(235, 260); c.lineTo(285, 260); c.stroke();
-    c.beginPath(); c.moveTo(215, 320); c.lineTo(305, 320); c.stroke();
+    c.beginPath(); c.moveTo(230, 270); c.lineTo(290, 270); c.stroke();
+    c.beginPath(); c.moveTo(206, 342); c.lineTo(314, 342); c.stroke();
     // antenna
-    c.beginPath(); c.moveTo(260, 130); c.lineTo(260, 110); c.stroke();
-    c.beginPath(); c.arc(260, 106, 5, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.moveTo(260, 114); c.lineTo(260, 90); c.stroke();
+    c.beginPath(); c.arc(260, 85, 6, 0, Math.PI * 2); c.stroke();
   },
   skull(c) {
     // cranium
-    c.beginPath(); c.arc(260, 180, 90, Math.PI, 0); c.stroke();
+    c.beginPath(); c.arc(260, 171, 117, Math.PI, 0); c.stroke();
     // sides of skull
-    c.beginPath(); c.moveTo(170, 180); c.lineTo(170, 240);
-    c.quadraticCurveTo(170, 270, 190, 280); c.stroke();
-    c.beginPath(); c.moveTo(350, 180); c.lineTo(350, 240);
-    c.quadraticCurveTo(350, 270, 330, 280); c.stroke();
+    c.beginPath(); c.moveTo(143, 171); c.lineTo(143, 249);
+    c.quadraticCurveTo(143, 288, 169, 301); c.stroke();
+    c.beginPath(); c.moveTo(377, 171); c.lineTo(377, 249);
+    c.quadraticCurveTo(377, 288, 351, 301); c.stroke();
     // cheekbones
-    c.beginPath(); c.moveTo(190, 280); c.lineTo(195, 270); c.lineTo(220, 280); c.stroke();
-    c.beginPath(); c.moveTo(330, 280); c.lineTo(325, 270); c.lineTo(300, 280); c.stroke();
+    c.beginPath(); c.moveTo(169, 301); c.lineTo(176, 288); c.lineTo(208, 301); c.stroke();
+    c.beginPath(); c.moveTo(351, 301); c.lineTo(345, 288); c.lineTo(312, 301); c.stroke();
     // jaw
-    c.beginPath(); c.moveTo(220, 280); c.lineTo(210, 310);
-    c.quadraticCurveTo(210, 340, 230, 340); c.lineTo(290, 340);
-    c.quadraticCurveTo(310, 340, 310, 310); c.lineTo(300, 280); c.stroke();
+    c.beginPath(); c.moveTo(208, 301); c.lineTo(195, 340);
+    c.quadraticCurveTo(195, 379, 221, 379); c.lineTo(299, 379);
+    c.quadraticCurveTo(325, 379, 325, 340); c.lineTo(312, 301); c.stroke();
     // left eye socket
-    c.beginPath(); c.ellipse(225, 200, 28, 30, 0, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.ellipse(215, 197, 36, 39, 0, 0, Math.PI * 2); c.stroke();
     // right eye socket
-    c.beginPath(); c.ellipse(295, 200, 28, 30, 0, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.ellipse(306, 197, 36, 39, 0, 0, Math.PI * 2); c.stroke();
     // nose
-    c.beginPath(); c.moveTo(252, 240); c.lineTo(248, 265); c.lineTo(260, 270); c.lineTo(272, 265); c.lineTo(268, 240); c.stroke();
+    c.beginPath(); c.moveTo(250, 249); c.lineTo(244, 282); c.lineTo(260, 288); c.lineTo(276, 282); c.lineTo(270, 249); c.stroke();
     // teeth
-    c.beginPath(); c.moveTo(220, 300); c.lineTo(300, 300); c.stroke();
-    c.beginPath(); c.moveTo(235, 300); c.lineTo(235, 340); c.stroke();
-    c.beginPath(); c.moveTo(252, 300); c.lineTo(252, 340); c.stroke();
-    c.beginPath(); c.moveTo(268, 300); c.lineTo(268, 340); c.stroke();
-    c.beginPath(); c.moveTo(285, 300); c.lineTo(285, 340); c.stroke();
+    c.beginPath(); c.moveTo(208, 327); c.lineTo(312, 327); c.stroke();
+    c.beginPath(); c.moveTo(228, 327); c.lineTo(228, 379); c.stroke();
+    c.beginPath(); c.moveTo(250, 327); c.lineTo(250, 379); c.stroke();
+    c.beginPath(); c.moveTo(270, 327); c.lineTo(270, 379); c.stroke();
+    c.beginPath(); c.moveTo(293, 327); c.lineTo(293, 379); c.stroke();
     // temple detail
-    c.beginPath(); c.moveTo(175, 160); c.quadraticCurveTo(180, 170, 178, 185); c.stroke();
-    c.beginPath(); c.moveTo(345, 160); c.quadraticCurveTo(340, 170, 342, 185); c.stroke();
+    c.beginPath(); c.moveTo(150, 145); c.quadraticCurveTo(156, 158, 153, 178); c.stroke();
+    c.beginPath(); c.moveTo(371, 145); c.quadraticCurveTo(364, 158, 367, 178); c.stroke();
   },
   palmtree(c) {
     // trunk
-    c.beginPath(); c.moveTo(245, 390); c.quadraticCurveTo(240, 300, 255, 200);
-    c.quadraticCurveTo(265, 160, 260, 140); c.stroke();
-    c.beginPath(); c.moveTo(275, 390); c.quadraticCurveTo(270, 300, 275, 200);
-    c.quadraticCurveTo(280, 160, 270, 140); c.stroke();
+    c.beginPath(); c.moveTo(243, 417); c.quadraticCurveTo(237, 314, 254, 199);
+    c.quadraticCurveTo(266, 153, 260, 130); c.stroke();
+    c.beginPath(); c.moveTo(277, 417); c.quadraticCurveTo(272, 314, 277, 199);
+    c.quadraticCurveTo(283, 153, 272, 130); c.stroke();
     // trunk segments
-    c.beginPath(); c.moveTo(247, 350); c.lineTo(273, 350); c.stroke();
-    c.beginPath(); c.moveTo(248, 310); c.lineTo(274, 310); c.stroke();
-    c.beginPath(); c.moveTo(252, 270); c.lineTo(276, 270); c.stroke();
-    c.beginPath(); c.moveTo(256, 230); c.lineTo(276, 230); c.stroke();
-    c.beginPath(); c.moveTo(259, 195); c.lineTo(275, 195); c.stroke();
+    c.beginPath(); c.moveTo(245, 371); c.lineTo(275, 371); c.stroke();
+    c.beginPath(); c.moveTo(246, 325); c.lineTo(276, 325); c.stroke();
+    c.beginPath(); c.moveTo(251, 279); c.lineTo(278, 279); c.stroke();
+    c.beginPath(); c.moveTo(255, 233); c.lineTo(278, 233); c.stroke();
+    c.beginPath(); c.moveTo(259, 193); c.lineTo(277, 193); c.stroke();
     // frond 1 (right)
-    c.beginPath(); c.moveTo(265, 140);
-    c.bezierCurveTo(320, 110, 390, 100, 430, 130); c.stroke();
-    c.beginPath(); c.moveTo(330, 105); c.lineTo(340, 120); c.stroke();
-    c.beginPath(); c.moveTo(370, 100); c.lineTo(375, 118); c.stroke();
-    c.beginPath(); c.moveTo(405, 108); c.lineTo(405, 126); c.stroke();
+    c.beginPath(); c.moveTo(266, 130);
+    c.bezierCurveTo(329, 95, 410, 84, 456, 118); c.stroke();
+    c.beginPath(); c.moveTo(341, 89); c.lineTo(352, 107); c.stroke();
+    c.beginPath(); c.moveTo(387, 84); c.lineTo(392, 104); c.stroke();
+    c.beginPath(); c.moveTo(427, 93); c.lineTo(427, 113); c.stroke();
     // frond 2 (left)
-    c.beginPath(); c.moveTo(265, 140);
-    c.bezierCurveTo(200, 110, 130, 105, 90, 140); c.stroke();
-    c.beginPath(); c.moveTo(190, 108); c.lineTo(185, 125); c.stroke();
-    c.beginPath(); c.moveTo(150, 105); c.lineTo(148, 122); c.stroke();
-    c.beginPath(); c.moveTo(115, 115); c.lineTo(115, 132); c.stroke();
+    c.beginPath(); c.moveTo(266, 130);
+    c.bezierCurveTo(191, 95, 111, 89, 65, 130); c.stroke();
+    c.beginPath(); c.moveTo(180, 93); c.lineTo(174, 112); c.stroke();
+    c.beginPath(); c.moveTo(134, 89); c.lineTo(131, 109); c.stroke();
+    c.beginPath(); c.moveTo(93, 101); c.lineTo(93, 120); c.stroke();
     // frond 3 (right drooping)
-    c.beginPath(); c.moveTo(265, 140);
-    c.bezierCurveTo(310, 140, 380, 160, 410, 200); c.stroke();
-    c.beginPath(); c.moveTo(340, 148); c.lineTo(345, 165); c.stroke();
-    c.beginPath(); c.moveTo(375, 162); c.lineTo(378, 180); c.stroke();
+    c.beginPath(); c.moveTo(266, 130);
+    c.bezierCurveTo(318, 130, 398, 153, 433, 199); c.stroke();
+    c.beginPath(); c.moveTo(352, 139); c.lineTo(358, 158); c.stroke();
+    c.beginPath(); c.moveTo(392, 155); c.lineTo(396, 176); c.stroke();
     // frond 4 (left drooping)
-    c.beginPath(); c.moveTo(265, 140);
-    c.bezierCurveTo(220, 140, 150, 165, 120, 205); c.stroke();
-    c.beginPath(); c.moveTo(180, 155); c.lineTo(177, 172); c.stroke();
-    c.beginPath(); c.moveTo(145, 172); c.lineTo(143, 190); c.stroke();
+    c.beginPath(); c.moveTo(266, 130);
+    c.bezierCurveTo(214, 130, 134, 158, 99, 204); c.stroke();
+    c.beginPath(); c.moveTo(168, 147); c.lineTo(165, 166); c.stroke();
+    c.beginPath(); c.moveTo(128, 166); c.lineTo(125, 187); c.stroke();
     // coconuts
-    c.beginPath(); c.arc(255, 150, 10, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(275, 148, 10, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(254, 141, 12, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(277, 139, 12, 0, Math.PI * 2); c.stroke();
   },
   robot(c) {
     // head
-    c.beginPath(); c.rect(210, 80, 100, 80); c.stroke();
+    c.beginPath(); c.rect(200, 54, 120, 96); c.stroke();
     // antenna
-    c.beginPath(); c.moveTo(260, 80); c.lineTo(260, 55); c.stroke();
-    c.beginPath(); c.arc(260, 48, 7, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.moveTo(260, 54); c.lineTo(260, 24); c.stroke();
+    c.beginPath(); c.arc(260, 16, 8, 0, Math.PI * 2); c.stroke();
     // eyes
-    c.beginPath(); c.rect(228, 105, 20, 20); c.stroke();
-    c.beginPath(); c.rect(272, 105, 20, 20); c.stroke();
+    c.beginPath(); c.rect(222, 84, 24, 24); c.stroke();
+    c.beginPath(); c.rect(274, 84, 24, 24); c.stroke();
     // pupils
-    c.beginPath(); c.arc(238, 115, 5, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(282, 115, 5, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(234, 96, 6, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(286, 96, 6, 0, Math.PI * 2); c.stroke();
     // mouth
-    c.beginPath(); c.moveTo(235, 140); c.lineTo(285, 140); c.stroke();
-    c.beginPath(); c.moveTo(245, 140); c.lineTo(245, 148); c.stroke();
-    c.beginPath(); c.moveTo(260, 140); c.lineTo(260, 148); c.stroke();
-    c.beginPath(); c.moveTo(275, 140); c.lineTo(275, 148); c.stroke();
+    c.beginPath(); c.moveTo(230, 126); c.lineTo(290, 126); c.stroke();
+    c.beginPath(); c.moveTo(242, 126); c.lineTo(242, 136); c.stroke();
+    c.beginPath(); c.moveTo(260, 126); c.lineTo(260, 136); c.stroke();
+    c.beginPath(); c.moveTo(278, 126); c.lineTo(278, 136); c.stroke();
     // neck
-    c.beginPath(); c.moveTo(245, 160); c.lineTo(245, 180); c.lineTo(275, 180); c.lineTo(275, 160); c.stroke();
+    c.beginPath(); c.moveTo(242, 150); c.lineTo(242, 174); c.lineTo(278, 174); c.lineTo(278, 150); c.stroke();
     // body
-    c.beginPath(); c.rect(195, 180, 130, 130); c.stroke();
+    c.beginPath(); c.rect(182, 174, 156, 156); c.stroke();
     // chest panel
-    c.beginPath(); c.rect(220, 200, 80, 60); c.stroke();
+    c.beginPath(); c.rect(212, 198, 96, 72); c.stroke();
     // chest buttons
-    c.beginPath(); c.arc(240, 220, 8, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(270, 220, 8, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(236, 222, 10, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(272, 222, 10, 0, Math.PI * 2); c.stroke();
     // chest meter
-    c.beginPath(); c.moveTo(230, 245); c.lineTo(290, 245); c.stroke();
-    c.beginPath(); c.moveTo(260, 240); c.lineTo(260, 250); c.stroke();
+    c.beginPath(); c.moveTo(224, 252); c.lineTo(296, 252); c.stroke();
+    c.beginPath(); c.moveTo(260, 246); c.lineTo(260, 258); c.stroke();
     // left arm
-    c.beginPath(); c.moveTo(195, 195); c.lineTo(155, 195); c.lineTo(155, 280); c.lineTo(175, 280); c.lineTo(175, 210); c.lineTo(195, 210); c.stroke();
+    c.beginPath(); c.moveTo(182, 192); c.lineTo(134, 192); c.lineTo(134, 294); c.lineTo(158, 294); c.lineTo(158, 210); c.lineTo(182, 210); c.stroke();
     // left claw
-    c.beginPath(); c.moveTo(145, 280); c.lineTo(145, 300); c.stroke();
-    c.beginPath(); c.moveTo(175, 280); c.lineTo(175, 300); c.stroke();
+    c.beginPath(); c.moveTo(122, 294); c.lineTo(122, 318); c.stroke();
+    c.beginPath(); c.moveTo(158, 294); c.lineTo(158, 318); c.stroke();
     // right arm
-    c.beginPath(); c.moveTo(325, 195); c.lineTo(365, 195); c.lineTo(365, 280); c.lineTo(345, 280); c.lineTo(345, 210); c.lineTo(325, 210); c.stroke();
+    c.beginPath(); c.moveTo(338, 192); c.lineTo(386, 192); c.lineTo(386, 294); c.lineTo(362, 294); c.lineTo(362, 210); c.lineTo(338, 210); c.stroke();
     // right claw
-    c.beginPath(); c.moveTo(345, 280); c.lineTo(345, 300); c.stroke();
-    c.beginPath(); c.moveTo(375, 280); c.lineTo(375, 300); c.stroke();
+    c.beginPath(); c.moveTo(362, 294); c.lineTo(362, 318); c.stroke();
+    c.beginPath(); c.moveTo(398, 294); c.lineTo(398, 318); c.stroke();
     // left leg
-    c.beginPath(); c.moveTo(220, 310); c.lineTo(220, 370); c.lineTo(200, 370); c.lineTo(200, 380); c.lineTo(245, 380); c.lineTo(245, 370); c.lineTo(240, 370); c.lineTo(240, 310); c.stroke();
+    c.beginPath(); c.moveTo(212, 330); c.lineTo(212, 402); c.lineTo(188, 402); c.lineTo(188, 414); c.lineTo(242, 414); c.lineTo(242, 402); c.lineTo(236, 402); c.lineTo(236, 330); c.stroke();
     // right leg
-    c.beginPath(); c.moveTo(280, 310); c.lineTo(280, 370); c.lineTo(275, 370); c.lineTo(275, 380); c.lineTo(320, 380); c.lineTo(320, 370); c.lineTo(300, 370); c.lineTo(300, 310); c.stroke();
+    c.beginPath(); c.moveTo(284, 330); c.lineTo(284, 402); c.lineTo(278, 402); c.lineTo(278, 414); c.lineTo(332, 414); c.lineTo(332, 402); c.lineTo(308, 402); c.lineTo(308, 330); c.stroke();
     // bolt on head
-    c.beginPath(); c.moveTo(205, 115); c.lineTo(215, 115); c.stroke();
-    c.beginPath(); c.moveTo(210, 110); c.lineTo(210, 120); c.stroke();
+    c.beginPath(); c.moveTo(194, 96); c.lineTo(206, 96); c.stroke();
+    c.beginPath(); c.moveTo(200, 90); c.lineTo(200, 102); c.stroke();
   },
   flamingo(c) {
     // body
-    c.beginPath(); c.ellipse(280, 240, 60, 40, 0.3, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.ellipse(285, 248, 75, 50, 0.3, 0, Math.PI * 2); c.stroke();
     // tail feathers
-    c.beginPath(); c.moveTo(335, 225); c.quadraticCurveTo(370, 210, 380, 220); c.stroke();
-    c.beginPath(); c.moveTo(335, 235); c.quadraticCurveTo(375, 225, 385, 235); c.stroke();
+    c.beginPath(); c.moveTo(354, 229); c.quadraticCurveTo(398, 210, 410, 223); c.stroke();
+    c.beginPath(); c.moveTo(354, 241); c.quadraticCurveTo(404, 229, 416, 241); c.stroke();
     // neck
-    c.beginPath(); c.moveTo(235, 215);
-    c.bezierCurveTo(210, 190, 190, 150, 195, 110);
-    c.quadraticCurveTo(198, 85, 215, 80); c.stroke();
-    c.beginPath(); c.moveTo(245, 220);
-    c.bezierCurveTo(225, 195, 210, 155, 215, 115);
-    c.quadraticCurveTo(218, 92, 230, 87); c.stroke();
+    c.beginPath(); c.moveTo(229, 216);
+    c.bezierCurveTo(198, 185, 173, 135, 179, 85);
+    c.quadraticCurveTo(183, 54, 204, 48); c.stroke();
+    c.beginPath(); c.moveTo(241, 223);
+    c.bezierCurveTo(216, 191, 198, 141, 204, 91);
+    c.quadraticCurveTo(208, 63, 223, 56); c.stroke();
     // head
-    c.beginPath(); c.arc(222, 78, 18, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(213, 45, 23, 0, Math.PI * 2); c.stroke();
     // eye
-    c.beginPath(); c.arc(215, 74, 4, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(204, 40, 5, 0, Math.PI * 2); c.stroke();
     // beak
-    c.beginPath(); c.moveTo(206, 82); c.lineTo(178, 90); c.lineTo(178, 85);
-    c.lineTo(200, 78); c.stroke();
+    c.beginPath(); c.moveTo(193, 50); c.lineTo(158, 60); c.lineTo(158, 54);
+    c.lineTo(185, 45); c.stroke();
     // beak bend
-    c.beginPath(); c.moveTo(178, 85); c.quadraticCurveTo(172, 88, 170, 92); c.stroke();
+    c.beginPath(); c.moveTo(158, 54); c.quadraticCurveTo(150, 58, 148, 63); c.stroke();
     // front leg
-    c.beginPath(); c.moveTo(270, 275); c.lineTo(265, 340);
-    c.quadraticCurveTo(260, 355, 265, 360); c.stroke();
-    c.beginPath(); c.moveTo(255, 360); c.lineTo(280, 360); c.stroke();
+    c.beginPath(); c.moveTo(273, 291); c.lineTo(266, 373);
+    c.quadraticCurveTo(260, 391, 266, 398); c.stroke();
+    c.beginPath(); c.moveTo(254, 398); c.lineTo(285, 398); c.stroke();
     // back leg (bent)
-    c.beginPath(); c.moveTo(290, 275); c.lineTo(300, 320);
-    c.lineTo(290, 360); c.stroke();
-    c.beginPath(); c.moveTo(280, 360); c.lineTo(305, 360); c.stroke();
+    c.beginPath(); c.moveTo(298, 291); c.lineTo(310, 348);
+    c.lineTo(298, 398); c.stroke();
+    c.beginPath(); c.moveTo(285, 398); c.lineTo(316, 398); c.stroke();
     // wing detail
-    c.beginPath(); c.moveTo(250, 225); c.quadraticCurveTo(280, 215, 320, 225); c.stroke();
-    c.beginPath(); c.moveTo(255, 235); c.quadraticCurveTo(285, 228, 325, 238); c.stroke();
+    c.beginPath(); c.moveTo(248, 229); c.quadraticCurveTo(285, 216, 335, 229); c.stroke();
+    c.beginPath(); c.moveTo(254, 241); c.quadraticCurveTo(291, 233, 341, 245); c.stroke();
   },
   volcano(c) {
     // mountain left slope
-    c.beginPath(); c.moveTo(60, 370); c.lineTo(200, 140); c.stroke();
+    c.beginPath(); c.moveTo(50, 378); c.lineTo(197, 137); c.stroke();
     // mountain right slope
-    c.beginPath(); c.moveTo(460, 370); c.lineTo(320, 140); c.stroke();
+    c.beginPath(); c.moveTo(470, 378); c.lineTo(323, 137); c.stroke();
     // crater rim
-    c.beginPath(); c.moveTo(200, 140); c.quadraticCurveTo(260, 160, 320, 140); c.stroke();
+    c.beginPath(); c.moveTo(197, 137); c.quadraticCurveTo(260, 158, 323, 137); c.stroke();
     // ground line
-    c.beginPath(); c.moveTo(40, 370); c.lineTo(480, 370); c.stroke();
+    c.beginPath(); c.moveTo(29, 378); c.lineTo(491, 378); c.stroke();
     // lava flow left
-    c.beginPath(); c.moveTo(230, 145);
-    c.bezierCurveTo(220, 180, 200, 220, 180, 270);
-    c.quadraticCurveTo(170, 300, 175, 320); c.stroke();
+    c.beginPath(); c.moveTo(229, 142);
+    c.bezierCurveTo(218, 179, 197, 221, 176, 273);
+    c.quadraticCurveTo(166, 305, 171, 326); c.stroke();
     // lava flow right
-    c.beginPath(); c.moveTo(280, 148);
-    c.bezierCurveTo(290, 190, 310, 240, 320, 290);
-    c.quadraticCurveTo(325, 320, 320, 340); c.stroke();
+    c.beginPath(); c.moveTo(281, 145);
+    c.bezierCurveTo(292, 189, 313, 242, 323, 294);
+    c.quadraticCurveTo(328, 326, 323, 347); c.stroke();
     // eruption rocks
-    c.beginPath(); c.arc(240, 90, 8, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(275, 70, 6, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(300, 95, 7, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(220, 60, 5, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(239, 84, 8, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(276, 63, 6, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(302, 89, 7, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(218, 53, 5, 0, Math.PI * 2); c.stroke();
     // smoke clouds
-    c.beginPath(); c.arc(250, 45, 18, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(275, 35, 22, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(300, 50, 16, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(250, 37, 19, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(276, 26, 23, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(302, 42, 17, 0, Math.PI * 2); c.stroke();
     // mountain texture lines
-    c.beginPath(); c.moveTo(140, 280); c.lineTo(165, 280); c.stroke();
-    c.beginPath(); c.moveTo(350, 290); c.lineTo(380, 290); c.stroke();
-    c.beginPath(); c.moveTo(120, 330); c.lineTo(155, 330); c.stroke();
-    c.beginPath(); c.moveTo(370, 340); c.lineTo(400, 340); c.stroke();
+    c.beginPath(); c.moveTo(134, 284); c.lineTo(160, 284); c.stroke();
+    c.beginPath(); c.moveTo(355, 294); c.lineTo(386, 294); c.stroke();
+    c.beginPath(); c.moveTo(113, 336); c.lineTo(150, 336); c.stroke();
+    c.beginPath(); c.moveTo(376, 347); c.lineTo(407, 347); c.stroke();
   },
   sword(c) {
     // blade
-    c.beginPath(); c.moveTo(260, 60); c.lineTo(245, 240); c.stroke();
-    c.beginPath(); c.moveTo(260, 60); c.lineTo(275, 240); c.stroke();
+    c.beginPath(); c.moveTo(260, -15); c.lineTo(238, 255); c.stroke();
+    c.beginPath(); c.moveTo(260, -15); c.lineTo(283, 255); c.stroke();
     // blade tip
-    c.beginPath(); c.moveTo(260, 60); c.lineTo(260, 45); c.stroke();
+    c.beginPath(); c.moveTo(260, -15); c.lineTo(260, -37); c.stroke();
     // blade center line
-    c.beginPath(); c.moveTo(260, 70); c.lineTo(260, 235); c.stroke();
+    c.beginPath(); c.moveTo(260, 0); c.lineTo(260, 248); c.stroke();
     // cross guard
-    c.beginPath(); c.moveTo(200, 240); c.lineTo(320, 240); c.stroke();
-    c.beginPath(); c.moveTo(200, 240); c.quadraticCurveTo(195, 250, 200, 255); c.stroke();
-    c.beginPath(); c.moveTo(320, 240); c.quadraticCurveTo(325, 250, 320, 255); c.stroke();
-    c.beginPath(); c.moveTo(200, 255); c.lineTo(320, 255); c.stroke();
+    c.beginPath(); c.moveTo(170, 255); c.lineTo(350, 255); c.stroke();
+    c.beginPath(); c.moveTo(170, 255); c.quadraticCurveTo(163, 270, 170, 278); c.stroke();
+    c.beginPath(); c.moveTo(350, 255); c.quadraticCurveTo(358, 270, 350, 278); c.stroke();
+    c.beginPath(); c.moveTo(170, 278); c.lineTo(350, 278); c.stroke();
     // grip
-    c.beginPath(); c.moveTo(248, 255); c.lineTo(248, 340); c.stroke();
-    c.beginPath(); c.moveTo(272, 255); c.lineTo(272, 340); c.stroke();
+    c.beginPath(); c.moveTo(242, 278); c.lineTo(242, 405); c.stroke();
+    c.beginPath(); c.moveTo(278, 278); c.lineTo(278, 405); c.stroke();
     // grip wrapping
-    c.beginPath(); c.moveTo(248, 275); c.lineTo(272, 285); c.stroke();
-    c.beginPath(); c.moveTo(248, 295); c.lineTo(272, 305); c.stroke();
-    c.beginPath(); c.moveTo(248, 315); c.lineTo(272, 325); c.stroke();
+    c.beginPath(); c.moveTo(242, 308); c.lineTo(278, 323); c.stroke();
+    c.beginPath(); c.moveTo(242, 338); c.lineTo(278, 353); c.stroke();
+    c.beginPath(); c.moveTo(242, 368); c.lineTo(278, 383); c.stroke();
     // pommel
-    c.beginPath(); c.arc(260, 350, 15, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(260, 350, 6, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(260, 420, 23, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(260, 420, 9, 0, Math.PI * 2); c.stroke();
     // blade shine
-    c.beginPath(); c.moveTo(252, 100); c.lineTo(250, 150); c.stroke();
+    c.beginPath(); c.moveTo(248, 45); c.lineTo(245, 120); c.stroke();
   },
   mushroom(c) {
     // cap
-    c.beginPath(); c.arc(260, 190, 100, Math.PI, 0); c.stroke();
+    c.beginPath(); c.arc(260, 185, 125, Math.PI, 0); c.stroke();
     // cap underside
-    c.beginPath(); c.moveTo(160, 190); c.quadraticCurveTo(260, 220, 360, 190); c.stroke();
+    c.beginPath(); c.moveTo(135, 185); c.quadraticCurveTo(260, 223, 385, 185); c.stroke();
     // stem
-    c.beginPath(); c.moveTo(225, 200); c.quadraticCurveTo(220, 300, 225, 370); c.stroke();
-    c.beginPath(); c.moveTo(295, 200); c.quadraticCurveTo(300, 300, 295, 370); c.stroke();
+    c.beginPath(); c.moveTo(216, 198); c.quadraticCurveTo(210, 323, 216, 410); c.stroke();
+    c.beginPath(); c.moveTo(304, 198); c.quadraticCurveTo(310, 323, 304, 410); c.stroke();
     // stem base
-    c.beginPath(); c.moveTo(225, 370); c.quadraticCurveTo(210, 380, 210, 390); c.stroke();
-    c.beginPath(); c.moveTo(295, 370); c.quadraticCurveTo(310, 380, 310, 390); c.stroke();
-    c.beginPath(); c.moveTo(210, 390); c.lineTo(310, 390); c.stroke();
+    c.beginPath(); c.moveTo(216, 410); c.quadraticCurveTo(198, 423, 198, 435); c.stroke();
+    c.beginPath(); c.moveTo(304, 410); c.quadraticCurveTo(323, 423, 323, 435); c.stroke();
+    c.beginPath(); c.moveTo(198, 435); c.lineTo(323, 435); c.stroke();
     // cap spots
-    c.beginPath(); c.arc(220, 150, 18, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(300, 145, 15, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(260, 120, 20, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(190, 170, 12, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(330, 168, 13, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(210, 135, 23, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(310, 129, 19, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(260, 98, 25, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(173, 160, 15, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(348, 158, 16, 0, Math.PI * 2); c.stroke();
     // gills under cap
-    c.beginPath(); c.moveTo(240, 198); c.lineTo(240, 210); c.stroke();
-    c.beginPath(); c.moveTo(260, 200); c.lineTo(260, 215); c.stroke();
-    c.beginPath(); c.moveTo(280, 198); c.lineTo(280, 210); c.stroke();
+    c.beginPath(); c.moveTo(235, 195); c.lineTo(235, 210); c.stroke();
+    c.beginPath(); c.moveTo(260, 198); c.lineTo(260, 216); c.stroke();
+    c.beginPath(); c.moveTo(285, 195); c.lineTo(285, 210); c.stroke();
   },
   icecream(c) {
     // cone
-    c.beginPath(); c.moveTo(210, 230); c.lineTo(260, 390); c.lineTo(310, 230); c.stroke();
+    c.beginPath(); c.moveTo(190, 238); c.lineTo(260, 462); c.lineTo(330, 238); c.stroke();
     // cone cross pattern
-    c.beginPath(); c.moveTo(220, 245); c.lineTo(280, 335); c.stroke();
-    c.beginPath(); c.moveTo(240, 240); c.lineTo(290, 310); c.stroke();
-    c.beginPath(); c.moveTo(300, 245); c.lineTo(240, 335); c.stroke();
-    c.beginPath(); c.moveTo(280, 240); c.lineTo(230, 310); c.stroke();
+    c.beginPath(); c.moveTo(204, 259); c.lineTo(288, 385); c.stroke();
+    c.beginPath(); c.moveTo(232, 252); c.lineTo(302, 350); c.stroke();
+    c.beginPath(); c.moveTo(316, 259); c.lineTo(232, 385); c.stroke();
+    c.beginPath(); c.moveTo(288, 252); c.lineTo(218, 350); c.stroke();
     // bottom scoop
-    c.beginPath(); c.arc(260, 200, 55, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(260, 196, 77, 0, Math.PI * 2); c.stroke();
     // top scoop
-    c.beginPath(); c.arc(260, 130, 50, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(260, 98, 70, 0, Math.PI * 2); c.stroke();
     // cherry
-    c.beginPath(); c.arc(260, 75, 14, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(260, 21, 20, 0, Math.PI * 2); c.stroke();
     // cherry stem
-    c.beginPath(); c.moveTo(260, 61); c.quadraticCurveTo(270, 45, 265, 38); c.stroke();
+    c.beginPath(); c.moveTo(260, 1); c.quadraticCurveTo(274, -21, 267, -31); c.stroke();
     // drip left
-    c.beginPath(); c.moveTo(215, 195); c.quadraticCurveTo(210, 215, 215, 225); c.stroke();
+    c.beginPath(); c.moveTo(197, 189); c.quadraticCurveTo(190, 217, 197, 231); c.stroke();
     // drip right
-    c.beginPath(); c.moveTo(305, 195); c.quadraticCurveTo(310, 215, 305, 225); c.stroke();
+    c.beginPath(); c.moveTo(323, 189); c.quadraticCurveTo(330, 217, 323, 231); c.stroke();
     // scoop texture
-    c.beginPath(); c.arc(240, 195, 5, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(280, 200, 4, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(250, 125, 5, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(275, 135, 4, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(232, 189, 7, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(288, 196, 6, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(246, 91, 7, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(281, 105, 6, 0, Math.PI * 2); c.stroke();
   },
   castle(c) {
     // main wall
-    c.beginPath(); c.rect(160, 180, 200, 200); c.stroke();
+    c.beginPath(); c.rect(145, 176, 230, 230); c.stroke();
     // left tower
-    c.beginPath(); c.rect(130, 120, 60, 260); c.stroke();
+    c.beginPath(); c.rect(111, 107, 69, 299); c.stroke();
     // right tower
-    c.beginPath(); c.rect(330, 120, 60, 260); c.stroke();
+    c.beginPath(); c.rect(341, 107, 69, 299); c.stroke();
     // left tower battlement
-    c.beginPath(); c.moveTo(125, 120); c.lineTo(125, 100); c.lineTo(142, 100); c.lineTo(142, 120); c.stroke();
-    c.beginPath(); c.moveTo(152, 120); c.lineTo(152, 100); c.lineTo(168, 100); c.lineTo(168, 120); c.stroke();
-    c.beginPath(); c.moveTo(178, 120); c.lineTo(178, 100); c.lineTo(195, 100); c.lineTo(195, 120); c.stroke();
+    c.beginPath(); c.moveTo(105, 107); c.lineTo(105, 84); c.lineTo(124, 84); c.lineTo(124, 107); c.stroke();
+    c.beginPath(); c.moveTo(136, 107); c.lineTo(136, 84); c.lineTo(154, 84); c.lineTo(154, 107); c.stroke();
+    c.beginPath(); c.moveTo(166, 107); c.lineTo(166, 84); c.lineTo(185, 84); c.lineTo(185, 107); c.stroke();
     // right tower battlement
-    c.beginPath(); c.moveTo(325, 120); c.lineTo(325, 100); c.lineTo(342, 100); c.lineTo(342, 120); c.stroke();
-    c.beginPath(); c.moveTo(352, 120); c.lineTo(352, 100); c.lineTo(368, 100); c.lineTo(368, 120); c.stroke();
-    c.beginPath(); c.moveTo(378, 120); c.lineTo(378, 100); c.lineTo(395, 100); c.lineTo(395, 120); c.stroke();
+    c.beginPath(); c.moveTo(335, 107); c.lineTo(335, 84); c.lineTo(354, 84); c.lineTo(354, 107); c.stroke();
+    c.beginPath(); c.moveTo(366, 107); c.lineTo(366, 84); c.lineTo(384, 84); c.lineTo(384, 107); c.stroke();
+    c.beginPath(); c.moveTo(396, 107); c.lineTo(396, 84); c.lineTo(415, 84); c.lineTo(415, 107); c.stroke();
     // center battlements
-    c.beginPath(); c.moveTo(175, 180); c.lineTo(175, 162); c.lineTo(195, 162); c.lineTo(195, 180); c.stroke();
-    c.beginPath(); c.moveTo(210, 180); c.lineTo(210, 162); c.lineTo(230, 162); c.lineTo(230, 180); c.stroke();
-    c.beginPath(); c.moveTo(245, 180); c.lineTo(245, 162); c.lineTo(265, 162); c.lineTo(265, 180); c.stroke();
-    c.beginPath(); c.moveTo(280, 180); c.lineTo(280, 162); c.lineTo(300, 162); c.lineTo(300, 180); c.stroke();
-    c.beginPath(); c.moveTo(315, 180); c.lineTo(315, 162); c.lineTo(335, 162); c.lineTo(335, 180); c.stroke();
+    c.beginPath(); c.moveTo(162, 176); c.lineTo(162, 155); c.lineTo(185, 155); c.lineTo(185, 176); c.stroke();
+    c.beginPath(); c.moveTo(203, 176); c.lineTo(203, 155); c.lineTo(226, 155); c.lineTo(226, 176); c.stroke();
+    c.beginPath(); c.moveTo(243, 176); c.lineTo(243, 155); c.lineTo(266, 155); c.lineTo(266, 176); c.stroke();
+    c.beginPath(); c.moveTo(283, 176); c.lineTo(283, 155); c.lineTo(306, 155); c.lineTo(306, 176); c.stroke();
+    c.beginPath(); c.moveTo(323, 176); c.lineTo(323, 155); c.lineTo(346, 155); c.lineTo(346, 176); c.stroke();
     // gate
-    c.beginPath(); c.moveTo(230, 380); c.lineTo(230, 310);
-    c.arc(260, 310, 30, Math.PI, 0); c.lineTo(290, 380); c.stroke();
+    c.beginPath(); c.moveTo(226, 406); c.lineTo(226, 325);
+    c.arc(260, 325, 35, Math.PI, 0); c.lineTo(295, 406); c.stroke();
     // gate bars
-    c.beginPath(); c.moveTo(250, 310); c.lineTo(250, 380); c.stroke();
-    c.beginPath(); c.moveTo(270, 310); c.lineTo(270, 380); c.stroke();
+    c.beginPath(); c.moveTo(249, 325); c.lineTo(249, 406); c.stroke();
+    c.beginPath(); c.moveTo(272, 325); c.lineTo(272, 406); c.stroke();
     // tower windows
-    c.beginPath(); c.arc(160, 200, 12, Math.PI, 0); c.lineTo(172, 225); c.lineTo(148, 225); c.closePath(); c.stroke();
-    c.beginPath(); c.arc(360, 200, 12, Math.PI, 0); c.lineTo(372, 225); c.lineTo(348, 225); c.closePath(); c.stroke();
+    c.beginPath(); c.arc(145, 199, 14, Math.PI, 0); c.lineTo(159, 227); c.lineTo(131, 227); c.closePath(); c.stroke();
+    c.beginPath(); c.arc(375, 199, 14, Math.PI, 0); c.lineTo(389, 227); c.lineTo(361, 227); c.closePath(); c.stroke();
     // flag
-    c.beginPath(); c.moveTo(260, 162); c.lineTo(260, 125); c.stroke();
-    c.beginPath(); c.moveTo(260, 125); c.lineTo(285, 135); c.lineTo(260, 145); c.stroke();
+    c.beginPath(); c.moveTo(260, 155); c.lineTo(260, 112); c.stroke();
+    c.beginPath(); c.moveTo(260, 112); c.lineTo(289, 124); c.lineTo(260, 135); c.stroke();
   },
   cat(c) {
     // head
-    c.beginPath(); c.arc(260, 160, 60, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(260, 148, 75, 0, Math.PI * 2); c.stroke();
     // left ear
-    c.beginPath(); c.moveTo(215, 115); c.lineTo(200, 70); c.lineTo(235, 100); c.stroke();
+    c.beginPath(); c.moveTo(204, 91); c.lineTo(185, 35); c.lineTo(229, 73); c.stroke();
     // right ear
-    c.beginPath(); c.moveTo(305, 115); c.lineTo(320, 70); c.lineTo(285, 100); c.stroke();
+    c.beginPath(); c.moveTo(316, 91); c.lineTo(335, 35); c.lineTo(291, 73); c.stroke();
     // inner ear left
-    c.beginPath(); c.moveTo(218, 110); c.lineTo(210, 82); c.lineTo(230, 103); c.stroke();
+    c.beginPath(); c.moveTo(208, 85); c.lineTo(198, 50); c.lineTo(223, 76); c.stroke();
     // inner ear right
-    c.beginPath(); c.moveTo(302, 110); c.lineTo(310, 82); c.lineTo(290, 103); c.stroke();
+    c.beginPath(); c.moveTo(313, 85); c.lineTo(323, 50); c.lineTo(298, 76); c.stroke();
     // left eye
-    c.beginPath(); c.ellipse(238, 150, 12, 14, 0, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.ellipse(233, 135, 15, 18, 0, 0, Math.PI * 2); c.stroke();
     // right eye
-    c.beginPath(); c.ellipse(282, 150, 12, 14, 0, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.ellipse(288, 135, 15, 18, 0, 0, Math.PI * 2); c.stroke();
     // pupils (slits)
-    c.beginPath(); c.moveTo(238, 142); c.lineTo(238, 158); c.stroke();
-    c.beginPath(); c.moveTo(282, 142); c.lineTo(282, 158); c.stroke();
+    c.beginPath(); c.moveTo(233, 125); c.lineTo(233, 145); c.stroke();
+    c.beginPath(); c.moveTo(288, 125); c.lineTo(288, 145); c.stroke();
     // nose
-    c.beginPath(); c.moveTo(254, 172); c.lineTo(260, 180); c.lineTo(266, 172); c.closePath(); c.stroke();
+    c.beginPath(); c.moveTo(253, 163); c.lineTo(260, 173); c.lineTo(268, 163); c.closePath(); c.stroke();
     // mouth
-    c.beginPath(); c.moveTo(260, 180); c.lineTo(260, 188); c.stroke();
-    c.beginPath(); c.moveTo(260, 188); c.quadraticCurveTo(248, 195, 242, 188); c.stroke();
-    c.beginPath(); c.moveTo(260, 188); c.quadraticCurveTo(272, 195, 278, 188); c.stroke();
+    c.beginPath(); c.moveTo(260, 173); c.lineTo(260, 183); c.stroke();
+    c.beginPath(); c.moveTo(260, 183); c.quadraticCurveTo(245, 191, 238, 183); c.stroke();
+    c.beginPath(); c.moveTo(260, 183); c.quadraticCurveTo(275, 191, 283, 183); c.stroke();
     // whiskers left
-    c.beginPath(); c.moveTo(220, 170); c.lineTo(175, 162); c.stroke();
-    c.beginPath(); c.moveTo(220, 177); c.lineTo(175, 177); c.stroke();
-    c.beginPath(); c.moveTo(220, 184); c.lineTo(175, 192); c.stroke();
+    c.beginPath(); c.moveTo(210, 160); c.lineTo(154, 150); c.stroke();
+    c.beginPath(); c.moveTo(210, 169); c.lineTo(154, 169); c.stroke();
+    c.beginPath(); c.moveTo(210, 178); c.lineTo(154, 188); c.stroke();
     // whiskers right
-    c.beginPath(); c.moveTo(300, 170); c.lineTo(345, 162); c.stroke();
-    c.beginPath(); c.moveTo(300, 177); c.lineTo(345, 177); c.stroke();
-    c.beginPath(); c.moveTo(300, 184); c.lineTo(345, 192); c.stroke();
+    c.beginPath(); c.moveTo(310, 160); c.lineTo(366, 150); c.stroke();
+    c.beginPath(); c.moveTo(310, 169); c.lineTo(366, 169); c.stroke();
+    c.beginPath(); c.moveTo(310, 178); c.lineTo(366, 188); c.stroke();
     // body
-    c.beginPath(); c.ellipse(260, 290, 55, 70, 0, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.ellipse(260, 310, 69, 88, 0, 0, Math.PI * 2); c.stroke();
     // front paws
-    c.beginPath(); c.arc(230, 355, 15, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(290, 355, 15, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(223, 391, 19, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(298, 391, 19, 0, Math.PI * 2); c.stroke();
     // tail
-    c.beginPath(); c.moveTo(310, 300);
-    c.bezierCurveTo(360, 290, 390, 260, 380, 230);
-    c.quadraticCurveTo(375, 215, 365, 220); c.stroke();
+    c.beginPath(); c.moveTo(323, 323);
+    c.bezierCurveTo(385, 310, 423, 273, 410, 235);
+    c.quadraticCurveTo(404, 216, 391, 223); c.stroke();
   },
   anchor(c) {
     // ring at top
-    c.beginPath(); c.arc(260, 85, 25, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(260, 60, 30, 0, Math.PI * 2); c.stroke();
     // vertical shaft
-    c.beginPath(); c.moveTo(260, 110); c.lineTo(260, 340); c.stroke();
+    c.beginPath(); c.moveTo(260, 90); c.lineTo(260, 366); c.stroke();
     // cross bar
-    c.beginPath(); c.moveTo(200, 160); c.lineTo(320, 160); c.stroke();
+    c.beginPath(); c.moveTo(188, 150); c.lineTo(332, 150); c.stroke();
     // left fluke
-    c.beginPath(); c.moveTo(260, 340);
-    c.quadraticCurveTo(180, 340, 150, 290);
-    c.quadraticCurveTo(140, 270, 155, 260); c.stroke();
+    c.beginPath(); c.moveTo(260, 366);
+    c.quadraticCurveTo(164, 366, 128, 306);
+    c.quadraticCurveTo(116, 282, 134, 270); c.stroke();
     // left fluke tip
-    c.beginPath(); c.moveTo(155, 260); c.lineTo(145, 252); c.lineTo(148, 268); c.stroke();
+    c.beginPath(); c.moveTo(134, 270); c.lineTo(122, 260); c.lineTo(126, 280); c.stroke();
     // right fluke
-    c.beginPath(); c.moveTo(260, 340);
-    c.quadraticCurveTo(340, 340, 370, 290);
-    c.quadraticCurveTo(380, 270, 365, 260); c.stroke();
+    c.beginPath(); c.moveTo(260, 366);
+    c.quadraticCurveTo(356, 366, 392, 306);
+    c.quadraticCurveTo(404, 282, 386, 270); c.stroke();
     // right fluke tip
-    c.beginPath(); c.moveTo(365, 260); c.lineTo(375, 252); c.lineTo(372, 268); c.stroke();
+    c.beginPath(); c.moveTo(386, 270); c.lineTo(398, 260); c.lineTo(394, 280); c.stroke();
     // shaft detail
-    c.beginPath(); c.moveTo(255, 140); c.lineTo(265, 140); c.stroke();
-    c.beginPath(); c.moveTo(255, 200); c.lineTo(265, 200); c.stroke();
-    c.beginPath(); c.moveTo(255, 260); c.lineTo(265, 260); c.stroke();
+    c.beginPath(); c.moveTo(254, 126); c.lineTo(266, 126); c.stroke();
+    c.beginPath(); c.moveTo(254, 198); c.lineTo(266, 198); c.stroke();
+    c.beginPath(); c.moveTo(254, 270); c.lineTo(266, 270); c.stroke();
     // rope on ring
-    c.beginPath(); c.moveTo(245, 65); c.quadraticCurveTo(230, 55, 235, 45); c.stroke();
+    c.beginPath(); c.moveTo(242, 36); c.quadraticCurveTo(224, 24, 230, 12); c.stroke();
   },
   lightning(c) {
     // main bolt
-    c.beginPath(); c.moveTo(280, 50); c.lineTo(220, 190); c.lineTo(270, 190);
-    c.lineTo(210, 370); c.stroke();
+    c.beginPath(); c.moveTo(286, 2); c.lineTo(208, 184); c.lineTo(273, 184);
+    c.lineTo(195, 418); c.stroke();
     // right edge
-    c.beginPath(); c.moveTo(320, 50); c.lineTo(260, 190); c.lineTo(310, 190);
-    c.lineTo(250, 370); c.stroke();
+    c.beginPath(); c.moveTo(338, 2); c.lineTo(260, 184); c.lineTo(325, 184);
+    c.lineTo(247, 418); c.stroke();
     // top connection
-    c.beginPath(); c.moveTo(280, 50); c.lineTo(320, 50); c.stroke();
+    c.beginPath(); c.moveTo(286, 2); c.lineTo(338, 2); c.stroke();
     // bottom connection
-    c.beginPath(); c.moveTo(210, 370); c.lineTo(250, 370); c.stroke();
+    c.beginPath(); c.moveTo(195, 418); c.lineTo(247, 418); c.stroke();
     // middle connections
-    c.beginPath(); c.moveTo(220, 190); c.lineTo(260, 190); c.stroke();
-    c.beginPath(); c.moveTo(270, 190); c.lineTo(310, 190); c.stroke();
+    c.beginPath(); c.moveTo(208, 184); c.lineTo(260, 184); c.stroke();
+    c.beginPath(); c.moveTo(273, 184); c.lineTo(325, 184); c.stroke();
     // spark details
-    c.beginPath(); c.moveTo(190, 160); c.lineTo(175, 155); c.stroke();
-    c.beginPath(); c.moveTo(185, 175); c.lineTo(170, 175); c.stroke();
-    c.beginPath(); c.moveTo(340, 170); c.lineTo(355, 165); c.stroke();
-    c.beginPath(); c.moveTo(335, 185); c.lineTo(350, 185); c.stroke();
+    c.beginPath(); c.moveTo(169, 145); c.lineTo(150, 139); c.stroke();
+    c.beginPath(); c.moveTo(163, 165); c.lineTo(143, 165); c.stroke();
+    c.beginPath(); c.moveTo(364, 158); c.lineTo(384, 152); c.stroke();
+    c.beginPath(); c.moveTo(358, 178); c.lineTo(377, 178); c.stroke();
     // glow lines
-    c.beginPath(); c.moveTo(170, 260); c.lineTo(155, 255); c.stroke();
-    c.beginPath(); c.moveTo(330, 280); c.lineTo(345, 275); c.stroke();
+    c.beginPath(); c.moveTo(143, 275); c.lineTo(124, 269); c.stroke();
+    c.beginPath(); c.moveTo(351, 301); c.lineTo(371, 295); c.stroke();
   },
   crown(c) {
     // base
-    c.beginPath(); c.moveTo(140, 280); c.lineTo(380, 280); c.stroke();
-    c.beginPath(); c.moveTo(140, 300); c.lineTo(380, 300); c.stroke();
-    c.beginPath(); c.moveTo(140, 280); c.lineTo(140, 300); c.stroke();
-    c.beginPath(); c.moveTo(380, 280); c.lineTo(380, 300); c.stroke();
+    c.beginPath(); c.moveTo(98, 305); c.lineTo(422, 305); c.stroke();
+    c.beginPath(); c.moveTo(98, 332); c.lineTo(422, 332); c.stroke();
+    c.beginPath(); c.moveTo(98, 305); c.lineTo(98, 332); c.stroke();
+    c.beginPath(); c.moveTo(422, 305); c.lineTo(422, 332); c.stroke();
     // crown body
-    c.beginPath(); c.moveTo(140, 280); c.lineTo(150, 140);
-    c.lineTo(200, 210); c.lineTo(260, 110); c.lineTo(320, 210);
-    c.lineTo(370, 140); c.lineTo(380, 280); c.stroke();
+    c.beginPath(); c.moveTo(98, 305); c.lineTo(112, 116);
+    c.lineTo(179, 210); c.lineTo(260, 75); c.lineTo(341, 210);
+    c.lineTo(409, 116); c.lineTo(422, 305); c.stroke();
     // jewels on points
-    c.beginPath(); c.arc(150, 135, 8, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(260, 105, 10, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(370, 135, 8, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(112, 109, 11, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(260, 68, 14, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(409, 109, 11, 0, Math.PI * 2); c.stroke();
     // jewels on band
-    c.beginPath(); c.arc(200, 285, 6, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(260, 285, 8, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(320, 285, 6, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(179, 311, 8, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(260, 311, 11, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(341, 311, 8, 0, Math.PI * 2); c.stroke();
     // cross-hatch on body
-    c.beginPath(); c.moveTo(165, 240); c.lineTo(175, 200); c.stroke();
-    c.beginPath(); c.moveTo(200, 250); c.lineTo(220, 200); c.stroke();
-    c.beginPath(); c.moveTo(300, 250); c.lineTo(320, 200); c.stroke();
-    c.beginPath(); c.moveTo(355, 240); c.lineTo(345, 200); c.stroke();
+    c.beginPath(); c.moveTo(132, 251); c.lineTo(145, 197); c.stroke();
+    c.beginPath(); c.moveTo(179, 264); c.lineTo(206, 197); c.stroke();
+    c.beginPath(); c.moveTo(314, 264); c.lineTo(341, 197); c.stroke();
+    c.beginPath(); c.moveTo(388, 251); c.lineTo(375, 197); c.stroke();
   },
   ghost(c) {
     // head/body top
-    c.beginPath(); c.arc(260, 170, 80, Math.PI, 0); c.stroke();
+    c.beginPath(); c.arc(260, 160, 100, Math.PI, 0); c.stroke();
     // left side
-    c.beginPath(); c.moveTo(180, 170); c.lineTo(180, 340); c.stroke();
+    c.beginPath(); c.moveTo(160, 160); c.lineTo(160, 373); c.stroke();
     // right side
-    c.beginPath(); c.moveTo(340, 170); c.lineTo(340, 340); c.stroke();
+    c.beginPath(); c.moveTo(360, 160); c.lineTo(360, 373); c.stroke();
     // wavy bottom
-    c.beginPath(); c.moveTo(180, 340);
-    c.quadraticCurveTo(200, 310, 220, 340);
-    c.quadraticCurveTo(240, 370, 260, 340);
-    c.quadraticCurveTo(280, 310, 300, 340);
-    c.quadraticCurveTo(320, 370, 340, 340); c.stroke();
+    c.beginPath(); c.moveTo(160, 373);
+    c.quadraticCurveTo(185, 335, 210, 373);
+    c.quadraticCurveTo(235, 410, 260, 373);
+    c.quadraticCurveTo(285, 335, 310, 373);
+    c.quadraticCurveTo(335, 410, 360, 373); c.stroke();
     // left eye
-    c.beginPath(); c.ellipse(230, 180, 18, 22, 0, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.ellipse(223, 173, 23, 28, 0, 0, Math.PI * 2); c.stroke();
     // right eye
-    c.beginPath(); c.ellipse(290, 180, 18, 22, 0, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.ellipse(298, 173, 23, 28, 0, 0, Math.PI * 2); c.stroke();
     // left pupil
-    c.beginPath(); c.arc(233, 184, 7, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(226, 178, 9, 0, Math.PI * 2); c.stroke();
     // right pupil
-    c.beginPath(); c.arc(293, 184, 7, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(301, 178, 9, 0, Math.PI * 2); c.stroke();
     // mouth
-    c.beginPath(); c.ellipse(260, 240, 18, 14, 0, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.ellipse(260, 248, 23, 18, 0, 0, Math.PI * 2); c.stroke();
     // arms
-    c.beginPath(); c.moveTo(180, 230); c.quadraticCurveTo(145, 240, 140, 260); c.stroke();
-    c.beginPath(); c.moveTo(340, 230); c.quadraticCurveTo(375, 240, 380, 260); c.stroke();
+    c.beginPath(); c.moveTo(160, 235); c.quadraticCurveTo(116, 248, 110, 273); c.stroke();
+    c.beginPath(); c.moveTo(360, 235); c.quadraticCurveTo(404, 248, 410, 273); c.stroke();
   },
   hotdog(c) {
     // bun top
-    c.beginPath(); c.moveTo(100, 210);
-    c.quadraticCurveTo(95, 180, 130, 170);
-    c.lineTo(390, 170);
-    c.quadraticCurveTo(425, 180, 420, 210); c.stroke();
+    c.beginPath(); c.moveTo(44, 210);
+    c.quadraticCurveTo(37, 170, 85, 156);
+    c.lineTo(436, 156);
+    c.quadraticCurveTo(483, 170, 476, 210); c.stroke();
     // bun bottom
-    c.beginPath(); c.moveTo(100, 230);
-    c.quadraticCurveTo(95, 260, 130, 270);
-    c.lineTo(390, 270);
-    c.quadraticCurveTo(425, 260, 420, 230); c.stroke();
+    c.beginPath(); c.moveTo(44, 237);
+    c.quadraticCurveTo(37, 278, 85, 291);
+    c.lineTo(436, 291);
+    c.quadraticCurveTo(483, 278, 476, 237); c.stroke();
     // sausage visible top
-    c.beginPath(); c.moveTo(110, 210);
-    c.lineTo(410, 210); c.stroke();
+    c.beginPath(); c.moveTo(58, 210);
+    c.lineTo(463, 210); c.stroke();
     // sausage visible bottom
-    c.beginPath(); c.moveTo(110, 230);
-    c.lineTo(410, 230); c.stroke();
+    c.beginPath(); c.moveTo(58, 237);
+    c.lineTo(463, 237); c.stroke();
     // sausage ends
-    c.beginPath(); c.arc(115, 220, 12, Math.PI * 0.5, Math.PI * 1.5); c.stroke();
-    c.beginPath(); c.arc(405, 220, 12, -Math.PI * 0.5, Math.PI * 0.5); c.stroke();
+    c.beginPath(); c.arc(64, 224, 16, Math.PI * 0.5, Math.PI * 1.5); c.stroke();
+    c.beginPath(); c.arc(456, 224, 16, -Math.PI * 0.5, Math.PI * 0.5); c.stroke();
     // mustard zigzag
-    c.beginPath(); c.moveTo(130, 215);
-    c.lineTo(155, 225); c.lineTo(180, 215); c.lineTo(205, 225);
-    c.lineTo(230, 215); c.lineTo(255, 225); c.lineTo(280, 215);
-    c.lineTo(305, 225); c.lineTo(330, 215); c.lineTo(355, 225);
-    c.lineTo(380, 215); c.stroke();
+    c.beginPath(); c.moveTo(85, 217);
+    c.lineTo(118, 230); c.lineTo(152, 217); c.lineTo(186, 230);
+    c.lineTo(220, 217); c.lineTo(253, 230); c.lineTo(287, 217);
+    c.lineTo(321, 230); c.lineTo(355, 217); c.lineTo(388, 230);
+    c.lineTo(422, 217); c.stroke();
     // bun texture
-    c.beginPath(); c.moveTo(150, 185); c.lineTo(180, 185); c.stroke();
-    c.beginPath(); c.moveTo(250, 182); c.lineTo(280, 182); c.stroke();
-    c.beginPath(); c.moveTo(340, 185); c.lineTo(370, 185); c.stroke();
+    c.beginPath(); c.moveTo(112, 176); c.lineTo(152, 176); c.stroke();
+    c.beginPath(); c.moveTo(247, 172); c.lineTo(287, 172); c.stroke();
+    c.beginPath(); c.moveTo(368, 176); c.lineTo(409, 176); c.stroke();
     // sesame seeds
-    c.beginPath(); c.ellipse(200, 180, 6, 3, 0.3, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.ellipse(310, 178, 6, 3, -0.2, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.ellipse(179, 170, 8, 4, 0.3, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.ellipse(328, 167, 8, 4, -0.2, 0, Math.PI * 2); c.stroke();
   },
   dinosaur(c) {
     // head
-    c.beginPath(); c.moveTo(310, 100); c.lineTo(390, 100); c.lineTo(400, 110);
-    c.lineTo(400, 140); c.lineTo(310, 140);
-    c.quadraticCurveTo(295, 120, 310, 100); c.stroke();
+    c.beginPath(); c.moveTo(320, 78); c.lineTo(416, 78); c.lineTo(428, 90);
+    c.lineTo(428, 126); c.lineTo(320, 126);
+    c.quadraticCurveTo(302, 102, 320, 78); c.stroke();
     // eye
-    c.beginPath(); c.arc(340, 115, 8, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(342, 114, 3, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(356, 96, 10, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(358, 95, 4, 0, Math.PI * 2); c.stroke();
     // nostril
-    c.beginPath(); c.arc(385, 110, 4, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(410, 90, 5, 0, Math.PI * 2); c.stroke();
     // mouth
-    c.beginPath(); c.moveTo(310, 140); c.lineTo(400, 140); c.stroke();
+    c.beginPath(); c.moveTo(320, 126); c.lineTo(428, 126); c.stroke();
     // teeth
-    c.beginPath(); c.moveTo(340, 140); c.lineTo(345, 148); c.lineTo(350, 140); c.stroke();
-    c.beginPath(); c.moveTo(360, 140); c.lineTo(365, 148); c.lineTo(370, 140); c.stroke();
-    c.beginPath(); c.moveTo(380, 140); c.lineTo(385, 148); c.lineTo(390, 140); c.stroke();
+    c.beginPath(); c.moveTo(356, 126); c.lineTo(362, 136); c.lineTo(368, 126); c.stroke();
+    c.beginPath(); c.moveTo(380, 126); c.lineTo(386, 136); c.lineTo(392, 126); c.stroke();
+    c.beginPath(); c.moveTo(404, 126); c.lineTo(410, 136); c.lineTo(416, 126); c.stroke();
     // neck
-    c.beginPath(); c.moveTo(310, 110); c.quadraticCurveTo(280, 130, 270, 170); c.stroke();
-    c.beginPath(); c.moveTo(310, 135); c.quadraticCurveTo(290, 150, 285, 175); c.stroke();
+    c.beginPath(); c.moveTo(320, 90); c.quadraticCurveTo(284, 114, 272, 162); c.stroke();
+    c.beginPath(); c.moveTo(320, 120); c.quadraticCurveTo(296, 138, 290, 168); c.stroke();
     // body
-    c.beginPath(); c.moveTo(270, 170);
-    c.bezierCurveTo(230, 170, 180, 190, 170, 230);
-    c.quadraticCurveTo(160, 270, 180, 295); c.stroke();
-    c.beginPath(); c.moveTo(285, 175);
-    c.bezierCurveTo(320, 200, 340, 240, 320, 290);
-    c.quadraticCurveTo(310, 310, 280, 310); c.stroke();
+    c.beginPath(); c.moveTo(272, 162);
+    c.bezierCurveTo(224, 162, 164, 186, 152, 234);
+    c.quadraticCurveTo(140, 282, 164, 312); c.stroke();
+    c.beginPath(); c.moveTo(290, 168);
+    c.bezierCurveTo(332, 198, 356, 246, 332, 306);
+    c.quadraticCurveTo(320, 330, 284, 330); c.stroke();
     // belly
-    c.beginPath(); c.moveTo(180, 295); c.lineTo(280, 310); c.stroke();
+    c.beginPath(); c.moveTo(164, 312); c.lineTo(284, 330); c.stroke();
     // back bumps
-    c.beginPath(); c.moveTo(240, 172); c.lineTo(235, 160); c.lineTo(250, 170); c.stroke();
-    c.beginPath(); c.moveTo(215, 180); c.lineTo(208, 168); c.lineTo(225, 178); c.stroke();
+    c.beginPath(); c.moveTo(236, 164); c.lineTo(230, 150); c.lineTo(248, 162); c.stroke();
+    c.beginPath(); c.moveTo(206, 174); c.lineTo(198, 160); c.lineTo(218, 172); c.stroke();
     // tiny arms!
-    c.beginPath(); c.moveTo(290, 210); c.lineTo(310, 225); c.lineTo(300, 230); c.stroke();
-    c.beginPath(); c.moveTo(290, 210); c.lineTo(315, 215); c.lineTo(308, 222); c.stroke();
+    c.beginPath(); c.moveTo(296, 210); c.lineTo(320, 228); c.lineTo(308, 234); c.stroke();
+    c.beginPath(); c.moveTo(296, 210); c.lineTo(326, 216); c.lineTo(318, 224); c.stroke();
     // left leg
-    c.beginPath(); c.moveTo(210, 290); c.lineTo(200, 350); c.lineTo(180, 360);
-    c.moveTo(200, 350); c.lineTo(215, 360); c.stroke();
+    c.beginPath(); c.moveTo(200, 306); c.lineTo(188, 378); c.lineTo(164, 390);
+    c.moveTo(188, 378); c.lineTo(206, 390); c.stroke();
     // right leg
-    c.beginPath(); c.moveTo(280, 305); c.lineTo(290, 350); c.lineTo(275, 360);
-    c.moveTo(290, 350); c.lineTo(308, 360); c.stroke();
+    c.beginPath(); c.moveTo(284, 324); c.lineTo(296, 378); c.lineTo(278, 390);
+    c.moveTo(296, 378); c.lineTo(318, 390); c.stroke();
     // tail
-    c.beginPath(); c.moveTo(170, 235);
-    c.bezierCurveTo(140, 220, 110, 230, 90, 210);
-    c.quadraticCurveTo(75, 195, 80, 185); c.stroke();
+    c.beginPath(); c.moveTo(152, 240);
+    c.bezierCurveTo(116, 222, 80, 234, 56, 210);
+    c.quadraticCurveTo(38, 192, 44, 180); c.stroke();
   },
   sailboat(c) {
     // hull
-    c.beginPath(); c.moveTo(100, 300); c.lineTo(130, 350); c.lineTo(390, 350); c.lineTo(420, 300); c.stroke();
-    c.beginPath(); c.moveTo(100, 300); c.lineTo(420, 300); c.stroke();
+    c.beginPath(); c.moveTo(84, 309); c.lineTo(117, 364); c.lineTo(403, 364); c.lineTo(436, 309); c.stroke();
+    c.beginPath(); c.moveTo(84, 309); c.lineTo(436, 309); c.stroke();
     // mast
-    c.beginPath(); c.moveTo(260, 300); c.lineTo(260, 80); c.stroke();
+    c.beginPath(); c.moveTo(260, 309); c.lineTo(260, 67); c.stroke();
     // main sail
-    c.beginPath(); c.moveTo(260, 90); c.lineTo(380, 290); c.lineTo(260, 290); c.stroke();
+    c.beginPath(); c.moveTo(260, 78); c.lineTo(392, 298); c.lineTo(260, 298); c.stroke();
     // sail curve
-    c.beginPath(); c.moveTo(260, 90);
-    c.quadraticCurveTo(340, 180, 380, 290); c.stroke();
+    c.beginPath(); c.moveTo(260, 78);
+    c.quadraticCurveTo(348, 177, 392, 298); c.stroke();
     // jib sail
-    c.beginPath(); c.moveTo(260, 100); c.lineTo(160, 290); c.lineTo(260, 290); c.stroke();
-    c.beginPath(); c.moveTo(260, 100);
-    c.quadraticCurveTo(200, 190, 160, 290); c.stroke();
+    c.beginPath(); c.moveTo(260, 89); c.lineTo(150, 298); c.lineTo(260, 298); c.stroke();
+    c.beginPath(); c.moveTo(260, 89);
+    c.quadraticCurveTo(194, 188, 150, 298); c.stroke();
     // flag
-    c.beginPath(); c.moveTo(260, 80); c.lineTo(240, 90); c.lineTo(260, 100); c.stroke();
+    c.beginPath(); c.moveTo(260, 67); c.lineTo(238, 78); c.lineTo(260, 89); c.stroke();
     // hull detail
-    c.beginPath(); c.moveTo(140, 320); c.lineTo(380, 320); c.stroke();
+    c.beginPath(); c.moveTo(128, 331); c.lineTo(392, 331); c.stroke();
     // porthole
-    c.beginPath(); c.arc(220, 318, 8, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(300, 318, 8, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(216, 329, 9, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(304, 329, 9, 0, Math.PI * 2); c.stroke();
     // water
-    c.beginPath(); c.moveTo(70, 365); c.quadraticCurveTo(130, 355, 190, 365); c.stroke();
-    c.beginPath(); c.moveTo(240, 370); c.quadraticCurveTo(300, 360, 360, 370); c.stroke();
-    c.beginPath(); c.moveTo(390, 365); c.quadraticCurveTo(420, 358, 450, 365); c.stroke();
+    c.beginPath(); c.moveTo(51, 381); c.quadraticCurveTo(117, 370, 183, 381); c.stroke();
+    c.beginPath(); c.moveTo(238, 386); c.quadraticCurveTo(304, 375, 370, 386); c.stroke();
+    c.beginPath(); c.moveTo(403, 381); c.quadraticCurveTo(436, 373, 469, 381); c.stroke();
   },
   owl(c) {
     // body
-    c.beginPath(); c.ellipse(260, 260, 75, 100, 0, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.ellipse(260, 270, 90, 120, 0, 0, Math.PI * 2); c.stroke();
     // head
-    c.beginPath(); c.arc(260, 155, 55, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(260, 144, 66, 0, Math.PI * 2); c.stroke();
     // left ear tuft
-    c.beginPath(); c.moveTo(220, 115); c.lineTo(200, 75); c.lineTo(230, 105); c.stroke();
+    c.beginPath(); c.moveTo(212, 96); c.lineTo(188, 48); c.lineTo(224, 84); c.stroke();
     // right ear tuft
-    c.beginPath(); c.moveTo(300, 115); c.lineTo(320, 75); c.lineTo(290, 105); c.stroke();
+    c.beginPath(); c.moveTo(308, 96); c.lineTo(332, 48); c.lineTo(296, 84); c.stroke();
     // left eye circle
-    c.beginPath(); c.arc(238, 155, 22, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(234, 144, 26, 0, Math.PI * 2); c.stroke();
     // right eye circle
-    c.beginPath(); c.arc(282, 155, 22, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(286, 144, 26, 0, Math.PI * 2); c.stroke();
     // left pupil
-    c.beginPath(); c.arc(238, 155, 10, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(234, 144, 12, 0, Math.PI * 2); c.stroke();
     // right pupil
-    c.beginPath(); c.arc(282, 155, 10, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(286, 144, 12, 0, Math.PI * 2); c.stroke();
     // beak
-    c.beginPath(); c.moveTo(253, 170); c.lineTo(260, 190); c.lineTo(267, 170); c.stroke();
+    c.beginPath(); c.moveTo(252, 162); c.lineTo(260, 186); c.lineTo(268, 162); c.stroke();
     // chest feather pattern V shapes
-    c.beginPath(); c.moveTo(240, 230); c.lineTo(250, 240); c.lineTo(260, 230); c.stroke();
-    c.beginPath(); c.moveTo(260, 230); c.lineTo(270, 240); c.lineTo(280, 230); c.stroke();
-    c.beginPath(); c.moveTo(235, 255); c.lineTo(248, 265); c.lineTo(260, 255); c.stroke();
-    c.beginPath(); c.moveTo(260, 255); c.lineTo(272, 265); c.lineTo(285, 255); c.stroke();
-    c.beginPath(); c.moveTo(240, 280); c.lineTo(250, 290); c.lineTo(260, 280); c.stroke();
-    c.beginPath(); c.moveTo(260, 280); c.lineTo(270, 290); c.lineTo(280, 280); c.stroke();
+    c.beginPath(); c.moveTo(236, 234); c.lineTo(248, 246); c.lineTo(260, 234); c.stroke();
+    c.beginPath(); c.moveTo(260, 234); c.lineTo(272, 246); c.lineTo(284, 234); c.stroke();
+    c.beginPath(); c.moveTo(230, 264); c.lineTo(246, 276); c.lineTo(260, 264); c.stroke();
+    c.beginPath(); c.moveTo(260, 264); c.lineTo(274, 276); c.lineTo(290, 264); c.stroke();
+    c.beginPath(); c.moveTo(236, 294); c.lineTo(248, 306); c.lineTo(260, 294); c.stroke();
+    c.beginPath(); c.moveTo(260, 294); c.lineTo(272, 306); c.lineTo(284, 294); c.stroke();
     // left wing
-    c.beginPath(); c.moveTo(188, 220); c.quadraticCurveTo(145, 270, 160, 330); c.stroke();
+    c.beginPath(); c.moveTo(174, 222); c.quadraticCurveTo(122, 282, 140, 354); c.stroke();
     // right wing
-    c.beginPath(); c.moveTo(332, 220); c.quadraticCurveTo(375, 270, 360, 330); c.stroke();
+    c.beginPath(); c.moveTo(346, 222); c.quadraticCurveTo(398, 282, 380, 354); c.stroke();
     // feet/talons
-    c.beginPath(); c.moveTo(235, 355); c.lineTo(220, 375); c.moveTo(235, 355); c.lineTo(235, 378);
-    c.moveTo(235, 355); c.lineTo(250, 375); c.stroke();
-    c.beginPath(); c.moveTo(285, 355); c.lineTo(270, 375); c.moveTo(285, 355); c.lineTo(285, 378);
-    c.moveTo(285, 355); c.lineTo(300, 375); c.stroke();
+    c.beginPath(); c.moveTo(230, 384); c.lineTo(212, 408); c.moveTo(230, 384); c.lineTo(230, 412);
+    c.moveTo(230, 384); c.lineTo(248, 408); c.stroke();
+    c.beginPath(); c.moveTo(290, 384); c.lineTo(272, 408); c.moveTo(290, 384); c.lineTo(290, 412);
+    c.moveTo(290, 384); c.lineTo(308, 408); c.stroke();
     // branch
-    c.beginPath(); c.moveTo(150, 365); c.lineTo(370, 365); c.stroke();
+    c.beginPath(); c.moveTo(128, 396); c.lineTo(392, 396); c.stroke();
   },
   diamond(c) {
     // top facet
-    c.beginPath(); c.moveTo(180, 170); c.lineTo(260, 80); c.lineTo(340, 170); c.stroke();
+    c.beginPath(); c.moveTo(164, 162); c.lineTo(260, 54); c.lineTo(356, 162); c.stroke();
     // top flat
-    c.beginPath(); c.moveTo(180, 170); c.lineTo(340, 170); c.stroke();
+    c.beginPath(); c.moveTo(164, 162); c.lineTo(356, 162); c.stroke();
     // bottom point
-    c.beginPath(); c.moveTo(180, 170); c.lineTo(260, 370); c.lineTo(340, 170); c.stroke();
+    c.beginPath(); c.moveTo(164, 162); c.lineTo(260, 402); c.lineTo(356, 162); c.stroke();
     // upper facet lines
-    c.beginPath(); c.moveTo(220, 80); c.lineTo(210, 170); c.stroke();
-    c.beginPath(); c.moveTo(260, 80); c.lineTo(260, 170); c.stroke();
-    c.beginPath(); c.moveTo(300, 80); c.lineTo(310, 170); c.stroke();
+    c.beginPath(); c.moveTo(212, 54); c.lineTo(200, 162); c.stroke();
+    c.beginPath(); c.moveTo(260, 54); c.lineTo(260, 162); c.stroke();
+    c.beginPath(); c.moveTo(308, 54); c.lineTo(320, 162); c.stroke();
     // crown top edge
-    c.beginPath(); c.moveTo(220, 80); c.lineTo(300, 80); c.stroke();
-    c.beginPath(); c.moveTo(180, 170); c.lineTo(220, 80); c.stroke();
-    c.beginPath(); c.moveTo(340, 170); c.lineTo(300, 80); c.stroke();
+    c.beginPath(); c.moveTo(212, 54); c.lineTo(308, 54); c.stroke();
+    c.beginPath(); c.moveTo(164, 162); c.lineTo(212, 54); c.stroke();
+    c.beginPath(); c.moveTo(356, 162); c.lineTo(308, 54); c.stroke();
     // lower facet lines
-    c.beginPath(); c.moveTo(210, 170); c.lineTo(260, 370); c.stroke();
-    c.beginPath(); c.moveTo(260, 170); c.lineTo(260, 370); c.stroke();
-    c.beginPath(); c.moveTo(310, 170); c.lineTo(260, 370); c.stroke();
+    c.beginPath(); c.moveTo(200, 162); c.lineTo(260, 402); c.stroke();
+    c.beginPath(); c.moveTo(260, 162); c.lineTo(260, 402); c.stroke();
+    c.beginPath(); c.moveTo(320, 162); c.lineTo(260, 402); c.stroke();
     // sparkle left
-    c.beginPath(); c.moveTo(140, 120); c.lineTo(150, 130); c.stroke();
-    c.beginPath(); c.moveTo(150, 120); c.lineTo(140, 130); c.stroke();
+    c.beginPath(); c.moveTo(116, 102); c.lineTo(128, 114); c.stroke();
+    c.beginPath(); c.moveTo(128, 102); c.lineTo(116, 114); c.stroke();
     // sparkle right
-    c.beginPath(); c.moveTo(370, 140); c.lineTo(380, 150); c.stroke();
-    c.beginPath(); c.moveTo(380, 140); c.lineTo(370, 150); c.stroke();
+    c.beginPath(); c.moveTo(392, 126); c.lineTo(404, 138); c.stroke();
+    c.beginPath(); c.moveTo(404, 126); c.lineTo(392, 138); c.stroke();
     // sparkle top
-    c.beginPath(); c.moveTo(285, 55); c.lineTo(290, 65); c.stroke();
-    c.beginPath(); c.moveTo(290, 55); c.lineTo(285, 65); c.stroke();
+    c.beginPath(); c.moveTo(290, 24); c.lineTo(296, 36); c.stroke();
+    c.beginPath(); c.moveTo(296, 24); c.lineTo(290, 36); c.stroke();
   },
   butterfly(c) {
     // body
-    c.beginPath(); c.moveTo(260, 100); c.lineTo(260, 320); c.stroke();
+    c.beginPath(); c.moveTo(260, 84); c.lineTo(260, 337); c.stroke();
     // head
-    c.beginPath(); c.arc(260, 100, 14, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(260, 84, 16, 0, Math.PI * 2); c.stroke();
     // left antenna
-    c.beginPath(); c.moveTo(252, 90); c.quadraticCurveTo(220, 50, 210, 45); c.stroke();
-    c.beginPath(); c.arc(207, 43, 5, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.moveTo(251, 72); c.quadraticCurveTo(214, 26, 203, 20); c.stroke();
+    c.beginPath(); c.arc(199, 18, 6, 0, Math.PI * 2); c.stroke();
     // right antenna
-    c.beginPath(); c.moveTo(268, 90); c.quadraticCurveTo(300, 50, 310, 45); c.stroke();
-    c.beginPath(); c.arc(313, 43, 5, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.moveTo(269, 72); c.quadraticCurveTo(306, 26, 318, 20); c.stroke();
+    c.beginPath(); c.arc(321, 18, 6, 0, Math.PI * 2); c.stroke();
     // upper left wing
-    c.beginPath(); c.moveTo(260, 130);
-    c.bezierCurveTo(200, 80, 110, 100, 110, 170);
-    c.bezierCurveTo(110, 220, 180, 230, 260, 210); c.stroke();
+    c.beginPath(); c.moveTo(260, 118);
+    c.bezierCurveTo(191, 61, 88, 84, 88, 164);
+    c.bezierCurveTo(88, 222, 168, 233, 260, 210); c.stroke();
     // upper right wing
-    c.beginPath(); c.moveTo(260, 130);
-    c.bezierCurveTo(320, 80, 410, 100, 410, 170);
-    c.bezierCurveTo(410, 220, 340, 230, 260, 210); c.stroke();
+    c.beginPath(); c.moveTo(260, 118);
+    c.bezierCurveTo(329, 61, 433, 84, 433, 164);
+    c.bezierCurveTo(433, 222, 352, 233, 260, 210); c.stroke();
     // lower left wing
-    c.beginPath(); c.moveTo(260, 220);
-    c.bezierCurveTo(200, 220, 130, 260, 140, 320);
-    c.bezierCurveTo(150, 350, 220, 340, 260, 310); c.stroke();
+    c.beginPath(); c.moveTo(260, 222);
+    c.bezierCurveTo(191, 222, 111, 268, 122, 337);
+    c.bezierCurveTo(134, 371, 214, 360, 260, 325); c.stroke();
     // lower right wing
-    c.beginPath(); c.moveTo(260, 220);
-    c.bezierCurveTo(320, 220, 390, 260, 380, 320);
-    c.bezierCurveTo(370, 350, 300, 340, 260, 310); c.stroke();
+    c.beginPath(); c.moveTo(260, 222);
+    c.bezierCurveTo(329, 222, 410, 268, 398, 337);
+    c.bezierCurveTo(387, 371, 306, 360, 260, 325); c.stroke();
     // wing pattern left upper
-    c.beginPath(); c.arc(185, 160, 20, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(174, 153, 23, 0, Math.PI * 2); c.stroke();
     // wing pattern right upper
-    c.beginPath(); c.arc(335, 160, 20, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(346, 153, 23, 0, Math.PI * 2); c.stroke();
     // wing pattern left lower
-    c.beginPath(); c.arc(195, 285, 14, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(185, 296, 16, 0, Math.PI * 2); c.stroke();
     // wing pattern right lower
-    c.beginPath(); c.arc(325, 285, 14, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(335, 296, 16, 0, Math.PI * 2); c.stroke();
   },
   guitar(c) {
     // headstock
-    c.beginPath(); c.moveTo(240, 55); c.lineTo(240, 110); c.lineTo(280, 110); c.lineTo(280, 55); c.stroke();
-    c.beginPath(); c.moveTo(240, 55); c.quadraticCurveTo(260, 45, 280, 55); c.stroke();
+    c.beginPath(); c.moveTo(236, 24); c.lineTo(236, 90); c.lineTo(284, 90); c.lineTo(284, 24); c.stroke();
+    c.beginPath(); c.moveTo(236, 24); c.quadraticCurveTo(260, 12, 284, 24); c.stroke();
     // tuning pegs left
-    c.beginPath(); c.moveTo(240, 68); c.lineTo(225, 68); c.stroke();
-    c.beginPath(); c.arc(222, 68, 4, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.moveTo(240, 82); c.lineTo(225, 82); c.stroke();
-    c.beginPath(); c.arc(222, 82, 4, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.moveTo(240, 96); c.lineTo(225, 96); c.stroke();
-    c.beginPath(); c.arc(222, 96, 4, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.moveTo(236, 40); c.lineTo(218, 40); c.stroke();
+    c.beginPath(); c.arc(214, 40, 5, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.moveTo(236, 56); c.lineTo(218, 56); c.stroke();
+    c.beginPath(); c.arc(214, 56, 5, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.moveTo(236, 73); c.lineTo(218, 73); c.stroke();
+    c.beginPath(); c.arc(214, 73, 5, 0, Math.PI * 2); c.stroke();
     // tuning pegs right
-    c.beginPath(); c.moveTo(280, 68); c.lineTo(295, 68); c.stroke();
-    c.beginPath(); c.arc(298, 68, 4, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.moveTo(280, 82); c.lineTo(295, 82); c.stroke();
-    c.beginPath(); c.arc(298, 82, 4, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.moveTo(280, 96); c.lineTo(295, 96); c.stroke();
-    c.beginPath(); c.arc(298, 96, 4, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.moveTo(284, 40); c.lineTo(302, 40); c.stroke();
+    c.beginPath(); c.arc(306, 40, 5, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.moveTo(284, 56); c.lineTo(302, 56); c.stroke();
+    c.beginPath(); c.arc(306, 56, 5, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.moveTo(284, 73); c.lineTo(302, 73); c.stroke();
+    c.beginPath(); c.arc(306, 73, 5, 0, Math.PI * 2); c.stroke();
     // nut
-    c.beginPath(); c.moveTo(240, 110); c.lineTo(280, 110); c.stroke();
+    c.beginPath(); c.moveTo(236, 90); c.lineTo(284, 90); c.stroke();
     // neck
-    c.beginPath(); c.moveTo(248, 110); c.lineTo(248, 230); c.stroke();
-    c.beginPath(); c.moveTo(272, 110); c.lineTo(272, 230); c.stroke();
+    c.beginPath(); c.moveTo(246, 90); c.lineTo(246, 234); c.stroke();
+    c.beginPath(); c.moveTo(274, 90); c.lineTo(274, 234); c.stroke();
     // frets
-    c.beginPath(); c.moveTo(248, 135); c.lineTo(272, 135); c.stroke();
-    c.beginPath(); c.moveTo(248, 158); c.lineTo(272, 158); c.stroke();
-    c.beginPath(); c.moveTo(248, 178); c.lineTo(272, 178); c.stroke();
-    c.beginPath(); c.moveTo(248, 196); c.lineTo(272, 196); c.stroke();
-    c.beginPath(); c.moveTo(248, 212); c.lineTo(272, 212); c.stroke();
+    c.beginPath(); c.moveTo(246, 120); c.lineTo(274, 120); c.stroke();
+    c.beginPath(); c.moveTo(246, 148); c.lineTo(274, 148); c.stroke();
+    c.beginPath(); c.moveTo(246, 172); c.lineTo(274, 172); c.stroke();
+    c.beginPath(); c.moveTo(246, 193); c.lineTo(274, 193); c.stroke();
+    c.beginPath(); c.moveTo(246, 212); c.lineTo(274, 212); c.stroke();
     // body upper bout
-    c.beginPath(); c.moveTo(248, 230);
-    c.bezierCurveTo(200, 230, 170, 260, 170, 290); c.stroke();
-    c.beginPath(); c.moveTo(272, 230);
-    c.bezierCurveTo(320, 230, 350, 260, 350, 290); c.stroke();
+    c.beginPath(); c.moveTo(246, 234);
+    c.bezierCurveTo(188, 234, 152, 270, 152, 306); c.stroke();
+    c.beginPath(); c.moveTo(274, 234);
+    c.bezierCurveTo(332, 234, 368, 270, 368, 306); c.stroke();
     // waist
-    c.beginPath(); c.moveTo(170, 290); c.quadraticCurveTo(185, 310, 175, 330); c.stroke();
-    c.beginPath(); c.moveTo(350, 290); c.quadraticCurveTo(335, 310, 345, 330); c.stroke();
+    c.beginPath(); c.moveTo(152, 306); c.quadraticCurveTo(170, 330, 158, 354); c.stroke();
+    c.beginPath(); c.moveTo(368, 306); c.quadraticCurveTo(350, 330, 362, 354); c.stroke();
     // lower bout
-    c.beginPath(); c.moveTo(175, 330);
-    c.bezierCurveTo(165, 370, 200, 400, 260, 400);
-    c.bezierCurveTo(320, 400, 355, 370, 345, 330); c.stroke();
+    c.beginPath(); c.moveTo(158, 354);
+    c.bezierCurveTo(146, 402, 188, 438, 260, 438);
+    c.bezierCurveTo(332, 438, 374, 402, 362, 354); c.stroke();
     // sound hole
-    c.beginPath(); c.arc(260, 310, 30, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(260, 330, 36, 0, Math.PI * 2); c.stroke();
     // bridge
-    c.beginPath(); c.moveTo(235, 365); c.lineTo(285, 365); c.stroke();
+    c.beginPath(); c.moveTo(230, 396); c.lineTo(290, 396); c.stroke();
     // strings hint
-    c.beginPath(); c.moveTo(255, 110); c.lineTo(255, 365); c.stroke();
-    c.beginPath(); c.moveTo(265, 110); c.lineTo(265, 365); c.stroke();
+    c.beginPath(); c.moveTo(254, 90); c.lineTo(254, 396); c.stroke();
+    c.beginPath(); c.moveTo(266, 90); c.lineTo(266, 396); c.stroke();
   },
   jellyfish(c) {
     // bell/dome
-    c.beginPath(); c.arc(260, 170, 90, Math.PI, 0); c.stroke();
+    c.beginPath(); c.arc(260, 158, 117, Math.PI, 0); c.stroke();
     // bell bottom
-    c.beginPath(); c.moveTo(170, 170);
-    c.quadraticCurveTo(195, 195, 220, 175);
-    c.quadraticCurveTo(240, 165, 260, 180);
-    c.quadraticCurveTo(280, 165, 300, 175);
-    c.quadraticCurveTo(325, 195, 350, 170); c.stroke();
+    c.beginPath(); c.moveTo(143, 158);
+    c.quadraticCurveTo(176, 191, 208, 165);
+    c.quadraticCurveTo(234, 152, 260, 171);
+    c.quadraticCurveTo(286, 152, 312, 165);
+    c.quadraticCurveTo(345, 191, 377, 158); c.stroke();
     // bell inner pattern
-    c.beginPath(); c.arc(260, 155, 40, Math.PI + 0.3, -0.3); c.stroke();
+    c.beginPath(); c.arc(260, 139, 52, Math.PI + 0.3, -0.3); c.stroke();
     // eyes
-    c.beginPath(); c.arc(238, 145, 8, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(282, 145, 8, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(231, 126, 10, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(289, 126, 10, 0, Math.PI * 2); c.stroke();
     // smile
-    c.beginPath(); c.arc(260, 158, 12, 0.3, Math.PI - 0.3); c.stroke();
+    c.beginPath(); c.arc(260, 142, 16, 0.3, Math.PI - 0.3); c.stroke();
     // tentacle 1
-    c.beginPath(); c.moveTo(190, 185);
-    c.bezierCurveTo(180, 230, 195, 280, 175, 340);
-    c.quadraticCurveTo(170, 360, 180, 370); c.stroke();
+    c.beginPath(); c.moveTo(169, 178);
+    c.bezierCurveTo(156, 236, 176, 301, 150, 379);
+    c.quadraticCurveTo(143, 405, 156, 418); c.stroke();
     // tentacle 2
-    c.beginPath(); c.moveTo(220, 180);
-    c.bezierCurveTo(215, 240, 230, 290, 210, 360);
-    c.quadraticCurveTo(205, 380, 215, 385); c.stroke();
+    c.beginPath(); c.moveTo(208, 171);
+    c.bezierCurveTo(202, 249, 221, 314, 195, 405);
+    c.quadraticCurveTo(189, 431, 202, 438); c.stroke();
     // tentacle 3
-    c.beginPath(); c.moveTo(250, 182);
-    c.bezierCurveTo(248, 230, 255, 290, 240, 370);
-    c.quadraticCurveTo(237, 390, 248, 390); c.stroke();
+    c.beginPath(); c.moveTo(247, 174);
+    c.bezierCurveTo(244, 236, 254, 314, 234, 418);
+    c.quadraticCurveTo(230, 444, 244, 444); c.stroke();
     // tentacle 4
-    c.beginPath(); c.moveTo(270, 182);
-    c.bezierCurveTo(275, 230, 270, 290, 285, 370);
-    c.quadraticCurveTo(290, 390, 280, 390); c.stroke();
+    c.beginPath(); c.moveTo(273, 174);
+    c.bezierCurveTo(280, 236, 273, 314, 293, 418);
+    c.quadraticCurveTo(299, 444, 286, 444); c.stroke();
     // tentacle 5
-    c.beginPath(); c.moveTo(300, 180);
-    c.bezierCurveTo(310, 240, 295, 290, 315, 360);
-    c.quadraticCurveTo(320, 380, 310, 385); c.stroke();
+    c.beginPath(); c.moveTo(312, 171);
+    c.bezierCurveTo(325, 249, 306, 314, 332, 405);
+    c.quadraticCurveTo(338, 431, 325, 438); c.stroke();
     // tentacle 6
-    c.beginPath(); c.moveTo(330, 185);
-    c.bezierCurveTo(340, 230, 325, 280, 345, 340);
-    c.quadraticCurveTo(350, 360, 340, 370); c.stroke();
+    c.beginPath(); c.moveTo(351, 178);
+    c.bezierCurveTo(364, 236, 345, 301, 371, 379);
+    c.quadraticCurveTo(377, 405, 364, 418); c.stroke();
     // dots on bell
-    c.beginPath(); c.arc(220, 120, 5, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(260, 110, 5, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(300, 120, 5, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(208, 93, 7, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(260, 80, 7, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(312, 93, 7, 0, Math.PI * 2); c.stroke();
   },
   sunflower(c) {
     // center
-    c.beginPath(); c.arc(260, 190, 40, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(260, 184, 52, 0, Math.PI * 2); c.stroke();
     // inner center
-    c.beginPath(); c.arc(260, 190, 25, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(260, 184, 33, 0, Math.PI * 2); c.stroke();
     // center dots
-    c.beginPath(); c.arc(250, 182, 3, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(270, 182, 3, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(260, 198, 3, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(248, 195, 3, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(272, 195, 3, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(247, 174, 4, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(273, 174, 4, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(260, 194, 4, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(244, 191, 4, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(276, 191, 4, 0, Math.PI * 2); c.stroke();
     // petals (12 around)
     for (let i = 0; i < 12; i++) {
       const a = (i * Math.PI * 2) / 12;
-      const px = 260 + 45 * Math.cos(a);
-      const py = 190 + 45 * Math.sin(a);
-      const ex = 260 + 85 * Math.cos(a);
-      const ey = 190 + 85 * Math.sin(a);
-      const cpx1 = 260 + 65 * Math.cos(a - 0.25);
-      const cpy1 = 190 + 65 * Math.sin(a - 0.25);
-      const cpx2 = 260 + 65 * Math.cos(a + 0.25);
-      const cpy2 = 190 + 65 * Math.sin(a + 0.25);
+      const px = 260 + 59 * Math.cos(a);
+      const py = 184 + 59 * Math.sin(a);
+      const ex = 260 + 111 * Math.cos(a);
+      const ey = 184 + 111 * Math.sin(a);
+      const cpx1 = 260 + 85 * Math.cos(a - 0.25);
+      const cpy1 = 184 + 85 * Math.sin(a - 0.25);
+      const cpx2 = 260 + 85 * Math.cos(a + 0.25);
+      const cpy2 = 184 + 85 * Math.sin(a + 0.25);
       c.beginPath(); c.moveTo(px, py);
       c.quadraticCurveTo(cpx1, cpy1, ex, ey);
       c.quadraticCurveTo(cpx2, cpy2, px, py); c.stroke();
     }
     // stem
-    c.beginPath(); c.moveTo(255, 275); c.quadraticCurveTo(250, 340, 255, 400); c.stroke();
-    c.beginPath(); c.moveTo(265, 275); c.quadraticCurveTo(270, 340, 265, 400); c.stroke();
+    c.beginPath(); c.moveTo(254, 295); c.quadraticCurveTo(247, 379, 254, 457); c.stroke();
+    c.beginPath(); c.moveTo(267, 295); c.quadraticCurveTo(273, 379, 267, 457); c.stroke();
     // leaf left
-    c.beginPath(); c.moveTo(255, 330);
-    c.quadraticCurveTo(200, 310, 180, 330);
-    c.quadraticCurveTo(200, 345, 255, 340); c.stroke();
+    c.beginPath(); c.moveTo(254, 366);
+    c.quadraticCurveTo(182, 340, 156, 366);
+    c.quadraticCurveTo(182, 386, 254, 379); c.stroke();
     // leaf right
-    c.beginPath(); c.moveTo(265, 350);
-    c.quadraticCurveTo(320, 335, 340, 350);
-    c.quadraticCurveTo(320, 365, 265, 358); c.stroke();
+    c.beginPath(); c.moveTo(267, 392);
+    c.quadraticCurveTo(338, 373, 364, 392);
+    c.quadraticCurveTo(338, 412, 267, 402); c.stroke();
     // leaf veins
-    c.beginPath(); c.moveTo(255, 335); c.lineTo(195, 330); c.stroke();
-    c.beginPath(); c.moveTo(265, 354); c.lineTo(325, 350); c.stroke();
+    c.beginPath(); c.moveTo(254, 373); c.lineTo(176, 366); c.stroke();
+    c.beginPath(); c.moveTo(267, 397); c.lineTo(345, 392); c.stroke();
   },
   pirateship(c) {
     // hull
-    c.beginPath(); c.moveTo(80, 280); c.lineTo(60, 320);
-    c.lineTo(100, 350); c.lineTo(420, 350); c.lineTo(460, 320); c.lineTo(440, 280); c.stroke();
-    c.beginPath(); c.moveTo(80, 280); c.lineTo(440, 280); c.stroke();
+    c.beginPath(); c.moveTo(71, 284); c.lineTo(50, 326);
+    c.lineTo(92, 357); c.lineTo(428, 357); c.lineTo(470, 326); c.lineTo(449, 284); c.stroke();
+    c.beginPath(); c.moveTo(71, 284); c.lineTo(449, 284); c.stroke();
     // hull stripes
-    c.beginPath(); c.moveTo(75, 305); c.lineTo(445, 305); c.stroke();
+    c.beginPath(); c.moveTo(66, 310); c.lineTo(454, 310); c.stroke();
     // bow decoration
-    c.beginPath(); c.moveTo(80, 280); c.quadraticCurveTo(50, 260, 40, 240); c.stroke();
+    c.beginPath(); c.moveTo(71, 284); c.quadraticCurveTo(40, 263, 29, 242); c.stroke();
     // stern decoration
-    c.beginPath(); c.moveTo(440, 280); c.lineTo(460, 260); c.lineTo(460, 290); c.stroke();
+    c.beginPath(); c.moveTo(449, 284); c.lineTo(470, 263); c.lineTo(470, 294); c.stroke();
     // main mast
-    c.beginPath(); c.moveTo(260, 280); c.lineTo(260, 60); c.stroke();
+    c.beginPath(); c.moveTo(260, 284); c.lineTo(260, 53); c.stroke();
     // fore mast
-    c.beginPath(); c.moveTo(160, 280); c.lineTo(160, 110); c.stroke();
+    c.beginPath(); c.moveTo(155, 284); c.lineTo(155, 105); c.stroke();
     // main sail
-    c.beginPath(); c.moveTo(200, 90); c.lineTo(320, 90); c.stroke();
-    c.beginPath(); c.moveTo(195, 180); c.lineTo(325, 180); c.stroke();
-    c.beginPath(); c.moveTo(200, 90); c.quadraticCurveTo(195, 135, 195, 180); c.stroke();
-    c.beginPath(); c.moveTo(320, 90); c.quadraticCurveTo(325, 135, 325, 180); c.stroke();
+    c.beginPath(); c.moveTo(197, 84); c.lineTo(323, 84); c.stroke();
+    c.beginPath(); c.moveTo(192, 179); c.lineTo(328, 179); c.stroke();
+    c.beginPath(); c.moveTo(197, 84); c.quadraticCurveTo(192, 131, 192, 179); c.stroke();
+    c.beginPath(); c.moveTo(323, 84); c.quadraticCurveTo(328, 131, 328, 179); c.stroke();
     // fore sail
-    c.beginPath(); c.moveTo(115, 130); c.lineTo(205, 130); c.stroke();
-    c.beginPath(); c.moveTo(110, 210); c.lineTo(210, 210); c.stroke();
-    c.beginPath(); c.moveTo(115, 130); c.quadraticCurveTo(110, 170, 110, 210); c.stroke();
-    c.beginPath(); c.moveTo(205, 130); c.quadraticCurveTo(210, 170, 210, 210); c.stroke();
+    c.beginPath(); c.moveTo(108, 126); c.lineTo(202, 126); c.stroke();
+    c.beginPath(); c.moveTo(103, 210); c.lineTo(208, 210); c.stroke();
+    c.beginPath(); c.moveTo(108, 126); c.quadraticCurveTo(103, 168, 103, 210); c.stroke();
+    c.beginPath(); c.moveTo(202, 126); c.quadraticCurveTo(208, 168, 208, 210); c.stroke();
     // crow's nest
-    c.beginPath(); c.moveTo(245, 65); c.lineTo(275, 65); c.lineTo(278, 80); c.lineTo(242, 80); c.closePath(); c.stroke();
+    c.beginPath(); c.moveTo(244, 58); c.lineTo(276, 58); c.lineTo(279, 74); c.lineTo(241, 74); c.closePath(); c.stroke();
     // jolly roger flag
-    c.beginPath(); c.moveTo(260, 60); c.lineTo(260, 35); c.stroke();
-    c.beginPath(); c.moveTo(260, 35); c.lineTo(295, 35); c.lineTo(295, 55); c.lineTo(260, 55); c.stroke();
+    c.beginPath(); c.moveTo(260, 53); c.lineTo(260, 26); c.stroke();
+    c.beginPath(); c.moveTo(260, 26); c.lineTo(297, 26); c.lineTo(297, 47); c.lineTo(260, 47); c.stroke();
     // skull on flag
-    c.beginPath(); c.arc(278, 43, 6, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.moveTo(272, 49); c.lineTo(284, 49); c.stroke();
+    c.beginPath(); c.arc(279, 35, 6, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.moveTo(273, 41); c.lineTo(285, 41); c.stroke();
     // water
-    c.beginPath(); c.moveTo(40, 365); c.quadraticCurveTo(110, 355, 180, 365); c.stroke();
-    c.beginPath(); c.moveTo(230, 370); c.quadraticCurveTo(300, 360, 370, 370); c.stroke();
-    c.beginPath(); c.moveTo(400, 365); c.quadraticCurveTo(440, 358, 480, 365); c.stroke();
+    c.beginPath(); c.moveTo(29, 373); c.quadraticCurveTo(103, 362, 176, 373); c.stroke();
+    c.beginPath(); c.moveTo(229, 378); c.quadraticCurveTo(302, 368, 376, 378); c.stroke();
+    c.beginPath(); c.moveTo(407, 373); c.quadraticCurveTo(449, 365, 491, 373); c.stroke();
     // cannon holes
-    c.beginPath(); c.arc(180, 300, 6, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(260, 300, 6, 0, Math.PI * 2); c.stroke();
-    c.beginPath(); c.arc(340, 300, 6, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(176, 305, 6, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(260, 305, 6, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(344, 305, 6, 0, Math.PI * 2); c.stroke();
   },
 };
 
@@ -1779,355 +1779,355 @@ function buildReplayFrames() {
 }
 
 const promptSvgMarkup = {
-  rocket: `<path d="M230 320 L230 140 Q230 80 260 50 Q290 80 290 140 L290 320"/>
-    <line x1="260" y1="50" x2="250" y2="70"/><line x1="260" y1="50" x2="270" y2="70"/>
-    <path d="M230 280 L190 340 L230 320"/><path d="M290 280 L330 340 L290 320"/>
-    <circle cx="260" cy="180" r="22"/><circle cx="260" cy="180" r="14"/>
-    <line x1="230" y1="250" x2="290" y2="250"/><line x1="230" y1="265" x2="290" y2="265"/>
-    <path d="M240 320 Q245 360 260 390"/><path d="M280 320 Q275 360 260 390"/>
-    <path d="M250 320 Q255 350 260 370"/><path d="M270 320 Q265 350 260 370"/>
-    <circle cx="160" cy="100" r="3"/><circle cx="370" cy="150" r="3"/><circle cx="150" cy="250" r="3"/>`,
-  octopus: `<ellipse cx="260" cy="150" rx="80" ry="70"/>
-    <circle cx="230" cy="140" r="15"/><circle cx="290" cy="140" r="15"/>
-    <circle cx="233" cy="138" r="6"/><circle cx="293" cy="138" r="6"/>
-    <path d="M250 170 A10 10 0 0 1 270 170"/>
-    <path d="M195 200 C150 250 120 300 140 350 Q150 370 165 355"/>
-    <path d="M210 210 C180 270 160 330 190 370 Q200 385 210 370"/>
-    <path d="M235 215 C220 280 210 340 230 380 Q240 395 250 380"/>
-    <path d="M255 218 C250 280 245 350 265 390 Q275 400 280 385"/>
-    <path d="M275 218 C285 280 295 350 305 385 Q315 400 320 380"/>
-    <path d="M295 215 C320 270 340 330 330 370 Q325 385 315 365"/>
-    <path d="M310 210 C340 260 370 310 365 355 Q362 375 350 355"/>
-    <path d="M325 200 C370 240 400 290 385 340 Q380 360 370 340"/>
-    <circle cx="145" cy="310" r="4"/><circle cx="138" cy="335" r="4"/>`,
-  pizza: `<path d="M140 100 L260 380 L380 100"/>
-    <path d="M140 100 A120 120 0 0 1 380 100"/>
-    <path d="M152 108 A108 108 0 0 1 368 108"/>
-    <circle cx="240" cy="180" r="16"/><circle cx="290" cy="220" r="14"/>
-    <circle cx="220" cy="260" r="15"/><circle cx="270" cy="300" r="13"/>
-    <path d="M298 160 A12 12 0 0 1 322 160"/><line x1="304" y1="160" x2="306" y2="175"/><line x1="316" y1="160" x2="314" y2="175"/>
-    <circle cx="200" cy="190" r="10"/><circle cx="200" cy="190" r="4"/>
-    <path d="M260 375 Q255 395 260 400"/>`,
-  dragon: `<ellipse cx="160" cy="130" rx="45" ry="35" transform="rotate(-11 160 130)"/>
-    <path d="M118 120 L95 115 L95 135 L118 138"/>
-    <circle cx="150" cy="120" r="8"/><circle cx="152" cy="119" r="3"/>
-    <path d="M150 100 L135 65 L155 90"/><path d="M175 98 L185 60 L180 92"/>
-    <path d="M95 120 Q70 110 60 125 Q55 140 75 140"/>
-    <path d="M190 150 Q220 180 240 200"/><path d="M175 160 Q210 195 230 215"/>
-    <path d="M240 200 C300 190 350 210 370 250 Q385 285 370 310"/>
-    <path d="M230 215 C280 220 340 240 360 280 Q370 310 355 325"/>
-    <path d="M270 200 L310 110 L360 130 L400 100 L380 180 L350 210"/>
-    <line x1="310" y1="110" x2="330" y2="190"/><line x1="360" y1="130" x2="360" y2="200"/>
-    <line x1="260" y1="225" x2="260" y2="255"/><line x1="280" y1="230" x2="280" y2="265"/><line x1="300" y1="235" x2="300" y2="275"/>
-    <path d="M270 250 L260 320 L240 330 M260 320 L270 335"/>
-    <path d="M340 280 L350 340 L335 350 M350 340 L365 350"/>
-    <path d="M370 310 C390 340 420 350 440 330 Q460 310 450 295"/>
-    <path d="M450 295 L465 280 L445 290"/>
-    <line x1="200" y1="160" x2="195" y2="148"/><line x1="215" y1="175" x2="208" y2="163"/>`,
-  penguin: `<ellipse cx="260" cy="250" rx="70" ry="110"/>
-    <ellipse cx="260" cy="265" rx="45" ry="85"/>
-    <circle cx="260" cy="140" r="45"/>
-    <circle cx="242" cy="132" r="8"/><circle cx="244" cy="131" r="3"/>
-    <circle cx="278" cy="132" r="8"/><circle cx="280" cy="131" r="3"/>
-    <path d="M252 148 L260 168 L268 148"/>
-    <path d="M192 200 Q155 260 170 320"/>
-    <path d="M328 200 Q365 260 350 320"/>
-    <path d="M230 355 L210 375 L240 375 L250 358"/>
-    <path d="M290 355 L280 375 L310 375 L290 358"/>
-    <path d="M260 185 L245 175 L245 195 L260 185 L275 175 L275 195 Z"/>`,
-  ufo: `<path d="M200 190 A60 60 0 0 1 320 190"/>
-    <path d="M208 190 A45 45 0 0 1 312 190"/>
-    <ellipse cx="260" cy="200" rx="140" ry="35"/>
-    <path d="M140 210 A120 25 0 0 0 380 210"/>
-    <circle cx="230" cy="175" r="8"/><circle cx="260" cy="170" r="8"/><circle cx="290" cy="175" r="8"/>
-    <circle cx="170" cy="200" r="6"/><circle cx="215" cy="207" r="6"/><circle cx="260" cy="210" r="6"/>
-    <circle cx="305" cy="207" r="6"/><circle cx="350" cy="200" r="6"/>
-    <line x1="220" y1="230" x2="180" y2="380"/><line x1="300" y1="230" x2="340" y2="380"/>
-    <line x1="180" y1="380" x2="340" y2="380"/>
-    <line x1="235" y1="260" x2="285" y2="260"/><line x1="215" y1="320" x2="305" y2="320"/>
-    <line x1="260" y1="130" x2="260" y2="110"/><circle cx="260" cy="106" r="5"/>`,
-  skull: `<path d="M170 180 A90 90 0 0 1 350 180"/>
-    <path d="M170 180 L170 240 Q170 270 190 280"/>
-    <path d="M350 180 L350 240 Q350 270 330 280"/>
-    <path d="M190 280 L195 270 L220 280"/><path d="M330 280 L325 270 L300 280"/>
-    <path d="M220 280 L210 310 Q210 340 230 340 L290 340 Q310 340 310 310 L300 280"/>
-    <ellipse cx="225" cy="200" rx="28" ry="30"/><ellipse cx="295" cy="200" rx="28" ry="30"/>
-    <path d="M252 240 L248 265 L260 270 L272 265 L268 240"/>
-    <line x1="220" y1="300" x2="300" y2="300"/>
-    <line x1="235" y1="300" x2="235" y2="340"/><line x1="252" y1="300" x2="252" y2="340"/>
-    <line x1="268" y1="300" x2="268" y2="340"/><line x1="285" y1="300" x2="285" y2="340"/>
-    <path d="M175 160 Q180 170 178 185"/><path d="M345 160 Q340 170 342 185"/>`,
-  palmtree: `<path d="M245 390 Q240 300 255 200 Q265 160 260 140"/>
-    <path d="M275 390 Q270 300 275 200 Q280 160 270 140"/>
-    <line x1="247" y1="350" x2="273" y2="350"/><line x1="248" y1="310" x2="274" y2="310"/>
-    <line x1="252" y1="270" x2="276" y2="270"/><line x1="256" y1="230" x2="276" y2="230"/>
-    <line x1="259" y1="195" x2="275" y2="195"/>
-    <path d="M265 140 C320 110 390 100 430 130"/>
-    <line x1="330" y1="105" x2="340" y2="120"/><line x1="370" y1="100" x2="375" y2="118"/><line x1="405" y1="108" x2="405" y2="126"/>
-    <path d="M265 140 C200 110 130 105 90 140"/>
-    <line x1="190" y1="108" x2="185" y2="125"/><line x1="150" y1="105" x2="148" y2="122"/><line x1="115" y1="115" x2="115" y2="132"/>
-    <path d="M265 140 C310 140 380 160 410 200"/>
-    <line x1="340" y1="148" x2="345" y2="165"/><line x1="375" y1="162" x2="378" y2="180"/>
-    <path d="M265 140 C220 140 150 165 120 205"/>
-    <line x1="180" y1="155" x2="177" y2="172"/><line x1="145" y1="172" x2="143" y2="190"/>
-    <circle cx="255" cy="150" r="10"/><circle cx="275" cy="148" r="10"/>`,
-  robot: `<rect x="210" y="80" width="100" height="80"/>
-    <line x1="260" y1="80" x2="260" y2="55"/><circle cx="260" cy="48" r="7"/>
-    <rect x="228" y="105" width="20" height="20"/><rect x="272" y="105" width="20" height="20"/>
-    <circle cx="238" cy="115" r="5"/><circle cx="282" cy="115" r="5"/>
-    <line x1="235" y1="140" x2="285" y2="140"/>
-    <line x1="245" y1="140" x2="245" y2="148"/><line x1="260" y1="140" x2="260" y2="148"/><line x1="275" y1="140" x2="275" y2="148"/>
-    <path d="M245 160 L245 180 L275 180 L275 160"/>
-    <rect x="195" y="180" width="130" height="130"/>
-    <rect x="220" y="200" width="80" height="60"/>
-    <circle cx="240" cy="220" r="8"/><circle cx="270" cy="220" r="8"/>
-    <line x1="230" y1="245" x2="290" y2="245"/><line x1="260" y1="240" x2="260" y2="250"/>
-    <path d="M195 195 L155 195 L155 280 L175 280 L175 210 L195 210"/>
-    <line x1="145" y1="280" x2="145" y2="300"/><line x1="175" y1="280" x2="175" y2="300"/>
-    <path d="M325 195 L365 195 L365 280 L345 280 L345 210 L325 210"/>
-    <line x1="345" y1="280" x2="345" y2="300"/><line x1="375" y1="280" x2="375" y2="300"/>
-    <path d="M220 310 L220 370 L200 370 L200 380 L245 380 L245 370 L240 370 L240 310"/>
-    <path d="M280 310 L280 370 L275 370 L275 380 L320 380 L320 370 L300 370 L300 310"/>
-    <line x1="205" y1="115" x2="215" y2="115"/><line x1="210" y1="110" x2="210" y2="120"/>`,
-  flamingo: `<ellipse cx="280" cy="240" rx="60" ry="40" transform="rotate(17 280 240)"/>
-    <path d="M335 225 Q370 210 380 220"/><path d="M335 235 Q375 225 385 235"/>
-    <path d="M235 215 C210 190 190 150 195 110 Q198 85 215 80"/>
-    <path d="M245 220 C225 195 210 155 215 115 Q218 92 230 87"/>
-    <circle cx="222" cy="78" r="18"/>
-    <circle cx="215" cy="74" r="4"/>
-    <path d="M206 82 L178 90 L178 85 L200 78"/>
-    <path d="M178 85 Q172 88 170 92"/>
-    <path d="M270 275 L265 340 Q260 355 265 360"/><line x1="255" y1="360" x2="280" y2="360"/>
-    <path d="M290 275 L300 320 L290 360"/><line x1="280" y1="360" x2="305" y2="360"/>
-    <path d="M250 225 Q280 215 320 225"/><path d="M255 235 Q285 228 325 238"/>`,
-  volcano: `<line x1="60" y1="370" x2="200" y2="140"/><line x1="460" y1="370" x2="320" y2="140"/>
-    <path d="M200 140 Q260 160 320 140"/>
-    <line x1="40" y1="370" x2="480" y2="370"/>
-    <path d="M230 145 C220 180 200 220 180 270 Q170 300 175 320"/>
-    <path d="M280 148 C290 190 310 240 320 290 Q325 320 320 340"/>
-    <circle cx="240" cy="90" r="8"/><circle cx="275" cy="70" r="6"/>
-    <circle cx="300" cy="95" r="7"/><circle cx="220" cy="60" r="5"/>
-    <circle cx="250" cy="45" r="18"/><circle cx="275" cy="35" r="22"/><circle cx="300" cy="50" r="16"/>
-    <line x1="140" y1="280" x2="165" y2="280"/><line x1="350" y1="290" x2="380" y2="290"/>
-    <line x1="120" y1="330" x2="155" y2="330"/><line x1="370" y1="340" x2="400" y2="340"/>`,
-  sword: `<line x1="260" y1="60" x2="245" y2="240"/><line x1="260" y1="60" x2="275" y2="240"/>
-    <line x1="260" y1="60" x2="260" y2="45"/>
-    <line x1="260" y1="70" x2="260" y2="235"/>
-    <line x1="200" y1="240" x2="320" y2="240"/>
-    <path d="M200 240 Q195 250 200 255"/><path d="M320 240 Q325 250 320 255"/>
-    <line x1="200" y1="255" x2="320" y2="255"/>
-    <line x1="248" y1="255" x2="248" y2="340"/><line x1="272" y1="255" x2="272" y2="340"/>
-    <line x1="248" y1="275" x2="272" y2="285"/><line x1="248" y1="295" x2="272" y2="305"/><line x1="248" y1="315" x2="272" y2="325"/>
-    <circle cx="260" cy="350" r="15"/><circle cx="260" cy="350" r="6"/>
-    <line x1="252" y1="100" x2="250" y2="150"/>`,
-  mushroom: `<path d="M160 190 A100 100 0 0 1 360 190"/>
-    <path d="M160 190 Q260 220 360 190"/>
-    <path d="M225 200 Q220 300 225 370"/><path d="M295 200 Q300 300 295 370"/>
-    <path d="M225 370 Q210 380 210 390"/><path d="M295 370 Q310 380 310 390"/>
-    <line x1="210" y1="390" x2="310" y2="390"/>
-    <circle cx="220" cy="150" r="18"/><circle cx="300" cy="145" r="15"/>
-    <circle cx="260" cy="120" r="20"/><circle cx="190" cy="170" r="12"/><circle cx="330" cy="168" r="13"/>
-    <line x1="240" y1="198" x2="240" y2="210"/><line x1="260" y1="200" x2="260" y2="215"/><line x1="280" y1="198" x2="280" y2="210"/>`,
-  icecream: `<path d="M210 230 L260 390 L310 230"/>
-    <line x1="220" y1="245" x2="280" y2="335"/><line x1="240" y1="240" x2="290" y2="310"/>
-    <line x1="300" y1="245" x2="240" y2="335"/><line x1="280" y1="240" x2="230" y2="310"/>
-    <circle cx="260" cy="200" r="55"/><circle cx="260" cy="130" r="50"/>
-    <circle cx="260" cy="75" r="14"/>
-    <path d="M260 61 Q270 45 265 38"/>
-    <path d="M215 195 Q210 215 215 225"/><path d="M305 195 Q310 215 305 225"/>
-    <circle cx="240" cy="195" r="5"/><circle cx="280" cy="200" r="4"/>
-    <circle cx="250" cy="125" r="5"/><circle cx="275" cy="135" r="4"/>`,
-  castle: `<rect x="160" y="180" width="200" height="200"/>
-    <rect x="130" y="120" width="60" height="260"/><rect x="330" y="120" width="60" height="260"/>
-    <path d="M125 120 L125 100 L142 100 L142 120"/><path d="M152 120 L152 100 L168 100 L168 120"/><path d="M178 120 L178 100 L195 100 L195 120"/>
-    <path d="M325 120 L325 100 L342 100 L342 120"/><path d="M352 120 L352 100 L368 100 L368 120"/><path d="M378 120 L378 100 L395 100 L395 120"/>
-    <path d="M175 180 L175 162 L195 162 L195 180"/><path d="M210 180 L210 162 L230 162 L230 180"/>
-    <path d="M245 180 L245 162 L265 162 L265 180"/><path d="M280 180 L280 162 L300 162 L300 180"/>
-    <path d="M315 180 L315 162 L335 162 L335 180"/>
-    <path d="M230 380 L230 310 A30 30 0 0 1 290 310 L290 380"/>
-    <line x1="250" y1="310" x2="250" y2="380"/><line x1="270" y1="310" x2="270" y2="380"/>
-    <path d="M148 200 A12 12 0 0 1 172 200 L172 225 L148 225 Z"/>
-    <path d="M348 200 A12 12 0 0 1 372 200 L372 225 L348 225 Z"/>
-    <line x1="260" y1="162" x2="260" y2="125"/>
-    <path d="M260 125 L285 135 L260 145"/>`,
-  cat: `<circle cx="260" cy="160" r="60"/>
-    <path d="M215 115 L200 70 L235 100"/><path d="M305 115 L320 70 L285 100"/>
-    <path d="M218 110 L210 82 L230 103"/><path d="M302 110 L310 82 L290 103"/>
-    <ellipse cx="238" cy="150" rx="12" ry="14"/><ellipse cx="282" cy="150" rx="12" ry="14"/>
-    <line x1="238" y1="142" x2="238" y2="158"/><line x1="282" y1="142" x2="282" y2="158"/>
-    <path d="M254 172 L260 180 L266 172 Z"/>
-    <line x1="260" y1="180" x2="260" y2="188"/>
-    <path d="M260 188 Q248 195 242 188"/><path d="M260 188 Q272 195 278 188"/>
-    <line x1="220" y1="170" x2="175" y2="162"/><line x1="220" y1="177" x2="175" y2="177"/><line x1="220" y1="184" x2="175" y2="192"/>
-    <line x1="300" y1="170" x2="345" y2="162"/><line x1="300" y1="177" x2="345" y2="177"/><line x1="300" y1="184" x2="345" y2="192"/>
-    <ellipse cx="260" cy="290" rx="55" ry="70"/>
-    <circle cx="230" cy="355" r="15"/><circle cx="290" cy="355" r="15"/>
-    <path d="M310 300 C360 290 390 260 380 230 Q375 215 365 220"/>`,
-  anchor: `<circle cx="260" cy="85" r="25"/>
-    <line x1="260" y1="110" x2="260" y2="340"/>
-    <line x1="200" y1="160" x2="320" y2="160"/>
-    <path d="M260 340 Q180 340 150 290 Q140 270 155 260"/>
-    <path d="M155 260 L145 252 L148 268"/>
-    <path d="M260 340 Q340 340 370 290 Q380 270 365 260"/>
-    <path d="M365 260 L375 252 L372 268"/>
-    <line x1="255" y1="140" x2="265" y2="140"/><line x1="255" y1="200" x2="265" y2="200"/><line x1="255" y1="260" x2="265" y2="260"/>
-    <path d="M245 65 Q230 55 235 45"/>`,
-  lightning: `<path d="M280 50 L220 190 L270 190 L210 370"/>
-    <path d="M320 50 L260 190 L310 190 L250 370"/>
-    <line x1="280" y1="50" x2="320" y2="50"/><line x1="210" y1="370" x2="250" y2="370"/>
-    <line x1="220" y1="190" x2="260" y2="190"/><line x1="270" y1="190" x2="310" y2="190"/>
-    <line x1="190" y1="160" x2="175" y2="155"/><line x1="185" y1="175" x2="170" y2="175"/>
-    <line x1="340" y1="170" x2="355" y2="165"/><line x1="335" y1="185" x2="350" y2="185"/>
-    <line x1="170" y1="260" x2="155" y2="255"/><line x1="330" y1="280" x2="345" y2="275"/>`,
-  crown: `<line x1="140" y1="280" x2="380" y2="280"/><line x1="140" y1="300" x2="380" y2="300"/>
-    <line x1="140" y1="280" x2="140" y2="300"/><line x1="380" y1="280" x2="380" y2="300"/>
-    <path d="M140 280 L150 140 L200 210 L260 110 L320 210 L370 140 L380 280"/>
-    <circle cx="150" cy="135" r="8"/><circle cx="260" cy="105" r="10"/><circle cx="370" cy="135" r="8"/>
-    <circle cx="200" cy="285" r="6"/><circle cx="260" cy="285" r="8"/><circle cx="320" cy="285" r="6"/>
-    <line x1="165" y1="240" x2="175" y2="200"/><line x1="200" y1="250" x2="220" y2="200"/>
-    <line x1="300" y1="250" x2="320" y2="200"/><line x1="355" y1="240" x2="345" y2="200"/>`,
-  ghost: `<path d="M180 170 A80 80 0 0 1 340 170"/>
-    <line x1="180" y1="170" x2="180" y2="340"/><line x1="340" y1="170" x2="340" y2="340"/>
-    <path d="M180 340 Q200 310 220 340 Q240 370 260 340 Q280 310 300 340 Q320 370 340 340"/>
-    <ellipse cx="230" cy="180" rx="18" ry="22"/><ellipse cx="290" cy="180" rx="18" ry="22"/>
-    <circle cx="233" cy="184" r="7"/><circle cx="293" cy="184" r="7"/>
-    <ellipse cx="260" cy="240" rx="18" ry="14"/>
-    <path d="M180 230 Q145 240 140 260"/><path d="M340 230 Q375 240 380 260"/>`,
-  hotdog: `<path d="M100 210 Q95 180 130 170 L390 170 Q425 180 420 210"/>
-    <path d="M100 230 Q95 260 130 270 L390 270 Q425 260 420 230"/>
-    <line x1="110" y1="210" x2="410" y2="210"/><line x1="110" y1="230" x2="410" y2="230"/>
-    <path d="M103 220 A12 12 0 0 0 103 220" /><path d="M115 208 A12 12 0 1 0 115 232"/>
-    <path d="M405 208 A12 12 0 1 1 405 232"/>
-    <path d="M130 215 L155 225 L180 215 L205 225 L230 215 L255 225 L280 215 L305 225 L330 215 L355 225 L380 215"/>
-    <line x1="150" y1="185" x2="180" y2="185"/><line x1="250" y1="182" x2="280" y2="182"/><line x1="340" y1="185" x2="370" y2="185"/>
-    <ellipse cx="200" cy="180" rx="6" ry="3" transform="rotate(17 200 180)"/>
-    <ellipse cx="310" cy="178" rx="6" ry="3" transform="rotate(-11 310 178)"/>`,
-  dinosaur: `<path d="M310 100 L390 100 L400 110 L400 140 L310 140 Q295 120 310 100"/>
-    <circle cx="340" cy="115" r="8"/><circle cx="342" cy="114" r="3"/>
-    <circle cx="385" cy="110" r="4"/>
-    <line x1="310" y1="140" x2="400" y2="140"/>
-    <path d="M340 140 L345 148 L350 140"/><path d="M360 140 L365 148 L370 140"/><path d="M380 140 L385 148 L390 140"/>
-    <path d="M310 110 Q280 130 270 170"/><path d="M310 135 Q290 150 285 175"/>
-    <path d="M270 170 C230 170 180 190 170 230 Q160 270 180 295"/>
-    <path d="M285 175 C320 200 340 240 320 290 Q310 310 280 310"/>
-    <line x1="180" y1="295" x2="280" y2="310"/>
-    <path d="M240 172 L235 160 L250 170"/><path d="M215 180 L208 168 L225 178"/>
-    <path d="M290 210 L310 225 L300 230"/><path d="M290 210 L315 215 L308 222"/>
-    <path d="M210 290 L200 350 L180 360 M200 350 L215 360"/>
-    <path d="M280 305 L290 350 L275 360 M290 350 L308 360"/>
-    <path d="M170 235 C140 220 110 230 90 210 Q75 195 80 185"/>`,
-  sailboat: `<path d="M100 300 L130 350 L390 350 L420 300"/>
-    <line x1="100" y1="300" x2="420" y2="300"/>
-    <line x1="260" y1="300" x2="260" y2="80"/>
-    <path d="M260 90 L380 290 L260 290"/>
-    <path d="M260 90 Q340 180 380 290"/>
-    <path d="M260 100 L160 290 L260 290"/>
-    <path d="M260 100 Q200 190 160 290"/>
-    <path d="M260 80 L240 90 L260 100"/>
-    <line x1="140" y1="320" x2="380" y2="320"/>
-    <circle cx="220" cy="318" r="8"/><circle cx="300" cy="318" r="8"/>
-    <path d="M70 365 Q130 355 190 365"/><path d="M240 370 Q300 360 360 370"/><path d="M390 365 Q420 358 450 365"/>`,
-  owl: `<ellipse cx="260" cy="260" rx="75" ry="100"/>
-    <circle cx="260" cy="155" r="55"/>
-    <path d="M220 115 L200 75 L230 105"/><path d="M300 115 L320 75 L290 105"/>
-    <circle cx="238" cy="155" r="22"/><circle cx="282" cy="155" r="22"/>
-    <circle cx="238" cy="155" r="10"/><circle cx="282" cy="155" r="10"/>
-    <path d="M253 170 L260 190 L267 170"/>
-    <path d="M240 230 L250 240 L260 230"/><path d="M260 230 L270 240 L280 230"/>
-    <path d="M235 255 L248 265 L260 255"/><path d="M260 255 L272 265 L285 255"/>
-    <path d="M240 280 L250 290 L260 280"/><path d="M260 280 L270 290 L280 280"/>
-    <path d="M188 220 Q145 270 160 330"/><path d="M332 220 Q375 270 360 330"/>
-    <path d="M235 355 L220 375 M235 355 L235 378 M235 355 L250 375"/>
-    <path d="M285 355 L270 375 M285 355 L285 378 M285 355 L300 375"/>
-    <line x1="150" y1="365" x2="370" y2="365"/>`,
-  diamond: `<path d="M180 170 L260 80 L340 170"/>
-    <line x1="180" y1="170" x2="340" y2="170"/>
-    <path d="M180 170 L260 370 L340 170"/>
-    <line x1="220" y1="80" x2="210" y2="170"/><line x1="260" y1="80" x2="260" y2="170"/><line x1="300" y1="80" x2="310" y2="170"/>
-    <line x1="220" y1="80" x2="300" y2="80"/>
-    <line x1="180" y1="170" x2="220" y2="80"/><line x1="340" y1="170" x2="300" y2="80"/>
-    <line x1="210" y1="170" x2="260" y2="370"/><line x1="260" y1="170" x2="260" y2="370"/><line x1="310" y1="170" x2="260" y2="370"/>
-    <line x1="140" y1="120" x2="150" y2="130"/><line x1="150" y1="120" x2="140" y2="130"/>
-    <line x1="370" y1="140" x2="380" y2="150"/><line x1="380" y1="140" x2="370" y2="150"/>
-    <line x1="285" y1="55" x2="290" y2="65"/><line x1="290" y1="55" x2="285" y2="65"/>`,
-  butterfly: `<line x1="260" y1="100" x2="260" y2="320"/>
-    <circle cx="260" cy="100" r="14"/>
-    <path d="M252 90 Q220 50 210 45"/><circle cx="207" cy="43" r="5"/>
-    <path d="M268 90 Q300 50 310 45"/><circle cx="313" cy="43" r="5"/>
-    <path d="M260 130 C200 80 110 100 110 170 C110 220 180 230 260 210"/>
-    <path d="M260 130 C320 80 410 100 410 170 C410 220 340 230 260 210"/>
-    <path d="M260 220 C200 220 130 260 140 320 C150 350 220 340 260 310"/>
-    <path d="M260 220 C320 220 390 260 380 320 C370 350 300 340 260 310"/>
-    <circle cx="185" cy="160" r="20"/><circle cx="335" cy="160" r="20"/>
-    <circle cx="195" cy="285" r="14"/><circle cx="325" cy="285" r="14"/>`,
-  guitar: `<path d="M240 55 L240 110 L280 110 L280 55"/><path d="M240 55 Q260 45 280 55"/>
-    <line x1="240" y1="68" x2="225" y2="68"/><circle cx="222" cy="68" r="4"/>
-    <line x1="240" y1="82" x2="225" y2="82"/><circle cx="222" cy="82" r="4"/>
-    <line x1="240" y1="96" x2="225" y2="96"/><circle cx="222" cy="96" r="4"/>
-    <line x1="280" y1="68" x2="295" y2="68"/><circle cx="298" cy="68" r="4"/>
-    <line x1="280" y1="82" x2="295" y2="82"/><circle cx="298" cy="82" r="4"/>
-    <line x1="280" y1="96" x2="295" y2="96"/><circle cx="298" cy="96" r="4"/>
-    <line x1="240" y1="110" x2="280" y2="110"/>
-    <line x1="248" y1="110" x2="248" y2="230"/><line x1="272" y1="110" x2="272" y2="230"/>
-    <line x1="248" y1="135" x2="272" y2="135"/><line x1="248" y1="158" x2="272" y2="158"/>
-    <line x1="248" y1="178" x2="272" y2="178"/><line x1="248" y1="196" x2="272" y2="196"/><line x1="248" y1="212" x2="272" y2="212"/>
-    <path d="M248 230 C200 230 170 260 170 290"/><path d="M272 230 C320 230 350 260 350 290"/>
-    <path d="M170 290 Q185 310 175 330"/><path d="M350 290 Q335 310 345 330"/>
-    <path d="M175 330 C165 370 200 400 260 400 C320 400 355 370 345 330"/>
-    <circle cx="260" cy="310" r="30"/>
-    <line x1="235" y1="365" x2="285" y2="365"/>
-    <line x1="255" y1="110" x2="255" y2="365"/><line x1="265" y1="110" x2="265" y2="365"/>`,
-  jellyfish: `<path d="M170 170 A90 90 0 0 1 350 170"/>
-    <path d="M170 170 Q195 195 220 175 Q240 165 260 180 Q280 165 300 175 Q325 195 350 170"/>
-    <path d="M220 155 A40 40 0 0 1 300 155"/>
-    <circle cx="238" cy="145" r="8"/><circle cx="282" cy="145" r="8"/>
-    <path d="M248 158 A12 12 0 0 0 272 158"/>
-    <path d="M190 185 C180 230 195 280 175 340 Q170 360 180 370"/>
-    <path d="M220 180 C215 240 230 290 210 360 Q205 380 215 385"/>
-    <path d="M250 182 C248 230 255 290 240 370 Q237 390 248 390"/>
-    <path d="M270 182 C275 230 270 290 285 370 Q290 390 280 390"/>
-    <path d="M300 180 C310 240 295 290 315 360 Q320 380 310 385"/>
-    <path d="M330 185 C340 230 325 280 345 340 Q350 360 340 370"/>
-    <circle cx="220" cy="120" r="5"/><circle cx="260" cy="110" r="5"/><circle cx="300" cy="120" r="5"/>`,
+  rocket: `<path d="M 218 364 L 218 112 Q 218 28 260 -14 Q 302 28 302 112 L 302 364"/>
+    <line x1="260" y1="-14" x2="246" y2="14"/><line x1="260" y1="-14" x2="274" y2="14"/>
+    <path d="M 218 308 L 162 392 L 218 364"/><path d="M 302 308 L 358 392 L 302 364"/>
+    <circle cx="260" cy="168" r="31"/><circle cx="260" cy="168" r="20"/>
+    <line x1="218" y1="266" x2="302" y2="266"/><line x1="218" y1="287" x2="302" y2="287"/>
+    <path d="M 232 364 Q 239 420 260 462"/><path d="M 288 364 Q 281 420 260 462"/>
+    <path d="M 246 364 Q 253 406 260 434"/><path d="M 274 364 Q 267 406 260 434"/>
+    <circle cx="120" cy="56" r="4"/><circle cx="414" cy="126" r="4"/><circle cx="106" cy="266" r="4"/>`,
+  octopus: `<ellipse cx="260" cy="135" rx="100" ry="88"/>
+    <circle cx="223" cy="123" r="19"/><circle cx="298" cy="123" r="19"/>
+    <circle cx="226" cy="120" r="8"/><circle cx="301" cy="120" r="8"/>
+    <path d="M 248 160 A 13 13 0 0 1 273 160"/>
+    <path d="M 179 198 C 123 260 85 323 110 385 Q 123 410 141 391"/>
+    <path d="M 198 210 C 160 285 135 360 173 410 Q 185 429 198 410"/>
+    <path d="M 229 216 C 210 298 198 373 223 423 Q 235 441 248 423"/>
+    <path d="M 254 220 C 248 298 241 385 266 435 Q 279 448 285 429"/>
+    <path d="M 279 220 C 291 298 304 385 316 429 Q 329 448 335 423"/>
+    <path d="M 304 216 C 335 285 360 360 348 410 Q 341 429 329 404"/>
+    <path d="M 323 210 C 360 273 398 335 391 391 Q 388 416 373 391"/>
+    <path d="M 341 198 C 398 248 435 310 416 373 Q 410 398 398 373"/>
+    <circle cx="116" cy="335" r="5"/><circle cx="108" cy="366" r="5"/>`,
+  pizza: `<path d="M 116 78 L 260 414 L 404 78"/>
+    <path d="M 116 78 A 144 144 0 0 1 404 78"/>
+    <path d="M 130 88 A 130 130 0 0 1 390 88"/>
+    <circle cx="236" cy="174" r="19"/><circle cx="296" cy="222" r="17"/>
+    <circle cx="212" cy="270" r="18"/><circle cx="272" cy="318" r="16"/>
+    <path d="M 306 150 A 14 14 0 0 1 334 150"/><line x1="313" y1="150" x2="315" y2="168"/><line x1="327" y1="150" x2="325" y2="168"/>
+    <circle cx="188" cy="186" r="12"/><circle cx="188" cy="186" r="5"/>
+    <path d="M 260 408 Q 254 432 260 438"/>`,
+  dragon: `<ellipse cx="145" cy="118" rx="52" ry="40" transform="rotate(-11 145 118)"/>
+    <path d="M 97 107 L 70 101 L 70 124 L 97 127"/>
+    <circle cx="134" cy="107" r="9"/><circle cx="136" cy="105" r="3"/>
+    <path d="M 134 84 L 116 43 L 139 72"/><path d="M 162 81 L 174 38 L 168 74"/>
+    <path d="M 70 107 Q 42 95 30 112 Q 24 130 47 130"/>
+    <path d="M 180 141 Q 214 176 237 199"/><path d="M 162 153 Q 203 193 226 216"/>
+    <path d="M 237 199 C 306 187 364 210 387 256 Q 404 296 387 325"/>
+    <path d="M 226 216 C 283 222 352 245 375 291 Q 387 325 369 342"/>
+    <path d="M 272 199 L 318 95 L 375 118 L 421 84 L 398 176 L 364 210"/>
+    <line x1="318" y1="95" x2="341" y2="187"/><line x1="375" y1="118" x2="375" y2="199"/>
+    <line x1="260" y1="227" x2="260" y2="262"/><line x1="283" y1="233" x2="283" y2="273"/><line x1="306" y1="239" x2="306" y2="285"/>
+    <path d="M 272 256 L 260 337 L 237 348 M 260 337 L 272 354"/>
+    <path d="M 352 291 L 364 360 L 346 371 M 364 360 L 381 371"/>
+    <path d="M 387 325 C 410 360 444 371 467 348 Q 490 325 479 308"/>
+    <path d="M 479 308 L 496 291 L 473 302"/>
+    <line x1="191" y1="153" x2="185" y2="139"/><line x1="208" y1="170" x2="200" y2="156"/>`,
+  penguin: `<ellipse cx="260" cy="264" rx="95" ry="149"/>
+    <ellipse cx="260" cy="284" rx="61" ry="115"/>
+    <circle cx="260" cy="116" r="61"/>
+    <circle cx="236" cy="105" r="11"/><circle cx="238" cy="103" r="4"/>
+    <circle cx="284" cy="105" r="11"/><circle cx="287" cy="103" r="4"/>
+    <path d="M 249 126 L 260 153 L 271 126"/>
+    <path d="M 168 197 Q 118 278 139 359"/>
+    <path d="M 352 197 Q 402 278 382 359"/>
+    <path d="M 220 406 L 193 433 L 233 433 L 247 410"/>
+    <path d="M 301 406 L 287 433 L 328 433 L 301 410"/>
+    <path d="M 260 176 L 240 163 L 240 190 L 260 176 L 280 163 L 280 190 Z"/>`,
+  ufo: `<path d="M 188 186 A 72 72 0 0 1 332 186"/>
+    <path d="M 198 186 A 54 54 0 0 1 322 186"/>
+    <ellipse cx="260" cy="198" rx="168" ry="42"/>
+    <path d="M 116 210 A 144 30 0 0 0 404 210"/>
+    <circle cx="224" cy="168" r="10"/><circle cx="260" cy="162" r="10"/><circle cx="296" cy="168" r="10"/>
+    <circle cx="152" cy="198" r="7"/><circle cx="206" cy="206" r="7"/><circle cx="260" cy="210" r="7"/>
+    <circle cx="314" cy="206" r="7"/><circle cx="368" cy="198" r="7"/>
+    <line x1="212" y1="234" x2="164" y2="414"/><line x1="308" y1="234" x2="356" y2="414"/>
+    <line x1="164" y1="414" x2="356" y2="414"/>
+    <line x1="230" y1="270" x2="290" y2="270"/><line x1="206" y1="342" x2="314" y2="342"/>
+    <line x1="260" y1="114" x2="260" y2="90"/><circle cx="260" cy="85" r="6"/>`,
+  skull: `<path d="M 143 171 A 117 117 0 0 1 377 171"/>
+    <path d="M 143 171 L 143 249 Q 143 288 169 301"/>
+    <path d="M 377 171 L 377 249 Q 377 288 351 301"/>
+    <path d="M 169 301 L 176 288 L 208 301"/><path d="M 351 301 L 345 288 L 312 301"/>
+    <path d="M 208 301 L 195 340 Q 195 379 221 379 L 299 379 Q 325 379 325 340 L 312 301"/>
+    <ellipse cx="215" cy="197" rx="36" ry="39"/><ellipse cx="306" cy="197" rx="36" ry="39"/>
+    <path d="M 250 249 L 244 282 L 260 288 L 276 282 L 270 249"/>
+    <line x1="208" y1="327" x2="312" y2="327"/>
+    <line x1="228" y1="327" x2="228" y2="379"/><line x1="250" y1="327" x2="250" y2="379"/>
+    <line x1="270" y1="327" x2="270" y2="379"/><line x1="293" y1="327" x2="293" y2="379"/>
+    <path d="M 150 145 Q 156 158 153 178"/><path d="M 371 145 Q 364 158 367 178"/>`,
+  palmtree: `<path d="M 243 417 Q 237 314 254 199 Q 266 153 260 130"/>
+    <path d="M 277 417 Q 272 314 277 199 Q 283 153 272 130"/>
+    <line x1="245" y1="371" x2="275" y2="371"/><line x1="246" y1="325" x2="276" y2="325"/>
+    <line x1="251" y1="279" x2="278" y2="279"/><line x1="255" y1="233" x2="278" y2="233"/>
+    <line x1="259" y1="193" x2="277" y2="193"/>
+    <path d="M 266 130 C 329 95 410 84 456 118"/>
+    <line x1="341" y1="89" x2="352" y2="107"/><line x1="387" y1="84" x2="392" y2="104"/><line x1="427" y1="93" x2="427" y2="113"/>
+    <path d="M 266 130 C 191 95 111 89 65 130"/>
+    <line x1="180" y1="93" x2="174" y2="112"/><line x1="134" y1="89" x2="131" y2="109"/><line x1="93" y1="101" x2="93" y2="120"/>
+    <path d="M 266 130 C 318 130 398 153 433 199"/>
+    <line x1="352" y1="139" x2="358" y2="158"/><line x1="392" y1="155" x2="396" y2="176"/>
+    <path d="M 266 130 C 214 130 134 158 99 204"/>
+    <line x1="168" y1="147" x2="165" y2="166"/><line x1="128" y1="166" x2="125" y2="187"/>
+    <circle cx="254" cy="141" r="12"/><circle cx="277" cy="139" r="12"/>`,
+  robot: `<rect x="200" y="54" width="120" height="96"/>
+    <line x1="260" y1="54" x2="260" y2="24"/><circle cx="260" cy="16" r="8"/>
+    <rect x="222" y="84" width="24" height="24"/><rect x="274" y="84" width="24" height="24"/>
+    <circle cx="234" cy="96" r="6"/><circle cx="286" cy="96" r="6"/>
+    <line x1="230" y1="126" x2="290" y2="126"/>
+    <line x1="242" y1="126" x2="242" y2="136"/><line x1="260" y1="126" x2="260" y2="136"/><line x1="278" y1="126" x2="278" y2="136"/>
+    <path d="M 242 150 L 242 174 L 278 174 L 278 150"/>
+    <rect x="182" y="174" width="156" height="156"/>
+    <rect x="212" y="198" width="96" height="72"/>
+    <circle cx="236" cy="222" r="10"/><circle cx="272" cy="222" r="10"/>
+    <line x1="224" y1="252" x2="296" y2="252"/><line x1="260" y1="246" x2="260" y2="258"/>
+    <path d="M 182 192 L 134 192 L 134 294 L 158 294 L 158 210 L 182 210"/>
+    <line x1="122" y1="294" x2="122" y2="318"/><line x1="158" y1="294" x2="158" y2="318"/>
+    <path d="M 338 192 L 386 192 L 386 294 L 362 294 L 362 210 L 338 210"/>
+    <line x1="362" y1="294" x2="362" y2="318"/><line x1="398" y1="294" x2="398" y2="318"/>
+    <path d="M 212 330 L 212 402 L 188 402 L 188 414 L 242 414 L 242 402 L 236 402 L 236 330"/>
+    <path d="M 284 330 L 284 402 L 278 402 L 278 414 L 332 414 L 332 402 L 308 402 L 308 330"/>
+    <line x1="194" y1="96" x2="206" y2="96"/><line x1="200" y1="90" x2="200" y2="102"/>`,
+  flamingo: `<ellipse cx="285" cy="248" rx="75" ry="50" transform="rotate(17 285 248)"/>
+    <path d="M 354 229 Q 398 210 410 223"/><path d="M 354 241 Q 404 229 416 241"/>
+    <path d="M 229 216 C 198 185 173 135 179 85 Q 183 54 204 48"/>
+    <path d="M 241 223 C 216 191 198 141 204 91 Q 208 63 223 56"/>
+    <circle cx="213" cy="45" r="23"/>
+    <circle cx="204" cy="40" r="5"/>
+    <path d="M 193 50 L 158 60 L 158 54 L 185 45"/>
+    <path d="M 158 54 Q 150 58 148 63"/>
+    <path d="M 273 291 L 266 373 Q 260 391 266 398"/><line x1="254" y1="398" x2="285" y2="398"/>
+    <path d="M 298 291 L 310 348 L 298 398"/><line x1="285" y1="398" x2="316" y2="398"/>
+    <path d="M 248 229 Q 285 216 335 229"/><path d="M 254 241 Q 291 233 341 245"/>`,
+  volcano: `<line x1="50" y1="378" x2="197" y2="137"/><line x1="470" y1="378" x2="323" y2="137"/>
+    <path d="M 197 137 Q 260 158 323 137"/>
+    <line x1="29" y1="378" x2="491" y2="378"/>
+    <path d="M 229 142 C 218 179 197 221 176 273 Q 166 305 171 326"/>
+    <path d="M 281 145 C 292 189 313 242 323 294 Q 328 326 323 347"/>
+    <circle cx="239" cy="84" r="8"/><circle cx="276" cy="63" r="6"/>
+    <circle cx="302" cy="89" r="7"/><circle cx="218" cy="53" r="5"/>
+    <circle cx="250" cy="37" r="19"/><circle cx="276" cy="26" r="23"/><circle cx="302" cy="42" r="17"/>
+    <line x1="134" y1="284" x2="160" y2="284"/><line x1="355" y1="294" x2="386" y2="294"/>
+    <line x1="113" y1="336" x2="150" y2="336"/><line x1="376" y1="347" x2="407" y2="347"/>`,
+  sword: `<line x1="260" y1="-15" x2="238" y2="255"/><line x1="260" y1="-15" x2="283" y2="255"/>
+    <line x1="260" y1="-15" x2="260" y2="-37"/>
+    <line x1="260" y1="0" x2="260" y2="248"/>
+    <line x1="170" y1="255" x2="350" y2="255"/>
+    <path d="M 170 255 Q 163 270 170 278"/><path d="M 350 255 Q 358 270 350 278"/>
+    <line x1="170" y1="278" x2="350" y2="278"/>
+    <line x1="242" y1="278" x2="242" y2="405"/><line x1="278" y1="278" x2="278" y2="405"/>
+    <line x1="242" y1="308" x2="278" y2="323"/><line x1="242" y1="338" x2="278" y2="353"/><line x1="242" y1="368" x2="278" y2="383"/>
+    <circle cx="260" cy="420" r="23"/><circle cx="260" cy="420" r="9"/>
+    <line x1="248" y1="45" x2="245" y2="120"/>`,
+  mushroom: `<path d="M 135 185 A 125 125 0 0 1 385 185"/>
+    <path d="M 135 185 Q 260 223 385 185"/>
+    <path d="M 216 198 Q 210 323 216 410"/><path d="M 304 198 Q 310 323 304 410"/>
+    <path d="M 216 410 Q 198 423 198 435"/><path d="M 304 410 Q 323 423 323 435"/>
+    <line x1="198" y1="435" x2="323" y2="435"/>
+    <circle cx="210" cy="135" r="23"/><circle cx="310" cy="129" r="19"/>
+    <circle cx="260" cy="98" r="25"/><circle cx="173" cy="160" r="15"/><circle cx="348" cy="158" r="16"/>
+    <line x1="235" y1="195" x2="235" y2="210"/><line x1="260" y1="198" x2="260" y2="216"/><line x1="285" y1="195" x2="285" y2="210"/>`,
+  icecream: `<path d="M 190 238 L 260 462 L 330 238"/>
+    <line x1="204" y1="259" x2="288" y2="385"/><line x1="232" y1="252" x2="302" y2="350"/>
+    <line x1="316" y1="259" x2="232" y2="385"/><line x1="288" y1="252" x2="218" y2="350"/>
+    <circle cx="260" cy="196" r="77"/><circle cx="260" cy="98" r="70"/>
+    <circle cx="260" cy="21" r="20"/>
+    <path d="M 260 1 Q 274 -21 267 -31"/>
+    <path d="M 197 189 Q 190 217 197 231"/><path d="M 323 189 Q 330 217 323 231"/>
+    <circle cx="232" cy="189" r="7"/><circle cx="288" cy="196" r="6"/>
+    <circle cx="246" cy="91" r="7"/><circle cx="281" cy="105" r="6"/>`,
+  castle: `<rect x="145" y="176" width="230" height="230"/>
+    <rect x="111" y="107" width="69" height="299"/><rect x="341" y="107" width="69" height="299"/>
+    <path d="M 105 107 L 105 84 L 124 84 L 124 107"/><path d="M 136 107 L 136 84 L 154 84 L 154 107"/><path d="M 166 107 L 166 84 L 185 84 L 185 107"/>
+    <path d="M 335 107 L 335 84 L 354 84 L 354 107"/><path d="M 366 107 L 366 84 L 384 84 L 384 107"/><path d="M 396 107 L 396 84 L 415 84 L 415 107"/>
+    <path d="M 162 176 L 162 155 L 185 155 L 185 176"/><path d="M 203 176 L 203 155 L 226 155 L 226 176"/>
+    <path d="M 243 176 L 243 155 L 266 155 L 266 176"/><path d="M 283 176 L 283 155 L 306 155 L 306 176"/>
+    <path d="M 323 176 L 323 155 L 346 155 L 346 176"/>
+    <path d="M 226 406 L 226 325 A 35 35 0 0 1 295 325 L 295 406"/>
+    <line x1="249" y1="325" x2="249" y2="406"/><line x1="272" y1="325" x2="272" y2="406"/>
+    <path d="M 131 199 A 14 14 0 0 1 159 199 L 159 227 L 131 227 Z"/>
+    <path d="M 361 199 A 14 14 0 0 1 389 199 L 389 227 L 361 227 Z"/>
+    <line x1="260" y1="155" x2="260" y2="112"/>
+    <path d="M 260 112 L 289 124 L 260 135"/>`,
+  cat: `<circle cx="260" cy="148" r="75"/>
+    <path d="M 204 91 L 185 35 L 229 73"/><path d="M 316 91 L 335 35 L 291 73"/>
+    <path d="M 208 85 L 198 50 L 223 76"/><path d="M 313 85 L 323 50 L 298 76"/>
+    <ellipse cx="233" cy="135" rx="15" ry="18"/><ellipse cx="288" cy="135" rx="15" ry="18"/>
+    <line x1="233" y1="125" x2="233" y2="145"/><line x1="288" y1="125" x2="288" y2="145"/>
+    <path d="M 253 163 L 260 173 L 268 163 Z"/>
+    <line x1="260" y1="173" x2="260" y2="183"/>
+    <path d="M 260 183 Q 245 191 238 183"/><path d="M 260 183 Q 275 191 283 183"/>
+    <line x1="210" y1="160" x2="154" y2="150"/><line x1="210" y1="169" x2="154" y2="169"/><line x1="210" y1="178" x2="154" y2="188"/>
+    <line x1="310" y1="160" x2="366" y2="150"/><line x1="310" y1="169" x2="366" y2="169"/><line x1="310" y1="178" x2="366" y2="188"/>
+    <ellipse cx="260" cy="310" rx="69" ry="88"/>
+    <circle cx="223" cy="391" r="19"/><circle cx="298" cy="391" r="19"/>
+    <path d="M 323 323 C 385 310 423 273 410 235 Q 404 216 391 223"/>`,
+  anchor: `<circle cx="260" cy="60" r="30"/>
+    <line x1="260" y1="90" x2="260" y2="366"/>
+    <line x1="188" y1="150" x2="332" y2="150"/>
+    <path d="M 260 366 Q 164 366 128 306 Q 116 282 134 270"/>
+    <path d="M 134 270 L 122 260 L 126 280"/>
+    <path d="M 260 366 Q 356 366 392 306 Q 404 282 386 270"/>
+    <path d="M 386 270 L 398 260 L 394 280"/>
+    <line x1="254" y1="126" x2="266" y2="126"/><line x1="254" y1="198" x2="266" y2="198"/><line x1="254" y1="270" x2="266" y2="270"/>
+    <path d="M 242 36 Q 224 24 230 12"/>`,
+  lightning: `<path d="M 286 2 L 208 184 L 273 184 L 195 418"/>
+    <path d="M 338 2 L 260 184 L 325 184 L 247 418"/>
+    <line x1="286" y1="2" x2="338" y2="2"/><line x1="195" y1="418" x2="247" y2="418"/>
+    <line x1="208" y1="184" x2="260" y2="184"/><line x1="273" y1="184" x2="325" y2="184"/>
+    <line x1="169" y1="145" x2="150" y2="139"/><line x1="163" y1="165" x2="143" y2="165"/>
+    <line x1="364" y1="158" x2="384" y2="152"/><line x1="358" y1="178" x2="377" y2="178"/>
+    <line x1="143" y1="275" x2="124" y2="269"/><line x1="351" y1="301" x2="371" y2="295"/>`,
+  crown: `<line x1="98" y1="305" x2="422" y2="305"/><line x1="98" y1="332" x2="422" y2="332"/>
+    <line x1="98" y1="305" x2="98" y2="332"/><line x1="422" y1="305" x2="422" y2="332"/>
+    <path d="M 98 305 L 112 116 L 179 210 L 260 75 L 341 210 L 409 116 L 422 305"/>
+    <circle cx="112" cy="109" r="11"/><circle cx="260" cy="68" r="14"/><circle cx="409" cy="109" r="11"/>
+    <circle cx="179" cy="311" r="8"/><circle cx="260" cy="311" r="11"/><circle cx="341" cy="311" r="8"/>
+    <line x1="132" y1="251" x2="145" y2="197"/><line x1="179" y1="264" x2="206" y2="197"/>
+    <line x1="314" y1="264" x2="341" y2="197"/><line x1="388" y1="251" x2="375" y2="197"/>`,
+  ghost: `<path d="M 160 160 A 100 100 0 0 1 360 160"/>
+    <line x1="160" y1="160" x2="160" y2="373"/><line x1="360" y1="160" x2="360" y2="373"/>
+    <path d="M 160 373 Q 185 335 210 373 Q 235 410 260 373 Q 285 335 310 373 Q 335 410 360 373"/>
+    <ellipse cx="223" cy="173" rx="23" ry="28"/><ellipse cx="298" cy="173" rx="23" ry="28"/>
+    <circle cx="226" cy="178" r="9"/><circle cx="301" cy="178" r="9"/>
+    <ellipse cx="260" cy="248" rx="23" ry="18"/>
+    <path d="M 160 235 Q 116 248 110 273"/><path d="M 360 235 Q 404 248 410 273"/>`,
+  hotdog: `<path d="M 44 210 Q 37 170 85 156 L 436 156 Q 483 170 476 210"/>
+    <path d="M 44 237 Q 37 278 85 291 L 436 291 Q 483 278 476 237"/>
+    <line x1="58" y1="210" x2="463" y2="210"/><line x1="58" y1="237" x2="463" y2="237"/>
+    <path d="M 48 224 A 16 16 0 0 0 48 224" /><path d="M 64 207 A 16 16 0 1 0 64 240"/>
+    <path d="M 456 207 A 16 16 0 1 1 456 240"/>
+    <path d="M 85 217 L 118 230 L 152 217 L 186 230 L 220 217 L 253 230 L 287 217 L 321 230 L 355 217 L 388 230 L 422 217"/>
+    <line x1="112" y1="176" x2="152" y2="176"/><line x1="247" y1="172" x2="287" y2="172"/><line x1="368" y1="176" x2="409" y2="176"/>
+    <ellipse cx="179" cy="170" rx="8" ry="4" transform="rotate(17 179 170)"/>
+    <ellipse cx="328" cy="167" rx="8" ry="4" transform="rotate(-11 328 167)"/>`,
+  dinosaur: `<path d="M 320 78 L 416 78 L 428 90 L 428 126 L 320 126 Q 302 102 320 78"/>
+    <circle cx="356" cy="96" r="10"/><circle cx="358" cy="95" r="4"/>
+    <circle cx="410" cy="90" r="5"/>
+    <line x1="320" y1="126" x2="428" y2="126"/>
+    <path d="M 356 126 L 362 136 L 368 126"/><path d="M 380 126 L 386 136 L 392 126"/><path d="M 404 126 L 410 136 L 416 126"/>
+    <path d="M 320 90 Q 284 114 272 162"/><path d="M 320 120 Q 296 138 290 168"/>
+    <path d="M 272 162 C 224 162 164 186 152 234 Q 140 282 164 312"/>
+    <path d="M 290 168 C 332 198 356 246 332 306 Q 320 330 284 330"/>
+    <line x1="164" y1="312" x2="284" y2="330"/>
+    <path d="M 236 164 L 230 150 L 248 162"/><path d="M 206 174 L 198 160 L 218 172"/>
+    <path d="M 296 210 L 320 228 L 308 234"/><path d="M 296 210 L 326 216 L 318 224"/>
+    <path d="M 200 306 L 188 378 L 164 390 M 188 378 L 206 390"/>
+    <path d="M 284 324 L 296 378 L 278 390 M 296 378 L 318 390"/>
+    <path d="M 152 240 C 116 222 80 234 56 210 Q 38 192 44 180"/>`,
+  sailboat: `<path d="M 84 309 L 117 364 L 403 364 L 436 309"/>
+    <line x1="84" y1="309" x2="436" y2="309"/>
+    <line x1="260" y1="309" x2="260" y2="67"/>
+    <path d="M 260 78 L 392 298 L 260 298"/>
+    <path d="M 260 78 Q 348 177 392 298"/>
+    <path d="M 260 89 L 150 298 L 260 298"/>
+    <path d="M 260 89 Q 194 188 150 298"/>
+    <path d="M 260 67 L 238 78 L 260 89"/>
+    <line x1="128" y1="331" x2="392" y2="331"/>
+    <circle cx="216" cy="329" r="9"/><circle cx="304" cy="329" r="9"/>
+    <path d="M 51 381 Q 117 370 183 381"/><path d="M 238 386 Q 304 375 370 386"/><path d="M 403 381 Q 436 373 469 381"/>`,
+  owl: `<ellipse cx="260" cy="270" rx="90" ry="120"/>
+    <circle cx="260" cy="144" r="66"/>
+    <path d="M 212 96 L 188 48 L 224 84"/><path d="M 308 96 L 332 48 L 296 84"/>
+    <circle cx="234" cy="144" r="26"/><circle cx="286" cy="144" r="26"/>
+    <circle cx="234" cy="144" r="12"/><circle cx="286" cy="144" r="12"/>
+    <path d="M 252 162 L 260 186 L 268 162"/>
+    <path d="M 236 234 L 248 246 L 260 234"/><path d="M 260 234 L 272 246 L 284 234"/>
+    <path d="M 230 264 L 246 276 L 260 264"/><path d="M 260 264 L 274 276 L 290 264"/>
+    <path d="M 236 294 L 248 306 L 260 294"/><path d="M 260 294 L 272 306 L 284 294"/>
+    <path d="M 174 222 Q 122 282 140 354"/><path d="M 346 222 Q 398 282 380 354"/>
+    <path d="M 230 384 L 212 408 M 230 384 L 230 412 M 230 384 L 248 408"/>
+    <path d="M 290 384 L 272 408 M 290 384 L 290 412 M 290 384 L 308 408"/>
+    <line x1="128" y1="396" x2="392" y2="396"/>`,
+  diamond: `<path d="M 164 162 L 260 54 L 356 162"/>
+    <line x1="164" y1="162" x2="356" y2="162"/>
+    <path d="M 164 162 L 260 402 L 356 162"/>
+    <line x1="212" y1="54" x2="200" y2="162"/><line x1="260" y1="54" x2="260" y2="162"/><line x1="308" y1="54" x2="320" y2="162"/>
+    <line x1="212" y1="54" x2="308" y2="54"/>
+    <line x1="164" y1="162" x2="212" y2="54"/><line x1="356" y1="162" x2="308" y2="54"/>
+    <line x1="200" y1="162" x2="260" y2="402"/><line x1="260" y1="162" x2="260" y2="402"/><line x1="320" y1="162" x2="260" y2="402"/>
+    <line x1="116" y1="102" x2="128" y2="114"/><line x1="128" y1="102" x2="116" y2="114"/>
+    <line x1="392" y1="126" x2="404" y2="138"/><line x1="404" y1="126" x2="392" y2="138"/>
+    <line x1="290" y1="24" x2="296" y2="36"/><line x1="296" y1="24" x2="290" y2="36"/>`,
+  butterfly: `<line x1="260" y1="84" x2="260" y2="337"/>
+    <circle cx="260" cy="84" r="16"/>
+    <path d="M 251 72 Q 214 26 203 20"/><circle cx="199" cy="18" r="6"/>
+    <path d="M 269 72 Q 306 26 318 20"/><circle cx="321" cy="18" r="6"/>
+    <path d="M 260 118 C 191 61 88 84 88 164 C 88 222 168 233 260 210"/>
+    <path d="M 260 118 C 329 61 433 84 433 164 C 433 222 352 233 260 210"/>
+    <path d="M 260 222 C 191 222 111 268 122 337 C 134 371 214 360 260 325"/>
+    <path d="M 260 222 C 329 222 410 268 398 337 C 387 371 306 360 260 325"/>
+    <circle cx="174" cy="153" r="23"/><circle cx="346" cy="153" r="23"/>
+    <circle cx="185" cy="296" r="16"/><circle cx="335" cy="296" r="16"/>`,
+  guitar: `<path d="M 236 24 L 236 90 L 284 90 L 284 24"/><path d="M 236 24 Q 260 12 284 24"/>
+    <line x1="236" y1="40" x2="218" y2="40"/><circle cx="214" cy="40" r="5"/>
+    <line x1="236" y1="56" x2="218" y2="56"/><circle cx="214" cy="56" r="5"/>
+    <line x1="236" y1="73" x2="218" y2="73"/><circle cx="214" cy="73" r="5"/>
+    <line x1="284" y1="40" x2="302" y2="40"/><circle cx="306" cy="40" r="5"/>
+    <line x1="284" y1="56" x2="302" y2="56"/><circle cx="306" cy="56" r="5"/>
+    <line x1="284" y1="73" x2="302" y2="73"/><circle cx="306" cy="73" r="5"/>
+    <line x1="236" y1="90" x2="284" y2="90"/>
+    <line x1="246" y1="90" x2="246" y2="234"/><line x1="274" y1="90" x2="274" y2="234"/>
+    <line x1="246" y1="120" x2="274" y2="120"/><line x1="246" y1="148" x2="274" y2="148"/>
+    <line x1="246" y1="172" x2="274" y2="172"/><line x1="246" y1="193" x2="274" y2="193"/><line x1="246" y1="212" x2="274" y2="212"/>
+    <path d="M 246 234 C 188 234 152 270 152 306"/><path d="M 274 234 C 332 234 368 270 368 306"/>
+    <path d="M 152 306 Q 170 330 158 354"/><path d="M 368 306 Q 350 330 362 354"/>
+    <path d="M 158 354 C 146 402 188 438 260 438 C 332 438 374 402 362 354"/>
+    <circle cx="260" cy="330" r="36"/>
+    <line x1="230" y1="396" x2="290" y2="396"/>
+    <line x1="254" y1="90" x2="254" y2="396"/><line x1="266" y1="90" x2="266" y2="396"/>`,
+  jellyfish: `<path d="M 143 158 A 117 117 0 0 1 377 158"/>
+    <path d="M 143 158 Q 176 191 208 165 Q 234 152 260 171 Q 286 152 312 165 Q 345 191 377 158"/>
+    <path d="M 208 139 A 52 52 0 0 1 312 139"/>
+    <circle cx="231" cy="126" r="10"/><circle cx="289" cy="126" r="10"/>
+    <path d="M 244 142 A 16 16 0 0 0 276 142"/>
+    <path d="M 169 178 C 156 236 176 301 150 379 Q 143 405 156 418"/>
+    <path d="M 208 171 C 202 249 221 314 195 405 Q 189 431 202 438"/>
+    <path d="M 247 174 C 244 236 254 314 234 418 Q 230 444 244 444"/>
+    <path d="M 273 174 C 280 236 273 314 293 418 Q 299 444 286 444"/>
+    <path d="M 312 171 C 325 249 306 314 332 405 Q 338 431 325 438"/>
+    <path d="M 351 178 C 364 236 345 301 371 379 Q 377 405 364 418"/>
+    <circle cx="208" cy="93" r="7"/><circle cx="260" cy="80" r="7"/><circle cx="312" cy="93" r="7"/>`,
   get sunflower() {
     let petals = "";
     for (let i = 0; i < 12; i++) {
       const a = (i * Math.PI * 2) / 12;
-      const px = 260 + 45 * Math.cos(a);
-      const py = 190 + 45 * Math.sin(a);
-      const ex = 260 + 85 * Math.cos(a);
-      const ey = 190 + 85 * Math.sin(a);
-      const cpx1 = 260 + 65 * Math.cos(a - 0.25);
-      const cpy1 = 190 + 65 * Math.sin(a - 0.25);
-      const cpx2 = 260 + 65 * Math.cos(a + 0.25);
-      const cpy2 = 190 + 65 * Math.sin(a + 0.25);
+      const px = 260 + 59 * Math.cos(a);
+      const py = 184 + 59 * Math.sin(a);
+      const ex = 260 + 111 * Math.cos(a);
+      const ey = 184 + 111 * Math.sin(a);
+      const cpx1 = 260 + 85 * Math.cos(a - 0.25);
+      const cpy1 = 184 + 85 * Math.sin(a - 0.25);
+      const cpx2 = 260 + 85 * Math.cos(a + 0.25);
+      const cpy2 = 184 + 85 * Math.sin(a + 0.25);
       petals += `<path d="M${px} ${py} Q${cpx1} ${cpy1} ${ex} ${ey} Q${cpx2} ${cpy2} ${px} ${py}"/>`;
     }
-    return `<circle cx="260" cy="190" r="40"/><circle cx="260" cy="190" r="25"/>
-      <circle cx="250" cy="182" r="3"/><circle cx="270" cy="182" r="3"/>
-      <circle cx="260" cy="198" r="3"/><circle cx="248" cy="195" r="3"/><circle cx="272" cy="195" r="3"/>
+    return `<circle cx="260" cy="184" r="52"/><circle cx="260" cy="184" r="33"/>
+      <circle cx="247" cy="174" r="4"/><circle cx="273" cy="174" r="4"/>
+      <circle cx="260" cy="194" r="4"/><circle cx="244" cy="191" r="4"/><circle cx="276" cy="191" r="4"/>
       ${petals}
-      <path d="M255 275 Q250 340 255 400"/><path d="M265 275 Q270 340 265 400"/>
-      <path d="M255 330 Q200 310 180 330 Q200 345 255 340"/>
-      <path d="M265 350 Q320 335 340 350 Q320 365 265 358"/>
-      <line x1="255" y1="335" x2="195" y2="330"/><line x1="265" y1="354" x2="325" y2="350"/>`;
+      <path d="M 254 295 Q 247 379 254 457"/><path d="M 267 295 Q 273 379 267 457"/>
+      <path d="M 254 366 Q 182 340 156 366 Q 182 386 254 379"/>
+      <path d="M 267 392 Q 338 373 364 392 Q 338 412 267 402"/>
+      <line x1="254" y1="373" x2="176" y2="366"/><line x1="267" y1="397" x2="345" y2="392"/>`;
   },
-  pirateship: `<path d="M80 280 L60 320 L100 350 L420 350 L460 320 L440 280"/>
-    <line x1="80" y1="280" x2="440" y2="280"/>
-    <line x1="75" y1="305" x2="445" y2="305"/>
-    <path d="M80 280 Q50 260 40 240"/>
-    <path d="M440 280 L460 260 L460 290"/>
-    <line x1="260" y1="280" x2="260" y2="60"/><line x1="160" y1="280" x2="160" y2="110"/>
-    <line x1="200" y1="90" x2="320" y2="90"/><line x1="195" y1="180" x2="325" y2="180"/>
-    <path d="M200 90 Q195 135 195 180"/><path d="M320 90 Q325 135 325 180"/>
-    <line x1="115" y1="130" x2="205" y2="130"/><line x1="110" y1="210" x2="210" y2="210"/>
-    <path d="M115 130 Q110 170 110 210"/><path d="M205 130 Q210 170 210 210"/>
-    <path d="M245 65 L275 65 L278 80 L242 80 Z"/>
-    <line x1="260" y1="60" x2="260" y2="35"/>
-    <path d="M260 35 L295 35 L295 55 L260 55"/>
-    <circle cx="278" cy="43" r="6"/><line x1="272" y1="49" x2="284" y2="49"/>
-    <path d="M40 365 Q110 355 180 365"/><path d="M230 370 Q300 360 370 370"/><path d="M400 365 Q440 358 480 365"/>
-    <circle cx="180" cy="300" r="6"/><circle cx="260" cy="300" r="6"/><circle cx="340" cy="300" r="6"/>`,
+  pirateship: `<path d="M 71 284 L 50 326 L 92 357 L 428 357 L 470 326 L 449 284"/>
+    <line x1="71" y1="284" x2="449" y2="284"/>
+    <line x1="66" y1="310" x2="454" y2="310"/>
+    <path d="M 71 284 Q 40 263 29 242"/>
+    <path d="M 449 284 L 470 263 L 470 294"/>
+    <line x1="260" y1="284" x2="260" y2="53"/><line x1="155" y1="284" x2="155" y2="105"/>
+    <line x1="197" y1="84" x2="323" y2="84"/><line x1="192" y1="179" x2="328" y2="179"/>
+    <path d="M 197 84 Q 192 131 192 179"/><path d="M 323 84 Q 328 131 328 179"/>
+    <line x1="108" y1="126" x2="202" y2="126"/><line x1="103" y1="210" x2="208" y2="210"/>
+    <path d="M 108 126 Q 103 168 103 210"/><path d="M 202 126 Q 208 168 208 210"/>
+    <path d="M 244 58 L 276 58 L 279 74 L 241 74 Z"/>
+    <line x1="260" y1="53" x2="260" y2="26"/>
+    <path d="M 260 26 L 297 26 L 297 47 L 260 47"/>
+    <circle cx="279" cy="35" r="6"/><line x1="273" y1="41" x2="285" y2="41"/>
+    <path d="M 29 373 Q 103 362 176 373"/><path d="M 229 378 Q 302 368 376 378"/><path d="M 407 373 Q 449 365 491 373"/>
+    <circle cx="176" cy="305" r="6"/><circle cx="260" cy="305" r="6"/><circle cx="344" cy="305" r="6"/>`,
 };
 
 function setReferenceSvg(promptKey = dailyPrompt.key) {
