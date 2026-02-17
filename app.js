@@ -74,25 +74,25 @@ const prompts = [
   { key: "pizza", title: "Pizza Slice", hint: "Born round, boxed square, eaten as a triangle" },
   { key: "dragon", title: "Dragon", hint: "I breathe fire but I'm not a volcano, I fly but I'm not a bird" },
   { key: "penguin", title: "Penguin", hint: "I wear a tuxedo every day but I've never been to a party" },
-  { key: "ufo", title: "UFO", hint: "Nobody believes you saw me, but check the sky at midnight" },
-  { key: "skull", title: "Skull", hint: "I'm the last face you'll ever make, and I'm always grinning" },
+  { key: "ufo", title: "Flying Saucer", hint: "Nobody believes you saw me, but check the sky at midnight" },
+  { key: "skull", title: "Skeleton Skull", hint: "I'm the last face you'll ever make, and I'm always grinning" },
   { key: "palmtree", title: "Palm Tree", hint: "I stand on one leg with a wild green hairdo" },
-  { key: "robot", title: "Robot", hint: "I have a brain of metal and a heart of circuits" },
+  { key: "robot", title: "Dancing Robot", hint: "I have a brain of metal and a heart of circuits" },
   { key: "flamingo", title: "Flamingo", hint: "I'm pink because of my diet and I sleep on one leg" },
   { key: "volcano", title: "Volcano", hint: "I'm a mountain with anger issues and a lava lamp inside" },
-  { key: "sword", title: "Sword", hint: "Knights carried me, pirates swung me, Jedi upgraded me" },
+  { key: "sword", title: "Battle Sword", hint: "Knights carried me, pirates swung me, Jedi upgraded me" },
   { key: "mushroom", title: "Mushroom", hint: "I pop up after rain, some feed you, some end you" },
   { key: "icecream", title: "Ice Cream Cone", hint: "I'm cold, I'm sweet, and I'm always having a meltdown" },
   { key: "castle", title: "Castle", hint: "I have towers but no cell service, walls but no paint" },
-  { key: "cat", title: "Cat", hint: "I knock things off tables for sport and judge you silently" },
+  { key: "cat", title: "Sneaky Kitten", hint: "I knock things off tables for sport and judge you silently" },
   { key: "anchor", title: "Anchor", hint: "I hold giants still but I live at the bottom of the sea" },
   { key: "lightning", title: "Lightning Bolt", hint: "I'm gone before you hear me and I never strike twice, they say" },
-  { key: "crown", title: "Crown", hint: "I sit on heads but I'm not a hat, I'm heavier than I look" },
-  { key: "ghost", title: "Ghost", hint: "I walk through walls, rattle chains, and say one word a lot" },
-  { key: "hotdog", title: "Hot Dog", hint: "I'm a sausage in a sleeping bag at every baseball game" },
-  { key: "dinosaur", title: "T-Rex", hint: "Tiny arms and big dreams sixty-five million years ago" },
+  { key: "crown", title: "Golden Crown", hint: "I sit on heads but I'm not a hat, I'm heavier than I look" },
+  { key: "ghost", title: "Spooky Ghost", hint: "I walk through walls, rattle chains, and say one word a lot" },
+  { key: "hotdog", title: "Hot Dog Stand", hint: "I'm a sausage in a sleeping bag at every baseball game" },
+  { key: "dinosaur", title: "Tyrannosaurus", hint: "Tiny arms and big dreams sixty-five million years ago" },
   { key: "sailboat", title: "Sailboat", hint: "I catch wind for a living and never need gasoline" },
-  { key: "owl", title: "Owl", hint: "I spin my head almost all the way around and hunt at midnight" },
+  { key: "owl", title: "Midnight Owl", hint: "I spin my head almost all the way around and hunt at midnight" },
   { key: "diamond", title: "Diamond", hint: "I started as coal, took a billion years, now I'm on a ring" },
   { key: "butterfly", title: "Butterfly", hint: "I was a caterpillar once, now I paint the sky" },
   { key: "guitar", title: "Guitar", hint: "Six strings, one hole, infinite songs — strum me" },
@@ -151,15 +151,13 @@ function maskWord(title) {
   const words = title.split(/\s+/);
   const masked = words.map(word => {
     const letters = word.replace(/[^a-zA-Z]/g, "").toLowerCase();
-    if (letters.length <= 2) return letters.split("").join("*");
+    if (letters.length <= 2) return letters;
     const reveal = Math.min(2, letters.length);
-    const indices = [];
-    while (indices.length < reveal) {
-      const idx = Math.floor(nextRand() * letters.length);
-      if (!indices.includes(idx)) indices.push(idx);
+    const indices = new Set();
+    while (indices.size < reveal) {
+      indices.add(Math.floor(nextRand() * letters.length));
     }
-    indices.sort((a, b) => a - b);
-    return indices.map(i => letters[i]).join("*");
+    return letters.split("").map((ch, i) => indices.has(i) ? ch : "*").join("");
   });
   return masked.join(" ");
 }
