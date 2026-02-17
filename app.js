@@ -1792,8 +1792,14 @@ function scoreDrawing() {
 
   // F1-like harmonic mean so both recall and precision must be good
   const f1 = (precision + recall > 0) ? 2 * precision * recall / (precision + recall) : 0;
-  const rawScore = Math.max(0, f1 - strayPenalty);
-  const finalScore = Math.min(100, Math.round(rawScore * 105));
+  const rawScore = Math.max(0, Math.min(1, f1 - strayPenalty));
+  // Sigmoid centered at 0.5 — boosts decent drawings, punishes bad ones
+  const k = 8;
+  const sigmoid = 1 / (1 + Math.exp(-k * (rawScore - 0.5)));
+  // Normalize so sigmoid(0)→0 and sigmoid(1)→100
+  const sigMin = 1 / (1 + Math.exp(-k * (0 - 0.5)));
+  const sigMax = 1 / (1 + Math.exp(-k * (1 - 0.5)));
+  const finalScore = Math.round(((sigmoid - sigMin) / (sigMax - sigMin)) * 100);
 
   return finalScore;
 }
