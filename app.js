@@ -1764,24 +1764,36 @@ function scoreDrawing() {
   const dx = Math.round(refCenter.x - userCenter.x);
   const dy = Math.round(refCenter.y - userCenter.y);
   const alignedUser = shiftMask(normalizedUser, dx, dy);
-  const refExpanded = dilateMask(refMask, 2);
+  const refTight = dilateMask(refMask, 1);
 
   let refPixels = 0;
   let overlap = 0;
   let userPixels = 0;
+  let strayPixels = 0;
 
   for (let i = 0; i < refMask.length; i += 1) {
     if (refMask[i]) refPixels += 1;
-    if (alignedUser[i]) userPixels += 1;
-    if (alignedUser[i] && refExpanded[i]) overlap += 1;
+    if (alignedUser[i]) {
+      userPixels += 1;
+      if (refTight[i]) {
+        overlap += 1;
+      } else {
+        strayPixels += 1;
+      }
+    }
   }
 
   if (refPixels === 0 || userPixels === 0) return 0;
 
   const recall = overlap / refPixels;
-  const precision = overlap / userPixels;
-  const rawScore = Math.max(0, 0.6 * recall + 0.4 * precision);
-  const finalScore = Math.round(rawScore * 100);
+  const precision = userPixels > 0 ? overlap / userPixels : 0;
+  const strayRatio = userPixels > 0 ? strayPixels / userPixels : 0;
+  const strayPenalty = Math.min(strayRatio * 0.8, 0.5);
+
+  // F1-like harmonic mean so both recall and precision must be good
+  const f1 = (precision + recall > 0) ? 2 * precision * recall / (precision + recall) : 0;
+  const rawScore = Math.max(0, f1 - strayPenalty);
+  const finalScore = Math.min(100, Math.round(rawScore * 105));
 
   return finalScore;
 }
