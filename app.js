@@ -69,36 +69,36 @@ let timerStarted = false;
 let hasScored = false;
 const timerRingCircumference = 2 * Math.PI * 34;
 const prompts = [
-  { key: "rocket", title: "Rocket Ship", hint: "3... 2... 1... Liftoff!" },
-  { key: "octopus", title: "Octopus", hint: "Eight arms, zero worries." },
-  { key: "pizza", title: "Pizza Slice", hint: "The perfect triangle." },
-  { key: "dragon", title: "Dragon", hint: "Here be dragons." },
-  { key: "penguin", title: "Penguin", hint: "Tuxedo required." },
-  { key: "ufo", title: "UFO", hint: "We come in peace." },
-  { key: "skull", title: "Skull", hint: "Spooky but cool." },
-  { key: "palmtree", title: "Palm Tree", hint: "Island vibes." },
-  { key: "robot", title: "Robot", hint: "Beep boop beep." },
-  { key: "flamingo", title: "Flamingo", hint: "Tickled pink." },
-  { key: "volcano", title: "Volcano", hint: "Lava have a good time." },
-  { key: "sword", title: "Sword", hint: "En garde!" },
-  { key: "mushroom", title: "Mushroom", hint: "Fun guy alert." },
-  { key: "icecream", title: "Ice Cream Cone", hint: "Two scoops, no regrets." },
-  { key: "castle", title: "Castle", hint: "Build your kingdom." },
-  { key: "cat", title: "Cat", hint: "Purrfection." },
-  { key: "anchor", title: "Anchor", hint: "Drop it like it's hot." },
-  { key: "lightning", title: "Lightning Bolt", hint: "Shocking, really." },
-  { key: "crown", title: "Crown", hint: "Royal vibes only." },
-  { key: "ghost", title: "Ghost", hint: "Boo! Did I scare you?" },
-  { key: "hotdog", title: "Hot Dog", hint: "The ultimate masterpiece." },
-  { key: "dinosaur", title: "T-Rex", hint: "Tiny arms, big dreams." },
-  { key: "sailboat", title: "Sailboat", hint: "Smooth sailing." },
-  { key: "owl", title: "Owl", hint: "Who? Who?" },
-  { key: "diamond", title: "Diamond", hint: "Shine bright." },
-  { key: "butterfly", title: "Butterfly", hint: "Spread your wings." },
-  { key: "guitar", title: "Guitar", hint: "Strum it." },
-  { key: "jellyfish", title: "Jellyfish", hint: "Go with the flow." },
-  { key: "sunflower", title: "Sunflower", hint: "Turn to the light." },
-  { key: "pirateship", title: "Pirate Ship", hint: "Arrr matey!" },
+  { key: "rocket", title: "Rocket Ship", hint: "I eat fire for breakfast and touch the stars by dinner" },
+  { key: "octopus", title: "Octopus", hint: "Eight arms, three hearts, and a beak you'd never expect" },
+  { key: "pizza", title: "Pizza Slice", hint: "Born round, boxed square, eaten as a triangle" },
+  { key: "dragon", title: "Dragon", hint: "I breathe fire but I'm not a volcano, I fly but I'm not a bird" },
+  { key: "penguin", title: "Penguin", hint: "I wear a tuxedo every day but I've never been to a party" },
+  { key: "ufo", title: "UFO", hint: "Nobody believes you saw me, but check the sky at midnight" },
+  { key: "skull", title: "Skull", hint: "I'm the last face you'll ever make, and I'm always grinning" },
+  { key: "palmtree", title: "Palm Tree", hint: "I stand on one leg with a wild green hairdo" },
+  { key: "robot", title: "Robot", hint: "I have a brain of metal and a heart of circuits" },
+  { key: "flamingo", title: "Flamingo", hint: "I'm pink because of my diet and I sleep on one leg" },
+  { key: "volcano", title: "Volcano", hint: "I'm a mountain with anger issues and a lava lamp inside" },
+  { key: "sword", title: "Sword", hint: "Knights carried me, pirates swung me, Jedi upgraded me" },
+  { key: "mushroom", title: "Mushroom", hint: "I pop up after rain, some feed you, some end you" },
+  { key: "icecream", title: "Ice Cream Cone", hint: "I'm cold, I'm sweet, and I'm always having a meltdown" },
+  { key: "castle", title: "Castle", hint: "I have towers but no cell service, walls but no paint" },
+  { key: "cat", title: "Cat", hint: "I knock things off tables for sport and judge you silently" },
+  { key: "anchor", title: "Anchor", hint: "I hold giants still but I live at the bottom of the sea" },
+  { key: "lightning", title: "Lightning Bolt", hint: "I'm gone before you hear me and I never strike twice, they say" },
+  { key: "crown", title: "Crown", hint: "I sit on heads but I'm not a hat, I'm heavier than I look" },
+  { key: "ghost", title: "Ghost", hint: "I walk through walls, rattle chains, and say one word a lot" },
+  { key: "hotdog", title: "Hot Dog", hint: "I'm a sausage in a sleeping bag at every baseball game" },
+  { key: "dinosaur", title: "T-Rex", hint: "Tiny arms and big dreams sixty-five million years ago" },
+  { key: "sailboat", title: "Sailboat", hint: "I catch wind for a living and never need gasoline" },
+  { key: "owl", title: "Owl", hint: "I spin my head almost all the way around and hunt at midnight" },
+  { key: "diamond", title: "Diamond", hint: "I started as coal, took a billion years, now I'm on a ring" },
+  { key: "butterfly", title: "Butterfly", hint: "I was a caterpillar once, now I paint the sky" },
+  { key: "guitar", title: "Guitar", hint: "Six strings, one hole, infinite songs — strum me" },
+  { key: "jellyfish", title: "Jellyfish", hint: "No brain, no heart, no blood — but I can still sting you" },
+  { key: "sunflower", title: "Sunflower", hint: "Taller than you, I follow the sun, my face is full of seeds" },
+  { key: "pirateship", title: "Pirate Ship", hint: "I fly a skull-and-crossbones flag and my crew says arrr" },
 ];
 let dailyPrompt = prompts[0];
 const strokes = [];
@@ -133,6 +133,30 @@ function getDailyPrompt() {
   const value = Number(seed);
   const index = value % prompts.length;
   return prompts[index];
+}
+
+function maskWord(title) {
+  const letters = title.replace(/[^a-zA-Z]/g, "").toLowerCase();
+  if (letters.length <= 3) return letters.split("").join("*");
+  const seed = getTodayKey().split("-").join("");
+  let s = 0;
+  for (let i = 0; i < seed.length; i++) {
+    s = ((s << 5) - s + seed.charCodeAt(i)) | 0;
+  }
+  s = Math.abs(s) >>> 0;
+  function nextRand() {
+    s |= 0; s = (s + 0x6D2B79F5) | 0;
+    let t = Math.imul(s ^ (s >>> 15), 1 | s);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  }
+  const indices = [];
+  while (indices.length < 3) {
+    const idx = Math.floor(nextRand() * letters.length);
+    if (!indices.includes(idx)) indices.push(idx);
+  }
+  indices.sort((a, b) => a - b);
+  return indices.map(i => letters[i]).join("*");
 }
 
 function loadStats() {
@@ -378,6 +402,8 @@ function handleScore({ auto = false } = {}) {
 
   requestAnimationFrame(() => {
     const score = scoreDrawing();
+    promptTitleEl.textContent = dailyPrompt.title;
+    if (readyPromptLabel) readyPromptLabel.textContent = dailyPrompt.title;
     scoreValue.textContent = score;
     scoreValue.classList.add("revealed");
     shareScore.textContent = `Score ${score}`;
@@ -406,6 +432,8 @@ function restoreTodayState(stats) {
   timerValue.textContent = "0";
   updateTimerRing();
   if (readyOverlay) readyOverlay.classList.add("dismissed");
+  promptTitleEl.textContent = dailyPrompt.title;
+  if (readyPromptLabel) readyPromptLabel.textContent = dailyPrompt.title;
   scoreValue.textContent = stats.lastScore;
   shareScore.textContent = `Score ${stats.lastScore}`;
   shareBtn.disabled = false;
@@ -2148,16 +2176,11 @@ async function createShareGif(score) {
   canvas.height = height;
   const ctxClip = canvas.getContext("2d");
 
-  const totalPoints = strokes.reduce(
-    (sum, stroke) => sum + stroke.points.length,
-    0
-  );
-
-  const frameCount = Math.min(36, Math.max(18, Math.round(totalPoints / 25)));
+  const frameCount = 1;
   const holdFrames = 8;
   const frames = [];
 
-  const renderFrame = (progress) => {
+  const renderFrame = () => {
     ctxClip.clearRect(0, 0, width, height);
     ctxClip.fillStyle = "#121521";
     ctxClip.fillRect(0, 0, width, height);
@@ -2167,74 +2190,39 @@ async function createShareGif(score) {
     ctxClip.fillText("Drawdle", 32, 48);
     ctxClip.fillStyle = "#f4f4f6";
     ctxClip.font = "600 18px Space Grotesk, sans-serif";
-    ctxClip.fillText(dailyPrompt.title, 32, 76);
+    ctxClip.fillText(maskWord(dailyPrompt.title), 32, 76);
     ctxClip.fillStyle = "#9ca6bf";
     ctxClip.font = "500 14px Space Grotesk, sans-serif";
     ctxClip.fillText(`Score ${score}`, 32, 98);
 
-    const left = { x: 32, y: 130, w: 400, h: 340 };
-    const right = { x: 468, y: 130, w: 400, h: 340 };
+    // Riddle hint as teaser
+    ctxClip.fillStyle = "#f4f4f6";
+    ctxClip.font = "italic 500 16px Space Grotesk, sans-serif";
+    ctxClip.fillText(`"${dailyPrompt.hint}"`, 32, 130);
 
-    ctxClip.fillStyle = "#f8f9fc";
-    ctxClip.fillRect(left.x, left.y, left.w, left.h);
-    ctxClip.fillStyle = "#2a2f3f";
-    ctxClip.fillRect(right.x, right.y, right.w, right.h);
+    // Centered score display (no drawings to avoid spoilers)
+    const centerX = width / 2;
+    const centerY = height / 2 + 30;
 
-    ctxClip.save();
-    ctxClip.beginPath();
-    ctxClip.rect(left.x, left.y, left.w, left.h);
-    ctxClip.clip();
-    ctxClip.translate(left.x, left.y);
-    ctxClip.scale(left.w / drawCanvas.width, left.h / drawCanvas.height);
-    ctxClip.lineCap = "round";
-    ctxClip.lineJoin = "round";
-    ctxClip.strokeStyle = "#121521";
-    ctxClip.globalCompositeOperation = "source-over";
-
-    const target = Math.floor(progress * totalPoints);
-    let count = 0;
-    for (let i = 0; i < strokes.length; i += 1) {
-      const stroke = strokes[i];
-      if (!stroke.points.length) continue;
-      ctxClip.lineWidth = stroke.size;
-      ctxClip.globalCompositeOperation =
-        stroke.mode === "erase" ? "destination-out" : "source-over";
-      ctxClip.beginPath();
-      ctxClip.moveTo(stroke.points[0].x, stroke.points[0].y);
-      for (let p = 1; p < stroke.points.length; p += 1) {
-        if (count >= target) break;
-        ctxClip.lineTo(stroke.points[p].x, stroke.points[p].y);
-        count += 1;
-      }
-      ctxClip.stroke();
-      if (count >= target) break;
-    }
-    ctxClip.restore();
-
-    ctxClip.save();
-    ctxClip.beginPath();
-    ctxClip.rect(right.x, right.y, right.w, right.h);
-    ctxClip.clip();
-    const scale = right.w / drawCanvas.width;
-    drawReferenceStatic(ctxClip, right.x, right.y, scale);
-    ctxClip.restore();
+    ctxClip.fillStyle = "#7bff93";
+    ctxClip.font = "800 120px Space Grotesk, sans-serif";
+    const scoreStr = String(score);
+    const scoreW = ctxClip.measureText(scoreStr).width;
+    ctxClip.fillText(scoreStr, centerX - scoreW / 2, centerY);
 
     ctxClip.fillStyle = "#9ca6bf";
-    ctxClip.font = "500 13px Space Grotesk, sans-serif";
-    ctxClip.fillText("Your drawing", left.x, left.y - 8);
-    ctxClip.fillText("Reference", right.x, right.y - 8);
+    ctxClip.font = "600 24px Space Grotesk, sans-serif";
+    ctxClip.fillText("/ 100", centerX + scoreW / 2 + 8, centerY - 4);
+
+    // "Can you guess?" teaser
+    ctxClip.fillStyle = "#f4f4f6";
+    ctxClip.font = "500 16px Space Grotesk, sans-serif";
+    const teaser = "Can you guess the word? Try Drawdle!";
+    const teaserW = ctxClip.measureText(teaser).width;
+    ctxClip.fillText(teaser, centerX - teaserW / 2, height - 40);
   };
 
-  for (let i = 0; i < frameCount; i += 1) {
-    const progress = frameCount === 1 ? 1 : i / (frameCount - 1);
-    renderFrame(progress);
-    const imageData = ctxClip.getImageData(0, 0, width, height);
-    frames.push(
-      window.drawdleGif.imageDataToIndexed(imageData, width, height)
-    );
-  }
-
-  renderFrame(1);
+  renderFrame();
   for (let i = 0; i < holdFrames; i += 1) {
     const imageData = ctxClip.getImageData(0, 0, width, height);
     frames.push(
@@ -2268,7 +2256,7 @@ async function shareGif(score) {
       await navigator.share({
         title: "Drawdle",
         files: [file],
-        text: `Drawdle · ${dailyPrompt.title} · Score ${score}`,
+        text: `Drawdle · ${maskWord(dailyPrompt.title)} · Score ${score}`,
       });
     } else {
       const url = URL.createObjectURL(blob);
@@ -2356,57 +2344,64 @@ function createShareCanvas(score) {
   c.lineWidth = 1;
   c.stroke();
 
-  // ── Left half: Score area ──
-  const leftW = cardW * 0.42;
+  // ── Centered score area (no drawings to avoid spoilers) ──
   const contentY = cardY + 96;
 
-  // Prompt title
+  // Prompt title (masked to avoid spoilers)
   c.fillStyle = textMuted;
   c.font = "600 15px system-ui, -apple-system, sans-serif";
   c.fillText("TODAY'S PROMPT", cardX + 44, contentY);
 
   c.fillStyle = text;
   c.font = "700 32px system-ui, -apple-system, sans-serif";
-  c.fillText(dailyPrompt.title, cardX + 44, contentY + 40);
+  c.fillText(maskWord(dailyPrompt.title), cardX + 44, contentY + 40);
 
-  // Big score with green accent pill behind
+  // Big score centered
   const scoreStr = String(score);
-  c.font = "800 120px system-ui, -apple-system, sans-serif";
+  c.font = "800 140px system-ui, -apple-system, sans-serif";
   const scoreTextW = c.measureText(scoreStr).width;
-  const scoreCenterX = cardX + 44 + (leftW - 44) / 2;
+  const scoreCenterX = cardX + cardW / 2;
   const scoreX = scoreCenterX - scoreTextW / 2;
-  const scoreBaseY = contentY + 170;
+  const scoreBaseY = contentY + 190;
 
   // Green glow circle behind score
-  const glowGrad = c.createRadialGradient(scoreCenterX, scoreBaseY - 40, 0, scoreCenterX, scoreBaseY - 40, 100);
+  const glowGrad = c.createRadialGradient(scoreCenterX, scoreBaseY - 50, 0, scoreCenterX, scoreBaseY - 50, 120);
   glowGrad.addColorStop(0, "rgba(16, 184, 86, 0.12)");
   glowGrad.addColorStop(1, "rgba(16, 184, 86, 0)");
   c.fillStyle = glowGrad;
   c.beginPath();
-  c.arc(scoreCenterX, scoreBaseY - 40, 100, 0, Math.PI * 2);
+  c.arc(scoreCenterX, scoreBaseY - 50, 120, 0, Math.PI * 2);
   c.fill();
 
   c.fillStyle = green;
-  c.font = "800 120px system-ui, -apple-system, sans-serif";
+  c.font = "800 140px system-ui, -apple-system, sans-serif";
   c.fillText(scoreStr, scoreX, scoreBaseY);
 
   // /100
   c.fillStyle = textMuted;
-  c.font = "600 26px system-ui, -apple-system, sans-serif";
-  c.fillText("/ 100", scoreX + scoreTextW + 8, scoreBaseY - 4);
+  c.font = "600 28px system-ui, -apple-system, sans-serif";
+  c.fillText("/ 100", scoreX + scoreTextW + 10, scoreBaseY - 4);
 
   // Feedback text
   const feedback = getScoreFeedbackText(score);
   c.fillStyle = textMuted;
-  c.font = "italic 500 17px system-ui, -apple-system, sans-serif";
-  c.fillText(`"${feedback}"`, cardX + 44, scoreBaseY + 40);
+  c.font = "italic 500 20px system-ui, -apple-system, sans-serif";
+  const feedbackW = c.measureText(`"${feedback}"`).width;
+  c.fillText(`"${feedback}"`, scoreCenterX - feedbackW / 2, scoreBaseY + 50);
 
-  // Grid blocks
-  const blockSize = 28;
+  // Riddle hint (teaser for others)
+  c.fillStyle = text;
+  c.font = "italic 500 18px system-ui, -apple-system, sans-serif";
+  const riddleText = `"${dailyPrompt.hint}"`;
+  const riddleW = c.measureText(riddleText).width;
+  c.fillText(riddleText, scoreCenterX - riddleW / 2, scoreBaseY + 90);
+
+  // Grid blocks centered
+  const blockSize = 32;
   const blockGap = 8;
   const totalBlockW = shareGridLength * blockSize + (shareGridLength - 1) * blockGap;
-  const blockStartX = cardX + 44;
-  const blockY = scoreBaseY + 68;
+  const blockStartX = scoreCenterX - totalBlockW / 2;
+  const blockY = scoreBaseY + 120;
   const filled = Math.min(shareGridLength, Math.max(0, Math.round((score / 100) * shareGridLength)));
   for (let i = 0; i < shareGridLength; i++) {
     const bx = blockStartX + i * (blockSize + blockGap);
@@ -2415,80 +2410,13 @@ function createShareCanvas(score) {
     c.fill();
   }
 
-  // Stats line
+  // Stats line centered
   const stats = loadStats();
   c.fillStyle = textMuted;
-  c.font = "500 14px system-ui, -apple-system, sans-serif";
-  c.fillText(`Streak ${stats.streak}  ·  ${stats.plays} played`, blockStartX, blockY + blockSize + 28);
-
-  // ── Right half: Side-by-side drawings ──
-  const rightX = cardX + leftW + 20;
-  const rightW = cardW - leftW - 64;
-  const drawGap = 14;
-  const drawW = Math.floor((rightW - drawGap) / 2);
-  const drawTop = contentY - 6;
-  const drawH = cardH - (contentY - cardY) - 44;
-
-  const drawArtPanel = (px, label, renderFn) => {
-    // Card
-    roundRect(c, px, drawTop, drawW, drawH, 16);
-    c.fillStyle = bg;
-    c.fill();
-    c.strokeStyle = border;
-    c.lineWidth = 1;
-    c.stroke();
-
-    // Label
-    c.fillStyle = textMuted;
-    c.font = "700 11px system-ui, -apple-system, sans-serif";
-    c.fillText(label.toUpperCase(), px + 14, drawTop + 22);
-
-    // Art area
-    const artX = px + 10;
-    const artY = drawTop + 34;
-    const artW = drawW - 20;
-    const artH = drawH - 44;
-
-    c.save();
-    roundRect(c, artX, artY, artW, artH, 10);
-    renderFn(artX, artY, artW, artH);
-    c.restore();
-  };
-
-  // User drawing
-  drawArtPanel(rightX, "Yours", (ax, ay, aw, ah) => {
-    c.fillStyle = white;
-    c.fill();
-    c.clip();
-    const savedDrawing = localStorage.getItem("drawdleLastDrawing");
-    if (savedDrawing) {
-      // Use saved image — drawImage with HTMLImageElement is sync if already loaded
-      // Fall back to live canvas
-    }
-    const s = Math.min(aw / drawCanvas.width, ah / drawCanvas.height);
-    const ox = ax + (aw - drawCanvas.width * s) / 2;
-    const oy = ay + (ah - drawCanvas.height * s) / 2;
-    c.drawImage(drawCanvas, ox, oy, drawCanvas.width * s, drawCanvas.height * s);
-  });
-
-  // Reference
-  drawArtPanel(rightX + drawW + drawGap, "Reference", (ax, ay, aw, ah) => {
-    c.fillStyle = white;
-    c.fill();
-    c.clip();
-    const s = Math.min(aw / drawCanvas.width, ah / drawCanvas.height);
-    const ox = ax + (aw - drawCanvas.width * s) / 2;
-    const oy = ay + (ah - drawCanvas.height * s) / 2;
-    c.save();
-    c.translate(ox, oy);
-    c.scale(s, s);
-    c.lineWidth = 10 / s;
-    c.lineCap = "round";
-    c.lineJoin = "round";
-    c.strokeStyle = "#151720";
-    if (promptDrawFns[dailyPrompt.key]) promptDrawFns[dailyPrompt.key](c);
-    c.restore();
-  });
+  c.font = "500 15px system-ui, -apple-system, sans-serif";
+  const statsText = `Streak ${stats.streak}  ·  ${stats.plays} played`;
+  const statsW = c.measureText(statsText).width;
+  c.fillText(statsText, scoreCenterX - statsW / 2, blockY + blockSize + 30);
 
   return canvas;
 }
@@ -2527,7 +2455,8 @@ async function shareResultUnified() {
   if (Number.isNaN(score)) return;
 
   const siteUrl = `${window.location.origin}${window.location.pathname}`;
-  const shareText = `Drawdle · ${dailyPrompt.title}\nScore: ${score}\n${buildShareGrid(score)}\nTry it: ${siteUrl}`;
+  const masked = maskWord(dailyPrompt.title);
+  const shareText = `Drawdle · ${masked}\nScore: ${score}\n${buildShareGrid(score)}\nCan you guess the word?\nTry it: ${siteUrl}`;
   const originalText = shareBtn.textContent;
   shareBtn.disabled = true;
   shareBtn.textContent = "Preparing...";
@@ -2787,7 +2716,7 @@ shareBtn.addEventListener("click", () => {
 copyBtn.addEventListener("click", () => {
   const score = scoreValue.textContent;
   const siteUrl = `${window.location.origin}${window.location.pathname}`;
-  const text = `Drawdle · ${dailyPrompt.title}\nScore: ${score}\n${buildShareGrid(score)}\nTry it: ${siteUrl}`;
+  const text = `Drawdle · ${maskWord(dailyPrompt.title)}\nScore: ${score}\n${buildShareGrid(score)}\nCan you guess the word?\nTry it: ${siteUrl}`;
   navigator.clipboard.writeText(text);
   copyBtn.textContent = "Copied!";
   setTimeout(() => {
@@ -2926,7 +2855,7 @@ resultsShareBtn.addEventListener("click", () => {
 resultsCopyBtn.addEventListener("click", () => {
   const score = scoreValue.textContent;
   const siteUrl = `${window.location.origin}${window.location.pathname}`;
-  const text = `Drawdle · ${dailyPrompt.title}\nScore: ${score}\n${buildShareGrid(score)}\nTry it: ${siteUrl}`;
+  const text = `Drawdle · ${maskWord(dailyPrompt.title)}\nScore: ${score}\n${buildShareGrid(score)}\nCan you guess the word?\nTry it: ${siteUrl}`;
   navigator.clipboard.writeText(text);
   resultsCopyBtn.textContent = "Copied!";
   setTimeout(() => {
@@ -2942,10 +2871,11 @@ timerValue.textContent = timer;
 updateTimerRing();
 dailyBadge.textContent = `Daily sketch · ${formatDate()}`;
 dailyPrompt = getDailyPrompt();
-promptTitleEl.textContent = dailyPrompt.title;
+const maskedTitle = maskWord(dailyPrompt.title);
+promptTitleEl.textContent = maskedTitle;
 promptHintEl.textContent = dailyPrompt.hint;
-if (readyPromptLabel) readyPromptLabel.textContent = dailyPrompt.title;
-shareHeadline.textContent = `Drawdle · ${dailyPrompt.title}`;
+if (readyPromptLabel) readyPromptLabel.textContent = maskedTitle;
+shareHeadline.textContent = `Drawdle · ${maskedTitle}`;
 referencePreview.classList.remove("revealed");
 if (comparisonCard) comparisonCard.classList.add("hidden");
 setReferenceSvg(dailyPrompt.key);
